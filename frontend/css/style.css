@@ -1,0 +1,409 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+   background-color: #0A1828;
+}
+body h1,h2,h3,h4,h5,h6{
+    font-family: 'Merienda', cursive;
+}
+body p,a,span,button{
+    font-family: 'Poppins', sans-serif;
+}
+body::-webkit-scrollbar {
+    width: 5px;
+    background: transparent;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #4D648D;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #0A1828;
+    border-radius: 0.6rem; 
+}
+.address{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0A1828;
+    color: #BFA181;
+    cursor: pointer;
+    z-index: 10;
+}
+.address i{
+    color: #178582;
+    font-size: 20px;
+}
+
+.navbar{
+    position: relative;
+    top: 2rem;
+    background-color: #0A1828;
+    color: #BFA181;
+}
+
+.navbar a{
+    text-decoration: none;
+    color: #BFA181;
+}
+.logo{
+    width: 3rem;
+    height: 4rem;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.logo img{
+    width: 100%;
+    height: 100%;
+    filter: brightness(3) contrast(5);
+    object-fit: cover;
+}
+
+.navitems{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-size: large;
+    cursor: pointer;
+}
+.cartAndLogin .user,
+.cart{
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.cart img,
+.user img{
+    width: 100%;
+    height: 100%;
+}
+
+.cartAndQuantity{
+    position: relative;
+}
+
+.quantity{
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 1rem;
+    height: 1rem;
+    text-align: center;
+    background-color: #E7EBE0FF;
+    color: black;
+    border-radius: 50%;
+}
+
+.banner{
+    position: relative;
+    top: 2rem;
+    background-color: #4D648D;  
+}
+.banner .photo{
+    width: 100%;
+    height: 60rem;
+}
+.banner .photo img{
+    width: 100%;
+    height: 100%;
+}
+
+.banner .bannerDesc{
+    position: absolute;
+    top: 0;
+    left: 2rem;
+    margin-top: 5rem;
+    width: 90%;
+    height: 100%;
+    z-index: 2;
+    text-align: left;
+    color: #BFA181;
+}
+
+.banner .bannerDesc h2{
+    margin-top: 1rem;
+    font-size: 30px;
+}
+
+#products{
+    text-decoration: underline;
+}
+
+.tcursor{
+    font-weight: bold;
+    font-size: 24px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink{
+    0%, 50%{
+        opacity: 1;
+    }
+    50.1%, 100%{
+        opacity: 0;
+    }
+}
+
+.services{
+    background-color: #C4DFE6;
+    color: #003B46;
+    border-bottom: 1px solid #BFA181;
+}
+.service{
+    display: flex;
+    gap: 0.8rem;
+    max-width: 19rem;
+}
+.service p{
+    font-size: medium;
+}
+.service i{
+    font-size: 30px;
+    margin-top: 0.5rem;
+}
+.productSection{
+    background-color: #C4DFE6;
+    color: #003B46;
+    border-bottom: 1px solid #BFA181;
+}
+  .carousel-item {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    filter: brightness(0.5);
+  }
+  @media (min-width: 768px) {
+    .carousel-inner .carousel-item-next, .carousel-inner .carousel-item-prev, .carousel-inner .carousel-item.active {
+      display: flex !important;
+    }
+    .carousel-inner .carousel-item-end.active, .carousel-inner .carousel-item-next {
+      transform: translateX(25%);
+    }
+    .carousel-inner .carousel-item-start.active, .carousel-inner .carousel-item-prev {
+      transform: translateX(-25%);
+    }
+    .carousel-inner .carousel-item-end, .carousel-inner .carousel-item-start { 
+      transform: translateX(0);
+    }
+  }
+
+  .card {
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    background-color: #C4DFE6 !important;
+    color: #003B46 !important;
+}
+
+.card img {
+    aspect-ratio: 3/2.9;
+}
+
+.laptopProducts .card img{
+    aspect-ratio: 3/2.2;
+}
+
+.card .mobileDetails,
+.card .laptopDetails,
+.card .watchDetails {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding: 1rem;
+    top: 100%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+    background-color: #0A1828;
+    color: #BFA181;
+    opacity: 0;
+    transform: translateY(0);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.card:hover .mobileDetails,
+.card:hover .laptopDetails,
+.card:hover .watchDetails {
+    top: calc(100% - 1rem); /* Adjust top position to just above the card */
+    opacity: 1;
+    transform: translateY(calc(-100% + 1rem)); /* Slide up into view */
+}
+
+.addToCartBtn{
+    background-color: #0A1828;
+    color: #BFA181;
+    border: 1px solid #BFA181;
+    padding: 0.5rem;
+    font-weight: bold;
+    border-radius: 0.4rem;
+}
+
+.aboutSection{
+    background-color: #C4DFE6;
+    color: #003B46;
+    margin-top: 0;
+    border-bottom: 1px solid #BFA181;
+}
+
+.contactUsSection{
+    background-color: #C4DFE6;
+    color: #003B46;
+}
+
+.contactUsContainer{
+    background-color: #0A1828;
+    color: #BFA181;
+}
+
+.sendMessageSection{
+    border-right: 2px solid #C4DFE6;
+}
+
+.getInTouchSection  .socialIcons{
+    text-decoration: none;
+    color: #BFA181;
+}
+
+.goTotopBtn{
+    display: none;
+    position: fixed;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: #106ebe;
+    right: 5rem;
+    bottom: 3rem;
+    text-align: center;
+}
+
+.goTotopBtn a{
+    text-decoration: none;
+    font-size: 24px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.feedbackbtn{
+    position: fixed;
+    right: -2.01rem;
+    bottom: 5rem;
+    transform: rotate(270deg);
+    background-color: #106ebe;
+    color: #fff;
+    padding: 0.4rem;
+    cursor: pointer;
+}
+
+.feedBackForm{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 0;
+    display: none;
+    z-index: 10;
+    background-color: #0A1828;
+    color: #BFA181;
+    padding: 1rem;
+    transition: width 1s all ease;
+}
+
+.closeFeedback{
+    cursor: pointer;
+}
+
+.feedBackForm .formContainer .feedbackInputs,
+.contactUsSection .sendMessageSection  .sendMessageInputs{
+    width: 100%;
+    padding: 0.4rem;
+    border-radius: 0.2rem;
+    border: none;
+    margin-top: 0.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.feedBackForm .formContainer .submitFeedback{
+    padding: 0.5rem;
+    font-weight: bold;
+    background-color: #0A1828;
+    color: #BFA181;
+    border: 1px solid #BFA181;
+    border-radius: 0.4rem;
+}
+
+footer{
+    background-color: #0A1828;
+    color: #BFA181;
+}
+
+.footerSection{
+    border-bottom: 1px solid #BFA181;
+}
+.footerSection .about{
+    width: 50%;
+}
+
+.about .websiteLogo{
+    width: 15rem;
+    height: 4rem;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.about .websiteLogo img{
+    width: 100%;
+    height: 100%;
+    filter: brightness(3) contrast(5);
+    object-fit: cover;
+}
+
+.footerSection .tabLinks{
+    width: 30%;
+    margin-left: 1rem;
+}
+
+.tabLinks a{
+    text-decoration: none;
+    color: #BFA181;
+}
+
+.footerSection .socialAndRatings{
+    width: 20%
+}
+
+.footerSection .socialSection a{
+    text-decoration: none;
+    color: #BFA181;
+    cursor: pointer;
+}
+
+.ratingsContainer .stars{
+    cursor: pointer;
+}
+.star{
+    font-size: 2rem;
+    color: gray;
+    transition: color 0.3s;
+}
+.star.selected{
+    color: gold;
+}
