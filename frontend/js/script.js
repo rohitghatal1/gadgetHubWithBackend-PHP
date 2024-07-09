@@ -3,7 +3,9 @@ let signupModal = document.getElementById("signupModal");
 // for opening login modal 
 function openLoginModal(){
     loginModal.style.display = 'block';
+    signupModal.style.display = 'none';
 }
+
 // for closing login modal
 function closeLoginModal(){
     loginModal.style.display = 'none';
@@ -12,14 +14,13 @@ function closeLoginModal(){
 // to open signup modal 
 function openSignupModal(){
     signupModal.style.display = 'block';
+    loginModal.style.display = 'none';
 }
 
 // to  close signup modal 
 function closeSignupModal(){
     signupModal.style.display = 'none';
 }
-
-
 
 const products = document.getElementById("products");
 const allProducts = ["Laptops", "Mobile Phones", "Smart Watches"];

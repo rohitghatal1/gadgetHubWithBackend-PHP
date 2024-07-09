@@ -42,11 +42,16 @@ body::-webkit-scrollbar-thumb {
     z-index: 20;
     border-radius: 0.5rem;
 }
+
 .loginModal p span,
-.closeLoginModal{
+.signupModal p span,
+.closeLoginModal,
+.closeSignupModal{
     cursor: pointer;
 }
-.loginBtn{
+
+.loginBtn,
+.submitbtn{
     margin-top: 1rem;
     background-color: #0A1828;
     color: #BFA181;
