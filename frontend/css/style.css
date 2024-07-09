@@ -28,6 +28,29 @@ body::-webkit-scrollbar-thumb {
     background-color: #0A1828;
     border-radius: 0.6rem; 
 }
+
+.loginModal{
+    position: fixed;
+    top: 0;
+    left: 40%;
+    background-color: #0A1828;
+    color: #BFA181;
+    width: 25rem;
+    padding: 1rem;
+    z-index: 20;
+    border-radius: 0.5rem;
+}
+.loginModal p span{
+    cursor: pointer;
+}
+.loginBtn{
+    margin-top: 1rem;
+    background-color: #0A1828;
+    color: #BFA181;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #BFA181
+}
 .address{
     position: fixed;
     top: 0;
