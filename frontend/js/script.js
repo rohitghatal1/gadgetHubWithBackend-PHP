@@ -1,11 +1,22 @@
+let loginModal = document.getElementById("loginModal");
+let signupModal = document.getElementById("signupModal");
 // for opening login modal 
 function openLoginModal(){
     loginModal.style.display = 'block';
 }
 // for closing login modal
-let loginModal = document.getElementById("loginModal");
 function closeLoginModal(){
     loginModal.style.display = 'none';
+}
+
+// to open signup modal 
+function openSignupModal(){
+    signupModal.style.display = 'block';
+}
+
+// to  close signup modal 
+function closeSignupModal(){
+    signupModal.style.display = 'none';
 }
 
 

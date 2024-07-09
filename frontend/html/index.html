@@ -35,7 +35,37 @@
       <input type="password" placeholder="Enter your password" class="form-control">
 
       <input type="submit" value="Login" class="loginBtn fw-bold">
-      <p class="mt-2">Don't have an account <span class="text-primary text-decoration-underline">Create account here.</span></p>
+      <p class="mt-2">Don't have an account <span class="text-primary text-decoration-underline" onclick="openSignupModal()">Create account here.</span></p>
+    </form>
+  </div>
+
+  <div class="signupModal" id="signupModal">
+    <div class="d-flex justify-content-between align-items-center">
+      <h3><i class="fa-solid fa-user-pen"></i> Create an account</h3>
+      <span class="fs-3 closeSignupModal" onclick="closeSignupModal();">&times;</span>
+    </div>
+    <form>
+      <label class="form-label">Full Name</label>
+      <input type="text" id="name" class="form-control">
+      
+      <label class="form-label">Address</label>
+      <input type="text" id="address" class="form-control">
+
+      <label class="form-label">Contact No.</label>
+      <input type="text" id="contact" class="form-control">
+
+      <label class="form-label">Email</label>
+      <input type="email" id="email" class="form-control">
+
+      <label class="form-label">Username</label>
+      <input type="text" id="usernane" class="form-control">
+
+      <label class="form-label">Password</label>
+      <input type="password" id="password" class="form-control">
+
+      <label class="form-label">Confirm Password</label>
+      <input type="password" id="cPassword" class="form-control">
+
     </form>
   </div>
   <!-- ----------------------------------------------------Navbar  section--------------------------------------------- -->

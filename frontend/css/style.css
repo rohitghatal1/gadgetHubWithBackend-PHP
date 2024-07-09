@@ -29,7 +29,8 @@ body::-webkit-scrollbar-thumb {
     border-radius: 0.6rem; 
 }
 
-.loginModal{
+.loginModal,
+.signupModal{
     display: none;
     position: fixed;
     top: 0;
