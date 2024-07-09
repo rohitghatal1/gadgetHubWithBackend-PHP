@@ -1,11 +1,22 @@
+// for opening login modal 
+function openLoginModal(){
+    loginModal.style.display = 'block';
+}
+// for closing login modal
+let loginModal = document.getElementById("loginModal");
+function closeLoginModal(){
+    loginModal.style.display = 'none';
+}
+
+
+
 const products = document.getElementById("products");
 const allProducts = ["Laptops", "Mobile Phones", "Smart Watches"];
 let arrayIndex = 0;
 let charIndex = 0;
 let typingDelay = 150;
 let erasingDelay = 100;
-let newTextDelay = 2000;
-
+let newTextDelay = 2000
 function type(){
     if (charIndex < allProducts[arrayIndex].length){
         products.textContent += allProducts[arrayIndex].charAt(charIndex);
