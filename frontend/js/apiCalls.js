@@ -39,7 +39,7 @@ async function handleLogin(e){
     const fomrData = new fomrData(this);
     const loginCredentials = {
         username: formData.get('username'),
-        password: formData.get('password');
+        password: formData.get('password')
     };
 
     const response = await fetch('/backend/userLogin.php',{
