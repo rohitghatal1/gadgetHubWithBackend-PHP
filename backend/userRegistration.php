@@ -1,24 +1,52 @@
-<?php require '/backend/database/databaseConnection'; ?>
 <?php
+require '/gadgetHubWithBackend/backend/database/databaseConnection.php';
 
-$userData = json_decode(file_get_contents("php://input"), true);
+// Get the POST data
+$fname = $_POST['name'];
+$address = $_POST['address'];
+$contact = $_POST['contact'];
+$email = $_POST['email'];
+$username = $_POST['username'];
+$password = $_POST['password'];
 
-$name = $userData['name'];
-$address = $userData['address'];
-$contact = $userData['contact'];
-$email = $userData['email'];
-$username = $userData['username'];
-$password = password_hash($userData['password'], PASSWORD_BCRYPT);
+// Hash the password
+$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-$insertUser = $conn->prepare("INSERT INTO users (uName, uAddress, uContact, uEmail, username, uPasswrod) VALUES (?, ?, ?, ?, ?, ?)");
-$insertUser->bind_param("ssssss", $name, $address, $contact, $email, $username, $password);
+// Check if the email already exists
+$checkEmailQuery = "SELECT * FROM users WHERE email = ?";
+$checkEmailStmt = $conn->prepare($checkEmailQuery);
+$checkEmailStmt->bind_param("s", $email);
+$checkEmailStmt->execute();
+$existingEmail = $checkEmailStmt->get_result()->fetch_assoc();
 
-if($insertUser->execute()){
-    echo json_encode(["message" => "User Registered successfully"]);
+// Check if the username already exists
+$checkUsernameQuery = "SELECT * FROM users WHERE username = ?";
+$checkUsernameStmt = $conn->prepare($checkUsernameQuery);
+$checkUsernameStmt->bind_param("s", $username);
+$checkUsernameStmt->execute();
+$existingUsername = $checkUsernameStmt->get_result()->fetch_assoc();
+
+// Check if email or username already exists
+if ($existingEmail) {
+    echo "Email Already Used";
+} elseif ($existingUsername) {
+    echo "Username Already taken";
+} else {
+    // Insert new user data into the database
+    $insertQuery = "INSERT INTO users (uName, uAddress, uContact, uEmail, username, uPassword) VALUES (?, ?, ?, ?, ?, ?)";
+    $insertStmt = $conn->prepare($insertQuery);
+    $insertStmt->bind_param("ssssss", $fname, $address, $contact, $email, $username, $hashedPassword);
+
+    if ($insertStmt->execute()) {
+        echo "User registered successfully!";
+    } else {
+        echo "Error inserting data: " . $insertStmt->error;
+    }
+
+    $insertStmt->close();
 }
-else{
-    echo json_encode(["message" => "Error: " . $insertUser->error]);
-}
-$insertUser->close();
+
+$checkEmailStmt->close();
+$checkUsernameStmt->close();
 $conn->close();
 ?>

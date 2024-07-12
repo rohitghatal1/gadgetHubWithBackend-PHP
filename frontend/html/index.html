@@ -44,32 +44,41 @@
       <h3><i class="fa-solid fa-user-pen"></i> Create an account</h3>
       <span class="fs-3 closeSignupModal" onclick="closeSignupModal();">&times;</span>
     </div>
-    <form>
+    <form id="registerform">
       <label class="mt-2 form-label">Full Name</label>
       <input type="text" id="name" class="form-control">
+      <div id="nameError" class="error-message"></div>
       
       <label class="mt-2 form-label">Address</label>
       <input type="text" id="address" class="form-control">
-
+      <div id="addressError" class="error-message"></div>
+  
       <label class="mt-2 form-label">Contact No.</label>
       <input type="text" id="contact" class="form-control">
-
+      <div id="contactError" class="error-message"></div>
+  
       <label class="mt-2 form-label">Email</label>
       <input type="email" id="email" class="form-control">
-
+      <div id="emailError" class="error-message"></div>
+  
       <label class="mt-2 form-label">Username</label>
-      <input type="text" id="usernane" class="form-control">
-
+      <input type="text" id="username" class="form-control">
+      <div id="usernameError" class="error-message"></div>
+  
       <label class="mt-2 form-label">Password</label>
       <input type="password" id="password" class="form-control">
-
+      <div id="passwordError" class="error-message"></div>
+  
       <label class="mt-2 form-label">Confirm Password</label>
       <input type="password" id="cPassword" class="form-control">
-
+      <div id="cPasswordError" class="error-message"></div>
+  
       <input type="submit" value="Submit" class="submitbtn fw-bold">
-      <p class="mt-2">Already have an account <span class="text-primary text-decoration-underline" onclick="openLoginModal()">Login here.</span></p>
+      <p class="mt-2">Already have an account? <span class="text-primary text-decoration-underline" onclick="openLoginModal()">Login here.</span></p>
+      <div id="generalError" class="error-message"></div>
     </form>
   </div>
+  
   <!-- ----------------------------------------------------Navbar  section--------------------------------------------- -->
   <header id="start">
     <div class="address pt-3 d-flex justify-content-between">
@@ -649,6 +658,5 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 
 <script src="/gadgetHubWithBackend/frontend/js/script.js"></script>
-
-
+<script src="/gadgetHubWithBackend/frontend/js/sendUserDataToBackend.js"></script>
 </html>

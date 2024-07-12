@@ -22,7 +22,7 @@ async function handleRegister(e){
         return
     }
 
-    const response = await fetch('/backend/userRegistration.php',{
+    const response = await fetch('/gadgetHubWithBackend/backend/userRegistration.php',{
         method : 'POST',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(userData)
@@ -42,7 +42,7 @@ async function handleLogin(e){
         password: formData.get('password')
     };
 
-    const response = await fetch('/backend/userLogin.php',{
+    const response = await fetch('/gadgetHubWithBackend//backend/userLogin.php',{
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(loginCredentials)
