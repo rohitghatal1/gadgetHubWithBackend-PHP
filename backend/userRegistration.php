@@ -1,5 +1,5 @@
 <?php
-require '/gadgetHubWithBackend/backend/database/databaseConnection.php';
+require '../database/databaseConnection.php';
 
 // Get the POST data
 $fname = $_POST['name'];
@@ -13,7 +13,7 @@ $password = $_POST['password'];
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
 // Check if the email already exists
-$checkEmailQuery = "SELECT * FROM users WHERE email = ?";
+$checkEmailQuery = "SELECT * FROM users WHERE uEmail = ?";
 $checkEmailStmt = $conn->prepare($checkEmailQuery);
 $checkEmailStmt->bind_param("s", $email);
 $checkEmailStmt->execute();
@@ -40,6 +40,7 @@ if ($existingEmail) {
     if ($insertStmt->execute()) {
         echo "User registered successfully!";
     } else {
+        error_log("Database insert error: " . $insertStmt->error);
         echo "Error inserting data: " . $insertStmt->error;
     }
 

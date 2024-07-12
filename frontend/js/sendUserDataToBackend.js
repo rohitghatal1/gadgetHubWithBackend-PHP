@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
     // Function to submit form via AJAX
     function submitForm() {
-      let form = document.querySelector("#registerform");
+      let form = document.getElementById("registerform");
       let formData = new FormData(form);
   
       let xhr = new XMLHttpRequest();
