@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Form submission event listener
-    document.querySelector("form").addEventListener("submit", function (event) {
+    document.getElementById("registerform").addEventListener("submit", function (event) {
         event.preventDefault();
 
         // Validate the form
@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
             errorElement = document.createElement("div");
             errorElement.id = elementId;
             errorElement.classList.add("error-message");
-            document.querySelector("form").appendChild(errorElement);
+            document.getElementById("registerform").appendChild(errorElement);
         }
         errorElement.textContent = message;
     }
