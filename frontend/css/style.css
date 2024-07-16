@@ -59,6 +59,7 @@ body::-webkit-scrollbar-thumb {
     border-radius: 0.5rem;
     border: 1px solid #BFA181
 }
+
 .address{
     position: fixed;
     top: 0;
