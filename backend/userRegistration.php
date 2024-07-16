@@ -1,5 +1,5 @@
 <?php
-require '../database/databaseConnection.php';
+require 'database/databaseConnection.php';
 
 // Get the POST data
 $fname = $_POST['name'];
@@ -38,9 +38,8 @@ if ($existingEmail) {
     $insertStmt->bind_param("ssssss", $fname, $address, $contact, $email, $username, $hashedPassword);
 
     if ($insertStmt->execute()) {
-        echo "User registered successfully!";
+        echo "<script>alert('Regiration Successful')</script>";
     } else {
-        error_log("Database insert error: " . $insertStmt->error);
         echo "Error inserting data: " . $insertStmt->error;
     }
 
