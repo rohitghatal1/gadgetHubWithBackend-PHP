@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+
+    <!-- bootstrap css  -->
+    <link href="../frontend/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="d-flex justify-content-center align-items-center vh-100">
+    <div class="adminLoginForm bg-body-tertiary" style="width: 30rem;">
+
+        <h2 class="bg-dark text-light fw-bold text-center py-2">Admin Login</h2>
+
+        <form action="adminLoginphp.php" method="post" class="p-3">
+
+            <input type="text" class="form-control mt-3" placeholder="admin username">
+            <input type="text" class="form-control mt-3" placeholder="admin password">
+            <input type="submit" value="Login" class="btn btn-dark p-1 fw-bold text-center mt-2">
+
+        </form>
+    </div>
+</body>
+
+<!-- bootstrap javaScript  -->
+<script src="../frontend/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+</html>
