@@ -20,14 +20,16 @@ if ($result->num_rows > 0) {
     if (password_verify($password, $row['uPassword'])) {
         $_SESSION['user'] = $row['username'];
         $_SESSION['userId'] = $row['uId'];
-        echo "<script> alert('Login successful')</script>";
-        // header('Location: ' . $_SERVER['HTTP_REFERER']);
-        // exit();
+        echo "<script>alert('Login successful')</script>";
+        echo "<script>window.location.href = '../frontend/html/index.html'";
     } else {
-        echo "Invalid Password";
+        echo "<script>alert('Invalid Password')</script>";
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+
     }
 } else {
-    echo "User not found";
+    echo "<script>alert('User not found')</script>";
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
 
 $getStmt->close();

@@ -27,7 +27,7 @@
       <h3><i class="fas fa-user"></i> User Login</h3>
       <span class="fs-3 closeLoginModal" onclick="closeLoginModal();">&times;</span>
     </div>
-    <form method="post" action="../../backend/userLogin.php">
+    <form method="post" action="../../backend/userLogin.php" onsubmit="console.log('form submitted')">
       <label for="usernane" class="mt-2 form-label">Username</label>
       <input type="text" placeholder="Enter your usernane" name="uName" class="form-control">
 
