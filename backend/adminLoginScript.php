@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require 'database/databaseConnection.php';
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -10,8 +11,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if($fetchedAdminData->num_rows > 0){
         while($adminData = $fetchedAdminData->fetch_assoc()){
             if($username == $adminData['adminUsername'] && $password == $adminData['adminPassword']){
-                echo "login successful";
+                $_SESSION['adminUsername'] = $username;
+                
             }
+            else {
+                $errorMessage = urlencode('incorrect username or password');
+                header('Location: adminLoginPage.php?loginfailed=' . $errorMessage);
+                exit();
+            }
+            
         }
     }
 }

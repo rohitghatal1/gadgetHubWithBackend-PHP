@@ -24,15 +24,22 @@
     </style>
 </head>
 <body class="d-flex justify-content-center align-items-center vh-100">
-    <div class="adminLoginForm bg-body-tertiary" style="width: 30rem;">
+    <div class="adminLoginForm bg-body-tertiary rounded-2 overflow-hidden" style="width: 30rem;">
 
         <h2 class="bg-dark text-light fw-bold text-center py-2 hFont">Admin Login</h2>
 
         <form action="adminLoginScript.php" method="post" class="p-3">
 
-            <input type="text" class="form-control mt-3 textFont" placeholder="admin username" name="adminUsername">
-            <input type="password" class="form-control mt-3 textFont" placeholder="admin password" name="adminPassword">
-            <input type="submit" value="Login" class="btn btn-dark p-1 fw-bold text-center mt-2 textFont">
+            <input type="text" class="form-control mt-3 textFont" placeholder="admin username" name="adminUsername" oninput = "clearError()">
+            <input type="password" class="form-control mt-3 textFont" placeholder="admin password" name="adminPassword" oninput = "clearError()">
+            <?php
+                if (isset($_GET['loginfailed'])) {
+                    $errorMessage = htmlspecialchars($_GET['loginfailed']);
+                    echo "<p class='text-danger' id='error-message'>$errorMessage</p>";
+                }
+            ?>
+
+            <input type="submit" value="Login" class="btn btn-dark p-2 fw-bold text-center mt-2 textFont">
 
         </form>
     </div>
@@ -40,4 +47,12 @@
 
 <!-- bootstrap javaScript  -->
 <script src="../frontend/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function clearError() {
+    const errorMessage = document.getElementById('error-message');
+    if (errorMessage) {
+        errorMessage.textContent = '';
+    }
+}
+</script>
 </html>
