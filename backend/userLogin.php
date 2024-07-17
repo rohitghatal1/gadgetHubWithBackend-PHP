@@ -21,7 +21,7 @@ if ($result->num_rows > 0) {
         $_SESSION['user'] = $row['username'];
         $_SESSION['userId'] = $row['uId'];
         echo "<script>alert('Login successful')</script>";
-        echo "<script>window.location.href = '../frontend/html/index.html'";
+        echo "<script>window.location.href = '../frontend/html/index.html'</script>";
     } else {
         echo "<script>alert('Invalid Password')</script>";
         header('Location: ' . $_SERVER['HTTP_REFERER']);
