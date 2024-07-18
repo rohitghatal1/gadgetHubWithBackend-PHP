@@ -1,4 +1,11 @@
+<?php 
+session_start();
 
+if(isset($_SESSION['adminUsername'])){
+    header("location: adminDashboard.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
