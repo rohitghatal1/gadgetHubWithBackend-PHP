@@ -22,10 +22,6 @@ function closeSignupModal(){
     signupModal.style.display = 'none';
 }
 
-function toggleDropdown(){
-    document.getElementById("droppedDownContent").style.display = "block";
-}
-
 const products = document.getElementById("products");
 const allProducts = ["Laptops", "Mobile Phones", "Smart Watches"];
 let arrayIndex = 0;

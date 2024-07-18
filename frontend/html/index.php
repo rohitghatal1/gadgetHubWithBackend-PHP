@@ -6,13 +6,14 @@ if (isset($_SESSION['user'])) {
     $uid = $_SESSION['userId'];
     $firstLetterAvatar = strtoupper(substr($username, 0, 1));
     $userAvatar = <<<dropdown
-            <div class="userDropdown">
-                <div class="avatar bg-danger p-2 text-center rounded-circle" onclick="toggleDropdown()">$firstLetterAvatar</div>
-                <div class="dropdown-container" id="droppedDownContent">
-                    <h3 class="heading-font">$firstLetterAvatar</h3>
+            <div class="userDropdown position-relative">
+                <div class="avatar mb-1 bg-danger p-1 px-2 me-3 text-center rounded-circle" onclick="toggleDropdown(event);">$firstLetterAvatar</div>
+
+                <div class="dropdown-container bg-dark p-3 px-5 me-2 rounded z-3" id="droppedDownContent" style="position:absolute; right:5px; display:none">
+                    <h3 class="heading-font text-center">$firstLetterAvatar</h3>
                     <p class="text-font">$username</p>
-                    <p class="text-font myBooking"><a href="userPage.php?userId={$uid}">My cart</a></p>
-                    <a id = "logout"href="../../backend/logout.php">Log out</a>
+                    <p class="text-font myBooking text-center"><a href="userPage.php?userId={$uid}" class="text-decoration-none">My cart</a></p>
+                    <a id = "logout"href="../../backend/logout.php" class="text-font text-center ms-3 text-decoration-none">Log out</a>
                 </div>
             </div>
         dropdown;
@@ -123,7 +124,7 @@ if (isset($_SESSION['user'])) {
       </div>
     </div>
 
-    <nav class="navbar" id="top">
+    <nav class="navbar py-3" id="top">
       <div class="container d-flex align-items-center" id="navItemContainer">
         <div class="logo col-auto"><img src="/gadgetHubWithBackend/frontend/logos/gadgetHub3.png"></div>
         <div class="navitems">
@@ -678,6 +679,27 @@ if (isset($_SESSION['user'])) {
 <!-- swiperjs CDN  -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 
-<script src="/gadgetHubWithBackend/frontend/js/script.js"></script>
+<script src="../js/script.js"></script>
 <script src="/gadgetHubWithBackend/frontend/js/formValidation.js"></script>
+<script>
+  document.addEventListener('click', function(event) {
+    var dropdownContent = document.getElementById("droppedDownContent");
+    var userDropdown = document.querySelector('.userDropdown');
+    
+    if (dropdownContent && !userDropdown.contains(event.target)) {
+        dropdownContent.style.display = "none";
+    }
+});
+
+function toggleDropdown(event) {
+    event.stopPropagation(); // Prevent the document click listener from immediately hiding the dropdown
+    var dropdownContent = document.getElementById("droppedDownContent");
+    if (dropdownContent.style.display === "block") {
+      console.log('button clicked');
+      dropdownContent.style.display = "none";
+    } else {
+        dropdownContent.style.display = "block";
+    }
+}
+</script>
 </html>
