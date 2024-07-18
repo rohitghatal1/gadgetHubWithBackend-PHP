@@ -12,7 +12,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         while($adminData = $fetchedAdminData->fetch_assoc()){
             if($username == $adminData['adminUsername'] && $password == $adminData['adminPassword']){
                 $_SESSION['adminUsername'] = $username;
-                
+                header("location: adminDashboard.php");
             }
             else {
                 $errorMessage = urlencode('incorrect username or password');
