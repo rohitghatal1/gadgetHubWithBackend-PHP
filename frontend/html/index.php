@@ -1,3 +1,24 @@
+<?php
+$userAvatar = '<div class="user me-3" onclick="openLoginModal()"><i class="fa-solid fa-user"></i></div>';
+session_start();
+if (isset($_SESSION['user'])) {
+    $username = $_SESSION['user'];
+    $uid = $_SESSION['userId'];
+    $firstLetterAvatar = strtoupper(substr($username, 0, 1));
+    $userAvatar = <<<dropdown
+            <div class="userDropdown">
+                <div class="avatar" onclick="toggleDropdown()">$firstLetterAvatar</div>
+                <div class="dropdown-content" id="droppedDownContent">
+                    <h3 class="heading-font">$firstLetterAvatar</h3>
+                    <p class="text-font">$username</p>
+                    <p class="text-font myBooking"><a href="userPage.php?userId={$uid}">My cart</a></p>
+                    <a id = "logout"href="../php/logout.php">Log out</a>
+                </div>
+            </div>
+        dropdown;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -93,7 +114,7 @@
         <span class="me-3"><i class="fa fa-phone"></i> 9856435452</span>
         <span class="me-3"><i class="fa fa-phone"></i> 9856435452</span>
         <div class="cartAndLogin d-flex me-2">
-          <div class="user me-3" onclick="openLoginModal()"><i class="fa-solid fa-user"></i></div>
+          <?php echo $userAvatar ?>
           <div class="cartAndQuantity">
             <div class="cart"><i class="fas fa-shopping-cart"></i></div>
             <span class="quantity"><sup>5</sup></span>
