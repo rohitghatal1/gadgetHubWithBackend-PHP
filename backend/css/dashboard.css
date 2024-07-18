@@ -1,0 +1,91 @@
+.hFont{
+    font-family: 'Merienda', cursive;
+}
+.textFont{
+    font-family: 'Poppins', sans-serif;
+}
+
+.avatar{
+    padding: 5px;
+    background-color: red;
+    width: 30px;
+    color: #f0f8ff;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 60px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* user dropdown toggler  */
+.userDropdown{
+    position: relative;
+}
+
+/* style for the dropdown content after clicking avatar  */
+.dropdown-content{
+    background-color: #101720;
+    color: #f0f8ff;
+    display: none;
+    position: absolute;
+    top: 55px;
+    right: 10px;
+    padding: 10px;
+    min-width: 19vw;
+    text-align: center;
+    border-radius: 10px;
+    z-index: 4;
+    height: auto;
+}
+
+.dropdown-content h3{
+    background-color: red;
+    color: #f0f8ff;
+    border-radius: 50%;
+    width: 4.5rem;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 3rem;
+}
+
+/* username of user  */
+.dropdown-content p:nth-child(2){
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+/* my booking  */
+.dropdown-content p:nth-child(3){
+    margin-top: 0rem;
+    margin: 1.4rem;
+    background-color: #101720;
+    color: #f0f8ff;
+    border: 1px solid #f0f8ff;
+    border-radius: 5px;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.dropdown-content #logout{
+    margin-top: 0rem;
+    display: block;
+    margin: 1.4rem;
+    background-color: #101720;
+    color: #f0f8ff;
+    border: 1px solid #f0f8ff;
+    border-radius: 5px;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+}
+.dropdown-content a{
+    margin-top: auto;
+    text-decoration: none;
+    color: #f0f8ff;
+    font-size: 15px;
+    font-weight: bold;
+    align-self: flex-end;
+}
