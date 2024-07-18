@@ -7,12 +7,12 @@ if (isset($_SESSION['user'])) {
     $firstLetterAvatar = strtoupper(substr($username, 0, 1));
     $userAvatar = <<<dropdown
             <div class="userDropdown">
-                <div class="avatar" onclick="toggleDropdown()">$firstLetterAvatar</div>
-                <div class="dropdown-content" id="droppedDownContent">
+                <div class="avatar bg-danger p-2 text-center rounded-circle" onclick="toggleDropdown()">$firstLetterAvatar</div>
+                <div class="dropdown-container" id="droppedDownContent">
                     <h3 class="heading-font">$firstLetterAvatar</h3>
                     <p class="text-font">$username</p>
                     <p class="text-font myBooking"><a href="userPage.php?userId={$uid}">My cart</a></p>
-                    <a id = "logout"href="../php/logout.php">Log out</a>
+                    <a id = "logout"href="../../backend/logout.php">Log out</a>
                 </div>
             </div>
         dropdown;

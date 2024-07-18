@@ -156,7 +156,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* style for the dropdown content after clicking avatar  */
-.dropdown-content{
+#droppedDownContent{
     background-color: #101720;
     color: #f0f8ff;
     display: none;
