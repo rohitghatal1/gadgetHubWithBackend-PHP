@@ -39,68 +39,85 @@ else{
     <link rel="stylesheet" href="css/dashboard.css">
 
     <style>
+    html{
+        scroll-behavior: smooth;
+    }
+    body::-webkit-scrollbar {
+        width: 5px;
+        background: transparent;
+    }
+
+    body::-webkit-scrollbar-track {
+        background-color: #4D648D;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background-color: #0A1828;
+        border-radius: 0.6rem; 
+    }
     .table th, .table td {
       vertical-align: middle;
     }
     .table th{
         background-color: black;
         color: white;
+        padding: 0.5rem
     }
   </style>
 
 </head>
 <body>
-    <nav class = "navbar bg-dark text-light position-fixed top-0 start-0 w-100 py-3">
+    <nav class = "navbar bg-dark text-light position-fixed top-0 start-0 z-3 w-100 py-3">
         <div class="container">
-            <h3 class="hFont">Admin Panel</h3>
+            <h3 class="hFont">GadgetHub - Admin</h3>
             <div class = "d-flex justify-content-center gap-4">
-                <span><a href="" class="text-decoration-none text-light textFont fs-5">Dashboard</a></span>
-                <span><a href="" class="text-decoration-none text-light textFont fs-5">Orders</a></span>
-                <span><a href="" class="text-decoration-none text-light textFont fs-5">Products</a></span>
-                <span><a href="" class="text-decoration-none text-light textFont fs-5">Users</a></span>
+                <span><a href="#dashboard" class="text-decoration-none text-light textFont fs-5">Dashboard</a></span>
+                <span><a href="#orders" class="text-decoration-none text-light textFont fs-5">Orders</a></span>
+                <span><a href="#products" class="text-decoration-none text-light textFont fs-5">Products</a></span>
+                <span><a href="#users" class="text-decoration-none text-light textFont fs-5">Users</a></span>
             </div>
             <?php echo $adminAvatar ?>
         </div>
     </nav>
 
     <div class="py-5" style="background-color: #161b40;">
-        <div class = "container pt-5 vh-100">
-            <h2 class ="hFont text-center text-light fw-bold py-3">Dashboard</h2>
+        <div class = "container pt-5 vh-100 border-bottom border-light-subtle" id = "dashboard">
+            <h2 class ="hFont text-center text-light fw-bold py-5">Dashboard</h2>
             <hr class = "container text-light">
 
             <div class = "d-flex flex-wrap gap-3 justify-content-evenly container mt-5">
 
                 <div class="p-2 bg-info-subtle col-3 rounded">
                     <div class="bg-dark text-light rounded p-3 py-5">
-                        <h5 class = "text-center"><a href="#" class = "text-decoration-none text-light">Current Users</a></h5>
+                        <h5 class = "text-center"><a href="#users" class = "text-decoration-none text-light">Current Users</a></h5>
                         <h3 class = "text-center">5</h3>
                     </div>
                 </div>
 
                 <div class="p-2 bg-info-subtle col-3 rounded">
                     <div class="bg-dark text-light rounded p-3 py-5">
-                        <h5 class = "text-center"><a href="#" class = "text-decoration-none text-light">Orders</a></h5>
+                        <h5 class = "text-center"><a href="#orders" class = "text-decoration-none text-light">Orders</a></h5>
                         <h3 class = "text-center">10</h3>
                     </div>
                 </div>
 
                 <div class="p-2 bg-info-subtle col-3 rounded">
                     <div class="bg-dark text-light rounded p-3 py-5">
-                        <h5 class = "text-center"><a href="#" class = "text-decoration-none text-light">Laptops</a></h5>
+                        <h5 class = "text-center"><a href="#laptops" class = "text-decoration-none text-light">Laptops</a></h5>
                         <h3 class = "text-center">50</h3>
                     </div>
                 </div>
 
                 <div class="p-2 bg-info-subtle col-3 rounded">
                     <div class="bg-dark text-light rounded p-3 py-5">
-                        <h5 class = "text-center"><a href="#" class = "text-decoration-none text-light">Mobiles</a></h5>
+                        <h5 class = "text-center"><a href="#mobiles" class = "text-decoration-none text-light">Mobiles</a></h5>
                         <h3 class = "text-center">100</h3>
                     </div>
                 </div>
 
                 <div class="p-2 bg-info-subtle col-3 rounded">
                 <div class="bg-dark text-light rounded p-3 py-5">
-                    <h5 class = "text-center"><a href="#" class = "text-decoration-none text-light">Smart Watches</a></h5>
+                    <h5 class = "text-center"><a href="#smartWatches" class = "text-decoration-none text-light">Smart Watches</a></h5>
                     <h3 class = "text-center">80</h3>
                 </div>
                 </div>
@@ -112,12 +129,11 @@ else{
                     </div>
                 </div>
             </div>
-            <hr class = "text-light" style = "margin-top: 8rem">
         </div>
 
         <!-- orders section start here  -->
-        <div class="">
-            <div class = "container py-5 vh-100">
+        <div class="py-3 vh-100" id ="orders">
+            <div class = "container py-5 vh-100 border-bottom border-light-subtle">
                 <h2 class ="hFont text-center text-light fw-bold py-3">Orders</h2>
                 <hr class = "container text-light">
 
@@ -167,6 +183,128 @@ else{
                         </tbody>
                     </table>
                  </div>
+            </div>
+        </div>
+
+        <div class="py-5" id = "products">
+            <h2 class = "text-center text-light hFont py-3">Products</h2>
+            <hr class = "container text-light">
+
+            <div class="py-2 container" id = "laptops">
+                <h3 class="text-left text-light hFont">Laptops</h3>
+                <hr class = "container text-light">
+
+                
+                <div class="d-flex justify-content-between mt-3 container">
+                    <h4 class= "hFont text-light">Current Stock</h4>
+                    <span class="bg-info text-light p-2 rounded"><i class="fas fa-plus"></i> Add More</span>
+                </div>
+
+                <div class ="p-2 mt-3">
+                    <table class = "table table-bordered text-center">
+                        <thead>
+                            <tr>
+                                <th>SN</th>
+                                <th>Photo</th>
+                                <th>Brand</th>
+                                <th>Model</th>
+                                <th>Processor</th>
+                                <th>RAM</th>
+                                <th>Graphics</th>
+                                <th>Other Specifications</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><img src="../frontend/images/asus.jpg" alt="" class ="img-fluid" style = "width: 8rem; height:6rem;"></td>
+                                <td>Lenovo</td>
+                                <td>ThinkPad</td>
+                                <td>Intel core i7</td>
+                                <td>16GB</td>
+                                <td>NVDIA GTX Geforce</td>
+                                <td>512GB SSD, 15 in display, 360 Foldable</td>
+                                <td><i class="fas fa-trash text-danger"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="py-2 container" id = "mobiles">
+                <h3 class="text-left text-light hFont">Mobile Phones</h3>
+                <hr class = "container text-light">
+
+                
+                <div class="d-flex justify-content-between mt-3 container">
+                    <h4 class= "hFont text-light">Current Stock</h4>
+                    <span class="bg-info text-light p-2 rounded"><i class="fas fa-plus"></i> Add More</span>
+                </div>
+
+                <div class ="p-2 mt-3">
+                    <table class = "table table-bordered text-center">
+                        <thead>
+                            <tr>
+                                <th>SN</th>
+                                <th>Photo</th>
+                                <th>Brand</th>
+                                <th>Model</th>
+                                <th>Processor</th>
+                                <th>RAM</th>
+                                <th>Other Specifications</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><img src="../frontend/images/samsung.jpg" alt="" class ="img-fluid" style = "width: 8rem; height:6rem;"></td>
+                                <td>Samsung</td>
+                                <td>S24 </td>
+                                <td>Snapdragon</td>
+                                <td>8GB</td>
+                                <td>1TB storage, 108MP rear camera, 50MP front camera</td>
+                                <td><i class="fas fa-trash text-danger"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="py-2 container" id = "smartWatches">
+                <h3 class="text-left text-light hFont">Smart Watches</h3>
+                <hr class = "container text-light">
+                
+                <div class="d-flex justify-content-between mt-3 container">
+                    <h4 class= "hFont text-light">Current Stock</h4>
+                    <span class="bg-info text-light p-2 rounded"><i class="fas fa-plus"></i> Add More</span>
+                </div>
+
+                <div class ="p-2 mt-3">
+                    <table class = "table table-bordered text-center">
+                        <thead>
+                            <tr>
+                                <th>SN</th>
+                                <th>Photo</th>
+                                <th>Brand</th>
+                                <th>Model</th>
+                                <th>Other Specifications</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><img src="../frontend/images/smartwatch.jpg" alt="" class ="img-fluid" style = "width: 8rem; height:6rem;"></td>
+                                <td>Lenovo</td>
+                                <td>ThinkPad</td>
+                                <td>4GB RAM, 5cm display, 10MP Camera</td>
+                                <td><i class="fas fa-trash text-danger"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
