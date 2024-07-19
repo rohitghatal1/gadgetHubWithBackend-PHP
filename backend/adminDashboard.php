@@ -125,7 +125,7 @@ else{
                  <div class = "p-3 text-light">
                     <h3 class ="text-center text-light">Current Orders</h3>
                     <table class = "table table-bordered text-center">
-                        <thead class="thead-dark">
+                        <thead class="">
                             <tr>
                                 <th rowspan = "3">SN</th>
                                 <th rowspan = "3">Name</th>
