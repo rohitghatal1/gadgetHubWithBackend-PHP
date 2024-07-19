@@ -19,6 +19,7 @@ else{
     header('location: adminLoginPage.php');
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +40,7 @@ else{
 
 </head>
 <body>
-    <nav class = "navbar bg-dark text-light">
+    <nav class = "navbar bg-dark text-light position-fixed top-0 start-0 w-100">
         <div class="container">
             <h3 class="hFont">Admin Panel</h3>
             <div class = "d-flex justify-content-center gap-3">
@@ -51,6 +52,40 @@ else{
             <?php echo $adminAvatar ?>
         </div>
     </nav>
+
+    <div class="bg-info-subtle py-5 vh-100">
+        <div class = "container py-5">
+            <h2 class ="hFont text-center text-dark fw-bold">Dashboard</h2>
+            <hr class = "container">
+
+            <div class = "d-flex flex-wrap gap-3 justify-content-evenly container mt-5">
+                <div class="bg-info text-light rounded p-3 col-3">
+                    <h5 class = "text-center"><a href="#" class = "text-decoration-none text-light">Current Users</a></h5>
+                    <h3 class = "text-center">5</h3>
+                </div>
+
+                <div class="bg-info text-light rounded p-3 col-3">
+                    <h5 class = "text-center"><a href="#" class = "text-decoration-none text-light">Orders</a></h5>
+                    <h3 class = "text-center">10</h3>
+                </div>
+
+                <div class="bg-info text-light rounded p-3 col-3">
+                    <h5 class = "text-center"><a href="#" class = "text-decoration-none text-light">Laptops</a></h5>
+                    <h3 class = "text-center">50</h3>
+                </div>
+
+                <div class="bg-info text-light rounded p-3 col-3">
+                    <h5 class = "text-center"><a href="#" class = "text-decoration-none text-light">Mobiles</a></h5>
+                    <h3 class = "text-center">100</h3>
+                </div>
+
+                <div class="bg-info text-light rounded p-3 col-3">
+                    <h5 class = "text-center"><a href="#" class = "text-decoration-none text-light">Smart Watches</a></h5>
+                    <h3 class = "text-center">80</h3>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         document.addEventListener('click', function(event) {
