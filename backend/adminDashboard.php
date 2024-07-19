@@ -80,7 +80,7 @@ else{
         </div>
     </nav>
 
-    <div class="py-5" style="background-color: #161b40;">
+    <div class="pt-5 pb-2" style="background-color: #161b40;">
         <!-- dashboard section  -->
         <div class = "container pt-5 vh-100 border-bottom border-light-subtle" id = "dashboard">
             <h2 class ="hFont text-center text-light fw-bold py-5">Dashboard</h2>
@@ -192,7 +192,7 @@ else{
 
         <!-- product section  -->
         <div class="py-5 border-bottom border-light-subtle" id = "products">
-            <h2 class = "text-center text-light hFont py-3">Products</h2>
+            <h2 class = "text-center text-light hFont py-5">Products</h2>
             <hr class = "container text-light">
 
             <div class="py-2 container" id = "laptops">
@@ -316,7 +316,7 @@ else{
 
         <!-- users section  -->
          <div class="py-5 vh-100 border-bottom border-light-subtle" id = "users">
-            <h2 class="text-center text-light py-3 hFont">Users</h2>
+            <h2 class="text-center text-light py-5 hFont">Users</h2>
             <hr class="text-light container">
 
             <div class="usersTable container">
@@ -349,6 +349,10 @@ else{
                     </tbody>
                 </table>
             </div>
+         </div>
+
+         <div class="container">
+             <h3 class="text-center text-light hFont mt-4">Designed & Developed By Rohit Ghatal</h3>
          </div>
     </div>
 
