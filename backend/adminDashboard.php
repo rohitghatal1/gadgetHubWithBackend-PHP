@@ -81,6 +81,7 @@ else{
     </nav>
 
     <div class="py-5" style="background-color: #161b40;">
+        <!-- dashboard section  -->
         <div class = "container pt-5 vh-100 border-bottom border-light-subtle" id = "dashboard">
             <h2 class ="hFont text-center text-light fw-bold py-5">Dashboard</h2>
             <hr class = "container text-light">
@@ -116,23 +117,25 @@ else{
                 </div>
 
                 <div class="p-2 bg-info-subtle col-3 rounded">
-                <div class="bg-dark text-light rounded p-3 py-5">
-                    <h5 class = "text-center"><a href="#smartWatches" class = "text-decoration-none text-light">Smart Watches</a></h5>
-                    <h3 class = "text-center">80</h3>
-                </div>
+                    <div class="bg-dark text-light rounded p-3 py-5">
+                        <h5 class = "text-center"><a href="#smartWatches" class = "text-decoration-none text-light">Smart Watches</a></h5>
+                        <h3 class = "text-center">80</h3>
+                    </div>
                 </div>
 
                 <div class="p-2 bg-info-subtle col-3 rounded">
                     <div class="bg-dark text-light rounded p-3 py-5">
-                        <h5 class = "text-center"><a href="#" class = "text-decoration-none text-light">Sales</a></h5>
+                        <h5 class = "text-center"><a href="#sales" class = "text-decoration-none text-light">Sales</a></h5>
                         <h3 class = "text-center">50</h3>
                     </div>
                 </div>
+
             </div>
         </div>
+        <!-- dashboard section end  -->
 
         <!-- orders section start here  -->
-        <div class="py-3 vh-100" id ="orders">
+        <div class="py-3 vh-100 border-bottom border-light-subtle" id ="orders">
             <div class = "container py-5 vh-100 border-bottom border-light-subtle">
                 <h2 class ="hFont text-center text-light fw-bold py-3">Orders</h2>
                 <hr class = "container text-light">
@@ -185,8 +188,10 @@ else{
                  </div>
             </div>
         </div>
+        <!-- order secttion end  -->
 
-        <div class="py-5" id = "products">
+        <!-- product section  -->
+        <div class="py-5 border-bottom border-light-subtle" id = "products">
             <h2 class = "text-center text-light hFont py-3">Products</h2>
             <hr class = "container text-light">
 
@@ -307,10 +312,48 @@ else{
                 </div>
             </div>
         </div>
+        <!-- product section end  -->
+
+        <!-- users section  -->
+         <div class="py-5 vh-100 border-bottom border-light-subtle" id = "users">
+            <h2 class="text-center text-light py-3 hFont">Users</h2>
+            <hr class="text-light container">
+
+            <div class="usersTable container">
+                <h3 class="text-light hFont py-1">Current Users</h3>
+
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <tr class="text-font">
+                            <th>SN</th>
+                            <th>UId</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Contact No.</th>
+                            <th>Email</th>
+                            <th>Username</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>01</td>
+                            <td>Rohit</td>
+                            <td>Thasikhel</td>
+                            <td>988765545</td>
+                            <td>rohitghatal@gmail.com</td>
+                            <td>rohitGhatal</td>
+                            <td><i class = "fas fa-trash text-danger"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+         </div>
     </div>
 
-
-    <script>
+</body>
+<script>
         document.addEventListener('click', function(event) {
             var dropdownContent = document.getElementById("droppedDownContent");
             var userDropdown = document.querySelector('.userDropdown');
@@ -331,7 +374,6 @@ else{
             }
         }
 </script>
-</body>
 
 <!-- bootstrap javaScript  -->
 <script src="../frontend/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
