@@ -1,4 +1,5 @@
 <?php
+require 'database/databaseConnection.php';
 session_start();
 if (isset($_SESSION['adminUsername'])) {
     $username = $_SESSION['adminUsername'];
@@ -336,16 +337,28 @@ else{
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>01</td>
-                            <td>Rohit</td>
-                            <td>Thasikhel</td>
-                            <td>988765545</td>
-                            <td>rohitghatal@gmail.com</td>
-                            <td>rohitGhatal</td>
-                            <td><i class = "fas fa-trash text-danger"></i></td>
-                        </tr>
+                    <?php 
+                        $userData = "SELECT * FROM users";
+                        $fetchedUserData = $conn->query($userData);
+                        $count = 1;
+                        if($fetchedUserData->num_rows>0){
+                            while($userInfo = $fetchedUserData->fetch_assoc()){
+                                ?>
+                            <tr>
+                                <td><?php echo $count ?></td>
+                                <td><?php echo $userInfo['uId'] ?></td>
+                                <td><?php echo $userInfo['uName'] ?></td>
+                                <td><?php echo $userInfo['uAddress'] ?></td>
+                                <td><?php echo $userInfo['uContact'] ?></td>
+                                <td><?php echo $userInfo['uEmail'] ?></td>
+                                <td><?php echo $userInfo['username'] ?></td>
+                                <td><i class = "fas fa-trash text-danger"></i></td>
+                            </tr>
+                            <?php
+                            $count++;
+                            }
+                        }
+                    ?>
                     </tbody>
                 </table>
             </div>
