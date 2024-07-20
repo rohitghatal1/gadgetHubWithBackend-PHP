@@ -155,24 +155,16 @@ body::-webkit-scrollbar-thumb {
     top: 2rem;
     background-color: #4D648D;  
 }
-.banner .photo{
-    width: 100%;
-    height: 60rem;
-}
-.banner .photo img{
-    width: 100%;
-    height: 100%;
-}
 
 .banner .bannerDesc{
     position: absolute;
     top: 0;
-    left: 2rem;
-    margin-top: 5rem;
-    width: 90%;
+    right: 2rem;
+    margin-top: 0.2rem;
+    width: 100%;
     height: 100%;
     z-index: 2;
-    text-align: left;
+    text-align: center;
     color: #BFA181;
 }
 

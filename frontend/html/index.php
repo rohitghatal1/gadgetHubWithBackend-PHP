@@ -149,8 +149,8 @@ if (isset($_SESSION['user'])) {
 
   <!-- ----------------------------------------------------Website banner section------------------------------------------------ -->
   <div class="banner">
-    <div class="photo">
-      <img src="/gadgetHubWithBackend/frontend/images/laptopMobiles.jpg" alt="">
+    <div class="photo" style = "witdh: 100%; height:40rem">
+      <img src="../images/banner1.jpg" alt="" class="img-fluid">
     </div>
     <div class="bannerDesc">
       <h2>The best place</h2>
