@@ -49,7 +49,7 @@ if (isset($_SESSION['user'])) {
       <h3><i class="fas fa-user"></i> User Login</h3>
       <span class="fs-3 closeLoginModal" onclick="closeLoginModal();">&times;</span>
     </div>
-    <form method="post" action="../../backend/userLogin.php" onsubmit="console.log('form submitted')">
+    <form method="post" action="../../backend/userLogin.php">
       <label for="usernane" class="mt-2 form-label">Username</label>
       <input type="text" placeholder="Enter your usernane" name="uName" class="form-control">
 
@@ -63,43 +63,51 @@ if (isset($_SESSION['user'])) {
 
   <div class="signupModal" id="signupModal">
     <div class="d-flex justify-content-between align-items-center">
-      <h3><i class="fa-solid fa-user-pen"></i> Create an account</h3>
-      <span class="fs-3 closeSignupModal" onclick="closeSignupModal();">&times;</span>
+        <h3><i class="fa-solid fa-user-pen"></i> Create an account</h3>
+        <span class="fs-3 closeSignupModal" onclick="closeSignupModal();">&times;</span>
     </div>
     <form id="registerform" action="../../backend/userRegistration.php" method="post">
-      <label class="mt-2 form-label">Full Name</label>
-      <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name">
-      <div id="nameError" class="error-message"></div>
-      
-      <label class="mt-2 form-label">Address</label>
-      <input type="text" id="address" name="address" class="form-control" placeholder="Enter your address">
-      <div id="addressError" class="error-message"></div>
-  
-      <label class="mt-2 form-label">Contact No.</label>
-      <input type="text" id="contact" name="contact" class="form-control" placeholder="Enter your contact number">
-      <div id="contactError" class="error-message"></div>
-  
-      <label class="mt-2 form-label">Email</label>
-      <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email">
-      <div id="emailError" class="error-message"></div>
-  
-      <label class="mt-2 form-label">Username</label>
-      <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username">
-      <div id="usernameError" class="error-message"></div>
-  
-      <label class="mt-2 form-label">Password</label>
-      <input type="password" id="password" name="password" class="form-control" placeholder="create a new password">
-      <div id="passwordError" class="error-message"></div>
-  
-      <label class="mt-2 form-label">Confirm Password</label>
-      <input type="password" id="cPassword" class="form-control" placeholder="re-type the password">
-      <div id="cPasswordError" class="error-message"></div>
-  
-      <input type="submit" value="Submit" class="submitbtn fw-bold">
-      <p class="mt-2">Already have an account? <span class="text-primary text-decoration-underline" onclick="openLoginModal()">Login here.</span></p>
-      <div id="generalError" class="error-message"></div>
+        <label class="mt-2 form-label">Full Name</label>
+        <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name">
+        <div id="nameError" class="error-message"></div>
+
+        <label class="mt-2 form-label">Address</label>
+        <input type="text" id="address" name="address" class="form-control" placeholder="Enter your address">
+        <div id="addressError" class="error-message"></div>
+
+        <label class="mt-2 form-label">Contact No.</label>
+        <input type="text" id="contact" name="contact" class="form-control" placeholder="Enter your contact number">
+        <div id="contactError" class="error-message"></div>
+
+        <label class="mt-2 form-label">Email</label>
+        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email">
+        <div id="emailError" class="error-message"></div>
+
+        <label class="mt-2 form-label">Username</label>
+        <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username">
+        <div id="usernameError" class="error-message"></div>
+
+        <label class="mt-2 form-label">Password</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Create a new password">
+        <div id="passwordError" class="error-message"></div>
+
+        <label class="mt-2 form-label">Confirm Password</label>
+        <input type="password" id="cPassword" class="form-control" placeholder="Re-type the password">
+        <div id="cPasswordError" class="error-message"></div>
+
+        <div class="form-check mt-2">
+            <input type="checkbox" class="form-check-input" id="showPasswordCheckbox" onclick="togglePassword();">
+            <label class="form-check-label" for="showPasswordCheckbox">Show Password</label>
+        </div>
+        <span id="showPasswordBtn" onclick="togglePassword();" class="text-decoration-underline d-block" style="cursor: pointer;">Toggle Password Visibility</span>
+
+        <input type="submit" value="Submit" class="submitbtn fw-bold">
+        <p class="mt-2">Already have an account? <span class="text-primary text-decoration-underline" onclick="openLoginModal()">Login here.</span></p>
+        <div id="generalError" class="error-message"></div>
     </form>
-  </div>
+</div>
+
+
   
   <!-- ----------------------------------------------------Navbar  section--------------------------------------------- -->
   <header id="start">

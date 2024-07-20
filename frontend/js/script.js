@@ -22,6 +22,26 @@ function closeSignupModal(){
     signupModal.style.display = 'none';
 }
 
+function togglePassword() {
+    let passwordInput = document.getElementById("password");
+    let cPasswordInput = document.getElementById("cPassword");
+    let showPasswordCheckbox = document.getElementById("showPasswordCheckbox");
+
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        cPasswordInput.type = "text";
+        showPasswordCheckbox.checked = true;
+    } else {
+        passwordInput.type = "password";
+        cPasswordInput.type = "password";
+        showPasswordCheckbox.checked = false;
+    }
+}
+
+
+
+
+
 const products = document.getElementById("products");
 const allProducts = ["Laptops", "Mobile Phones", "Smart Watches"];
 let arrayIndex = 0;

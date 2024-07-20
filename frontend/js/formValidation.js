@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+    let form = document.getElementById("registerform");
     let nameInput = document.getElementById("name");
     let addressInput = document.getElementById("address");
     let contactInput = document.getElementById("contact");
@@ -15,57 +16,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Event listeners for input fields
     nameInput.addEventListener("blur", validateName);
-    nameInput.addEventListener("input", function () {
-        clearErrorMessage("nameError");
-        clearErrorMessage("generalError");
-    });
-
     addressInput.addEventListener("blur", validateAddress);
-    addressInput.addEventListener("input", function () {
-        clearErrorMessage("addressError");
-        clearErrorMessage("generalError");
-    });
-
     contactInput.addEventListener("blur", validateContact);
-    contactInput.addEventListener("input", function () {
-        clearErrorMessage("contactError");
-        clearErrorMessage("generalError");
-    });
-
     emailInput.addEventListener("blur", validateEmail);
-    emailInput.addEventListener("input", function () {
-        clearErrorMessage("emailError");
-        clearErrorMessage("generalError");
-    });
-
     usernameInput.addEventListener("blur", validateUsername);
-    usernameInput.addEventListener("input", function () {
-        clearErrorMessage("usernameError");
-        clearErrorMessage("generalError");
-    });
-
     passwordInput.addEventListener("blur", validatePassword);
-    passwordInput.addEventListener("input", function () {
-        clearErrorMessage("passwordError");
-        clearErrorMessage("generalError");
-    });
-
     cPasswordInput.addEventListener("blur", validateCPassword);
-    cPasswordInput.addEventListener("input", function () {
-        clearErrorMessage("cPasswordError");
-        clearErrorMessage("generalError");
-    });
 
-    // Form submission event listener
-    document.getElementById("registerform").addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        // Validate the form
-        if (validateForm()) {
-            // If form is valid, show a success message
-            alert("Form submitted successfully!");
-        } else {
-            updateErrorMessage("generalError", "Please input valid data in all fields!!!");
+    // Form submission event
+    form.addEventListener("submit", function (event) {
+        if (!validateForm()) {
+            event.preventDefault();
         }
     });
 
@@ -163,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
             errorElement = document.createElement("div");
             errorElement.id = elementId;
             errorElement.classList.add("error-message");
-            document.getElementById("registerform").appendChild(errorElement);
+            form.appendChild(errorElement);
         }
         errorElement.textContent = message;
     }
