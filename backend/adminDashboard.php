@@ -203,9 +203,50 @@ else{
                 
                 <div class="d-flex justify-content-between mt-3 container">
                     <h4 class= "hFont text-light">Current Stock</h4>
-                    <span class="bg-info text-light p-2 rounded"><i class="fas fa-plus"></i> Add More</span>
+                    <button type="button" class="btn btn-info text-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fas fa-plus"></i>
+                        Add more
+                    </button>
                 </div>
 
+                <!-- Button trigger modal -->
+
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content" style="background-color: #161b40; color:#fff">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Add Laptops</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="filter: invert(1);"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="">
+                            <label class="form-label mt-2">Photo</label>
+                            <input type="file" accept =".jpg, .png, .jpeg">
+
+                            <label class="form-label d-block mt-2">Brand</label>
+                            <input type="text" class="form-control">
+                            
+                            <label class="form-label mt-2">Model</label>
+                            <input type="text" class="form-control">
+                            
+                            <label class="form-label mt-2">Processor</label>
+                            <input type="text" class="form-control">
+                            
+                            <label class="form-label mt-2">RAM</label>
+                            <input type="text" class="form-control">
+                            
+                            <label class="form-label mt-2">Graphics</label>
+                            <input type="text" class="form-control">
+                            
+                            <label class="form-label mt-2">Other Specifications</label>
+                            <textarea class="form-control"></textarea>
+
+                            <input type="submit" vlaue ="Add" class="btn btn-success text-light mt-3" style="background-color: #161b40; color#fff; border:1px solid #fff">
+                        </form>
+                    </div>
+                    </div>
+                </div>
+                </div>
                 <div class ="p-2 mt-3">
                     <table class = "table table-bordered text-center">
                         <thead>
