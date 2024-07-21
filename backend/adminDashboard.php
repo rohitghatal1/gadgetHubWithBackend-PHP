@@ -262,21 +262,37 @@ else{
                                 <th>RAM</th>
                                 <th>Graphics</th>
                                 <th>Other Specifications</th>
+                                <th>Price</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td><img src="../frontend/images/asus.jpg" alt="" class ="img-fluid" style = "width: 8rem; height:6rem;"></td>
-                                <td>Lenovo</td>
-                                <td>ThinkPad</td>
-                                <td>Intel core i7</td>
-                                <td>16GB</td>
-                                <td>NVDIA GTX Geforce</td>
-                                <td>512GB SSD, 15 in display, 360 Foldable</td>
-                                <td><i class="fas fa-trash text-danger"></i></td>
-                            </tr>
+                            <?php
+                            $sn = 1;
+                                $getLaptopData = "SELECT * FROM laptops";
+                                $fetchedLaptopData = $conn->query($getLaptopData);
+                                if($fetchedLaptopData->num_rows>0){
+                                    while($laptopDetails = $fetchedLaptopData->fetch_assoc()){ ?>
+                                        <tr>
+                                            <td><?php echo $sn ?></td>
+                                            <td><img src="<?php echo $laptopDetails['photoPath']?>" alt="" class ="img-fluid" style = "width: 8rem; height:7rem;"></td>
+                                            <td><?php echo $laptopDetails['brand'] ?></td>
+                                            <td><?php echo $laptopDetails['model'] ?></td>
+                                            <td><?php echo $laptopDetails['processor'] ?></td>
+                                            <td><?php echo $laptopDetails['RAM'] ?></td>
+                                            <td><?php echo $laptopDetails['graphics'] ?></td>
+                                            <td><?php echo $laptopDetails['otherSpecs'] ?></td>
+                                            <td><?php echo $laptopDetails['Lprice'] ?></td>
+                                            <td><i class="fas fa-trash text-danger"></i></td>
+                                        </tr>
+                                    <?php } 
+                                } 
+                                else{
+                                    echo "<tr>";
+                                    echo "<td colspan = '10'>No laptops available right now!!!</td>";
+                                    echo "</tr>";
+                                }
+                            ?>
                         </tbody>
                     </table>
                 </div>

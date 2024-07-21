@@ -17,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
     $laptopImage = $target_file;
 
     $addLaptop = $conn->prepare("INSERT INTO laptops(brand, model, processor, RAM, graphics, otherSpecs, Lprice, photoPath) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $addLaptop->bind_param("sssissss", $brand, $model, $processor, $RAM, $graphics, $otherSpecifications, $price, $laptopImage);
+    $addLaptop->bind_param("ssssssss", $brand, $model, $processor, $RAM, $graphics, $otherSpecifications, $price, $laptopImage);
 
     if($addLaptop->execute() === true){
         echo "<script>alert('Laptop added successfully')</script>";
