@@ -218,27 +218,30 @@ else{
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="filter: invert(1);"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="">
+                            <form action="addLaptops.php" method = "post" enctype = "multipart/form-data">
                                 <label class="form-label mt-2">Photo</label>
-                                <input type="file" accept =".jpg, .png, .jpeg">
+                                <input type="file" name ="laptopPhoto" accept =".jpg, .png, .jpeg">
 
                                 <label class="form-label d-block mt-2">Brand</label>
-                                <input type="text" class="form-control">
+                                <input type="text" name = "brand" class="form-control">
                                 
                                 <label class="form-label mt-2">Model</label>
-                                <input type="text" class="form-control">
+                                <input type="text" name="model" class="form-control">
                                 
                                 <label class="form-label mt-2">Processor</label>
-                                <input type="text" class="form-control">
+                                <input type="text" name="processor" class="form-control">
                                 
                                 <label class="form-label mt-2">RAM</label>
-                                <input type="text" class="form-control">
+                                <input type="text" name ="RAM" class="form-control">
                                 
                                 <label class="form-label mt-2">Graphics</label>
-                                <input type="text" class="form-control">
+                                <input type="text" name = "graphics" class="form-control">
                                 
                                 <label class="form-label mt-2">Other Specifications</label>
-                                <textarea class="form-control"></textarea>
+                                <textarea class="form-control" name = "specifications"></textarea>
+
+                                <label class="form-label mt-2">Price</label>
+                                <input type="text" name ="price" class="form-control">
 
                                 <input type="submit" value ="Add" class="btn btn-success text-light mt-3" style="background-color: #161b40; color#fff; border:1px solid #fff">
                             </form>
