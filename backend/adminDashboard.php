@@ -362,21 +362,39 @@ else{
                                 <th>Model</th>
                                 <th>Processor</th>
                                 <th>RAM</th>
+                                <th>Storage</th>
                                 <th>Other Specifications</th>
+                                <th>Price</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td><img src="../frontend/images/samsung.jpg" alt="" class ="img-fluid" style = "width: 8rem; height:6rem;"></td>
-                                <td>Samsung</td>
-                                <td>S24 </td>
-                                <td>Snapdragon</td>
-                                <td>8GB</td>
-                                <td>1TB storage, 108MP rear camera, 50MP front camera</td>
-                                <td><i class="fas fa-trash text-danger"></i></td>
-                            </tr>
+                            <?php
+                                $Mcount = 1;
+                                $getMobileData = "SELECT * FROM mobiles";
+                                $fetchedMobileData = $conn->query($getMobileData);
+                                if($fetchedMobileData->num_rows>0){
+                                    while($mobilesDetails = $fetchedMobileData->fetch_assoc()){ ?>
+                                        <tr>
+                                            <td><?php echo $Mcount ?></td>
+                                            <td><img src="<?php echo $mobilesDetails['photoPath'] ?>" alt="" class ="img-fluid" style = "width: 8rem; height:7rem;"></td>
+                                            <td><?php echo $mobilesDetails['brand'] ?></td>
+                                            <td><?php echo $mobilesDetails['model'] ?></td>
+                                            <td><?php echo $mobilesDetails['processor'] ?></td>
+                                            <td><?php echo $mobilesDetails['RAM'] ?></td>
+                                            <td><?php echo $mobilesDetails['storage'] ?></td>
+                                            <td><?php echo $mobilesDetails['otherSpecs'] ?></td>
+                                            <td><?php echo $mobilesDetails['Mprice'] ?></td>
+                                            <td><i class="fas fa-trash text-danger"></i></td>
+                                        </tr>
+                                    <?php }    
+                                }
+                                else{
+                                    echo "<tr>";
+                                    echo "<td colspan = '10'>No mobiles available right now!!!</td>";
+                                    echo "</tr>";
+                                }
+                            ?>
                         </tbody>
                     </table>
                 </div>
