@@ -386,7 +386,7 @@ else{
                                             <td><?php echo $mobilesDetails['Mprice'] ?></td>
                                             <td><i class="fas fa-trash text-danger"></i></td>
                                         </tr>
-                                    <?php }    
+                                    <?php $Mcount++; }    
                                 }
                                 else{
                                     echo "<tr>";
@@ -457,14 +457,30 @@ else{
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td><img src="../frontend/images/smartwatch.jpg" alt="" class ="img-fluid" style = "width: 8rem; height:6rem;"></td>
-                                <td>Lenovo</td>
-                                <td>ThinkPad</td>
-                                <td>4GB RAM, 5cm display, 10MP Camera</td>
-                                <td><i class="fas fa-trash text-danger"></i></td>
-                            </tr>
+                            <?php
+                                $Wcount = 1;
+                                $getWatchData = "SELECT * FROM watches";
+                                $fetcheWatchData = $conn->query($getWatchData);
+                                if($fetcheWatchData->num_rows>0){
+                                    while($watchDetails = $fetcheWatchData->fetch_assoc()){ ?>
+
+                                        <tr>
+                                            <td><?php echo $Wcount ?></td>
+                                            <td><img src="<?php echo $watchDetails['photoPath'] ?>" alt="" class ="img-fluid" style = "width: 8rem; height:6rem;"></td>
+                                            <td><?php echo $watchDetails['brand'] ?></td>
+                                            <td><?php echo $watchDetails['model'] ?></td>
+                                            <td><?php echo $watchDetails['otherSpecs'] ?></td>
+                                            <td><?php echo $watchDetails['Wprice'] ?></td>
+                                            <td><i class="fas fa-trash text-danger"></i></td>
+                                        </tr>
+                                    <?php $Wcount++; }
+                                }
+                                else{
+                                    echo "<tr>";
+                                    echo "<td colspan = '7'>No mobiles available right now!!!</td>";
+                                    echo "</tr>";
+                                }
+                            ?>
                         </tbody>
                     </table>
                 </div>
