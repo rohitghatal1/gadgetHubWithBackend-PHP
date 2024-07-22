@@ -489,7 +489,7 @@ else{
         <!-- product section end  -->
 
         <!-- users section  -->
-         <div class="py-5 vh-100 border-bottom border-light-subtle" id = "users">
+        <div class="py-5 vh-100 border-bottom border-light-subtle" id = "users">
             <h2 class="text-center text-light py-5 hFont">Users</h2>
             <hr class="text-light container">
 
@@ -535,8 +535,56 @@ else{
                     </tbody>
                 </table>
             </div>
-         </div>
+        </div>
 
+         <!-- sales section  -->
+         <div class="py-5" id = "sales">
+            <h2 class="text-center text-light py-5 hFont">Sales</h2>
+            <hr class="text-light container">
+
+            <div class="salesTable container">
+                <h3 class="text-light hFont py-1">Total Sales</h3>
+
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <tr class="text-font">
+                            <th>SN</th>
+                            <th></th>
+                            <th>Prducts</th>
+                            <th>Address</th>
+                            <th>Contact No.</th>
+                            <th>Email</th>
+                            <th>Username</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php 
+                        $userData = "SELECT * FROM sales";
+                        $fetchedUserData = $conn->query($userData);
+                        $count = 1;
+                        if($fetchedUserData->num_rows>0){
+                            while($userInfo = $fetchedUserData->fetch_assoc()){
+                                ?>
+                            <tr>
+                                <td><?php echo $count ?></td>
+                                <td><?php echo $userInfo['uId'] ?></td>
+                                <td><?php echo $userInfo['uName'] ?></td>
+                                <td><?php echo $userInfo['uAddress'] ?></td>
+                                <td><?php echo $userInfo['uContact'] ?></td>
+                                <td><?php echo $userInfo['uEmail'] ?></td>
+                                <td><?php echo $userInfo['username'] ?></td>
+                                <td><i class = "fas fa-trash text-danger"></i></td>
+                            </tr>
+                            <?php
+                            $count++;
+                            }
+                        }
+                    ?>
+                    </tbody>
+                </table>
+            </div>
+            </div>
          <div class="container">
              <h3 class="text-center text-light hFont mt-4">Designed & Developed By Rohit Ghatal</h3>
          </div>
