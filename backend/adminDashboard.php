@@ -97,7 +97,7 @@ else{
             <div class = "d-flex flex-wrap gap-3 justify-content-evenly container mt-5">
 
             <?php
-            // for counting number of users 
+                // for counting number of users 
                 $getAllusers = "SELECT count(uId) AS totalUsers FROM users";
                 $allUsers = $conn->query($getAllusers);
                 $users = $allUsers->fetch_assoc();
@@ -128,26 +128,12 @@ else{
                 $currentSales = $sales['totalSales'];
 
                 // for counting number of orders
-                // $getAllOrders = "SELECT count(OId) AS totalOrders FROM orders";
-                // $allOrders = $conn->query($getAllOrders);
-                // $orders = $allOrders->fetch_assoc();
-                // $currentOrders = $orders['totalOrders'];
+                $getAllOrders = "SELECT count(OId) AS totalOrders FROM orders";
+                $allOrders = $conn->query($getAllOrders);
+                $orders = $allOrders->fetch_assoc();
+                $currentOrders = $orders['totalOrders'];
 
             ?>
-                <div class="p-2 bg-info-subtle col-3 rounded">
-                    <div class="bg-dark text-light rounded p-3 py-5">
-                        <h5 class = "text-center"><a href="#users" class = "text-decoration-none text-light">Current Users</a></h5>
-                        <h3 class = "text-center"><?php echo $currentUsers ?></h3>
-                    </div>
-                </div>
-
-                <div class="p-2 bg-info-subtle col-3 rounded">
-                    <div class="bg-dark text-light rounded p-3 py-5">
-                        <h5 class = "text-center"><a href="#orders" class = "text-decoration-none text-light">Orders</a></h5>
-                        <h3 class = "text-center">10</h3>
-                    </div>
-                </div>
-
                 <div class="p-2 bg-info-subtle col-3 rounded">
                     <div class="bg-dark text-light rounded p-3 py-5">
                         <h5 class = "text-center"><a href="#laptops" class = "text-decoration-none text-light">Laptops</a></h5>
@@ -166,6 +152,20 @@ else{
                     <div class="bg-dark text-light rounded p-3 py-5">
                         <h5 class = "text-center"><a href="#smartWatches" class = "text-decoration-none text-light">Smart Watches</a></h5>
                         <h3 class = "text-center"><?php echo $currentWatches ?></h3>
+                    </div>
+                </div>
+
+                <div class="p-2 bg-info-subtle col-3 rounded">
+                    <div class="bg-dark text-light rounded p-3 py-5">
+                        <h5 class = "text-center"><a href="#users" class = "text-decoration-none text-light">Current Users</a></h5>
+                        <h3 class = "text-center"><?php echo $currentUsers ?></h3>
+                    </div>
+                </div>
+
+                <div class="p-2 bg-info-subtle col-3 rounded">
+                    <div class="bg-dark text-light rounded p-3 py-5">
+                        <h5 class = "text-center"><a href="#orders" class = "text-decoration-none text-light">Orders</a></h5>
+                        <h3 class = "text-center"><?php echo $currentOrders ?></h3>
                     </div>
                 </div>
 
@@ -217,18 +217,35 @@ else{
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Rohit</td>
-                                <td>2</td>
-                                <td>100000</td>
-                                <td>1</td>
-                                <td>20000</td>
-                                <td>3</td>
-                                <td>12000</td>
-                                <td>7/2024/7</td>
-                                <td>200000</td>
-                            </tr>
+                        <?php 
+                            $ordersData = "SELECT * FROM orders";
+                            $fetchedOrderData = $conn->query($ordersData);
+                            $Ocount = 1;
+                            if($fetchedOrderData->num_rows>0){
+                                while($orderInfo = $fetchedOrderData->fetch_assoc()){
+                                    ?>
+                                <tr>
+                                    <td><?php echo $count ?></td>
+                                    <td><?php echo $salesInfo['Cname'] ?></td>
+                                    <td><?php echo $userInfo['laptopQty'] ?></td>
+                                    <td><?php echo $userInfo['Lprice'] ?></td>
+                                    <td><?php echo $userInfo['mobileQty'] ?></td>
+                                    <td><?php echo $userInfo['Mprice'] ?></td>
+                                    <td><?php echo $userInfo['watchQty'] ?></td>
+                                    <td><?php echo $userInfo['Wprice'] ?></td>
+                                    <td><?php echo $userInfo['orderedDate'] ?></td>
+                                    <td><?php echo $userInfo['totalPrice'] ?></td>
+                                </tr>
+                                <?php
+                                $count++;
+                                }
+                            }
+                            else{
+                                echo "<tr>";
+                                echo "<td colspan = '10'>No orders at the moment🥲!!!</td>";
+                                echo "</tr>";
+                            }
+                        ?>
                         </tbody>
                     </table>
                  </div>
