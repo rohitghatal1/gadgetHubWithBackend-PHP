@@ -99,39 +99,45 @@ else{
             <?php
             // for counting number of users 
                 $getAllusers = "SELECT count(uId) AS totalUsers FROM users";
-                $allUsers = $conn->query($totalusers);
+                $allUsers = $conn->query($getAllusers);
                 $users = $allUsers->fetch_assoc();
                 $currentUsers = $users['totalUsers'];
 
-                // for counting number of users 
+                // for counting number of laptop available 
                 $getAllLaptops= "SELECT count(LId) AS totalLaptops FROM laptops";
                 $allLaptops = $conn->query($getAllLaptops);
                 $laptops = $allLaptops->fetch_assoc();
                 $currentLaptops = $laptops['totalLaptops'];
 
-                // for counting number of users 
-                $getAllusers = "SELECT count(uId) AS totalUsers FROM users";
-                $allUsers = $conn->query($totalusers);
-                $users = $allUsers->fetch_assoc();
-                $currentUsers = $users['totalUsers'];
+                // for counting number of mobiles available
+                $getAllMobiles = "SELECT count(MId) AS totalMobiles FROM mobiles";
+                $allMobiles = $conn->query($getAllMobiles);
+                $mobiles = $allMobiles->fetch_assoc();
+                $currentMobiles = $mobiles['totalMobiles'];
 
-                // for counting number of users 
-                $getAllusers = "SELECT count(uId) AS totalUsers FROM users";
-                $allUsers = $conn->query($totalusers);
-                $users = $allUsers->fetch_assoc();
-                $currentUsers = $users['totalUsers'];
+                // for counting number of smart watches 
+                $getAllwatches = "SELECT count(WId) AS totalWatches FROM watches";
+                $allwatches = $conn->query($getAllwatches);
+                $watches = $allwatches->fetch_assoc();
+                $currentWatches = $watches['totalWatches'];
 
-                              // for counting number of users 
-                $getAllusers = "SELECT count(uId) AS totalUsers FROM users";
-                $allUsers = $conn->query($totalusers);
-                $users = $allUsers->fetch_assoc();
-                $currentUsers = $users['totalUsers'];
+                // for counting all sales
+                $getAllSales = "SELECT count(SId) AS totalSales FROM sales";
+                $allSales = $conn->query($getAllSales);
+                $sales = $allSales->fetch_assoc();
+                $currentSales = $sales['totalSales'];
+
+                // for counting number of orders
+                // $getAllOrders = "SELECT count(OId) AS totalOrders FROM orders";
+                // $allOrders = $conn->query($getAllOrders);
+                // $orders = $allOrders->fetch_assoc();
+                // $currentOrders = $orders['totalOrders'];
 
             ?>
                 <div class="p-2 bg-info-subtle col-3 rounded">
                     <div class="bg-dark text-light rounded p-3 py-5">
                         <h5 class = "text-center"><a href="#users" class = "text-decoration-none text-light">Current Users</a></h5>
-                        <h3 class = "text-center">5</h3>
+                        <h3 class = "text-center"><?php echo $currentUsers ?></h3>
                     </div>
                 </div>
 
@@ -145,28 +151,28 @@ else{
                 <div class="p-2 bg-info-subtle col-3 rounded">
                     <div class="bg-dark text-light rounded p-3 py-5">
                         <h5 class = "text-center"><a href="#laptops" class = "text-decoration-none text-light">Laptops</a></h5>
-                        <h3 class = "text-center">50</h3>
+                        <h3 class = "text-center"><?php echo $currentLaptops ?></h3>
                     </div>
                 </div>
 
                 <div class="p-2 bg-info-subtle col-3 rounded">
                     <div class="bg-dark text-light rounded p-3 py-5">
                         <h5 class = "text-center"><a href="#mobiles" class = "text-decoration-none text-light">Mobiles</a></h5>
-                        <h3 class = "text-center">100</h3>
+                        <h3 class = "text-center"><?php echo $currentMobiles ?></h3>
                     </div>
                 </div>
 
                 <div class="p-2 bg-info-subtle col-3 rounded">
                     <div class="bg-dark text-light rounded p-3 py-5">
                         <h5 class = "text-center"><a href="#smartWatches" class = "text-decoration-none text-light">Smart Watches</a></h5>
-                        <h3 class = "text-center">80</h3>
+                        <h3 class = "text-center"><?php echo $currentWatches ?></h3>
                     </div>
                 </div>
 
                 <div class="p-2 bg-info-subtle col-3 rounded">
                     <div class="bg-dark text-light rounded p-3 py-5">
                         <h5 class = "text-center"><a href="#sales" class = "text-decoration-none text-light">Sales</a></h5>
-                        <h3 class = "text-center">50</h3>
+                        <h3 class = "text-center"><?php echo $currentSales ?></h3>
                     </div>
                 </div>
 
@@ -189,7 +195,7 @@ else{
                                 <th rowspan = "3">SN</th>
                                 <th rowspan = "3">Name</th>
                                 <th colspan = "6">Products</th>
-                                <th rowspan = "3">Buying Date</th>
+                                <th rowspan = "3">Ordered Date</th>
                                 <th rowspan = "3">Total Price</th>
                             </tr>
 
