@@ -39,7 +39,8 @@ if(isset($_SESSION['adminUsername'])){
         <form action="adminLoginScript.php" method="post" class="p-3">
 
             <input type="text" class="form-control mt-3 textFont" placeholder="admin username" name="adminUsername" oninput = "clearError()">
-            <input type="password" class="form-control mt-3 textFont" placeholder="admin password" name="adminPassword" oninput = "clearError()">
+            <input type="password" class="form-control mt-3 textFont" placeholder="admin password" name="adminPassword" oninput = "clearError()" id="password">
+            <span class="d-flex mt-3" onclick = "showPassword();" style="cursor:pointer;"><input type="checkbox" class="form-check" id="checkboxInput"> Show Password</span>
             <?php
                 if (isset($_GET['loginfailed'])) {
                     $errorMessage = htmlspecialchars($_GET['loginfailed']);
@@ -62,5 +63,19 @@ function clearError() {
         errorMessage.textContent = '';
     }
 }
+
+function showPassword(){
+        let passwordInput = document.getElementById("password");
+        let checkbox = document.getElementById("checkboxInput");
+        
+        checkbox.checked = !checkbox.checked;
+
+        if(passwordInput.type == "password"){
+            passwordInput.type = "text";
+        }
+        else{
+            passwordInput.type = "password";
+        }
+    }
 </script>
 </html>
