@@ -96,6 +96,38 @@ else{
 
             <div class = "d-flex flex-wrap gap-3 justify-content-evenly container mt-5">
 
+            <?php
+            // for counting number of users 
+                $getAllusers = "SELECT count(uId) AS totalUsers FROM users";
+                $allUsers = $conn->query($totalusers);
+                $users = $allUsers->fetch_assoc();
+                $currentUsers = $users['totalUsers'];
+
+                // for counting number of users 
+                $getAllLaptops= "SELECT count(LId) AS totalLaptops FROM laptops";
+                $allLaptops = $conn->query($getAllLaptops);
+                $laptops = $allLaptops->fetch_assoc();
+                $currentLaptops = $laptops['totalLaptops'];
+
+                // for counting number of users 
+                $getAllusers = "SELECT count(uId) AS totalUsers FROM users";
+                $allUsers = $conn->query($totalusers);
+                $users = $allUsers->fetch_assoc();
+                $currentUsers = $users['totalUsers'];
+
+                // for counting number of users 
+                $getAllusers = "SELECT count(uId) AS totalUsers FROM users";
+                $allUsers = $conn->query($totalusers);
+                $users = $allUsers->fetch_assoc();
+                $currentUsers = $users['totalUsers'];
+
+                              // for counting number of users 
+                $getAllusers = "SELECT count(uId) AS totalUsers FROM users";
+                $allUsers = $conn->query($totalusers);
+                $users = $allUsers->fetch_assoc();
+                $currentUsers = $users['totalUsers'];
+
+            ?>
                 <div class="p-2 bg-info-subtle col-3 rounded">
                     <div class="bg-dark text-light rounded p-3 py-5">
                         <h5 class = "text-center"><a href="#users" class = "text-decoration-none text-light">Current Users</a></h5>
