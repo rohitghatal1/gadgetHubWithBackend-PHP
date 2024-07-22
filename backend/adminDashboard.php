@@ -56,6 +56,12 @@ else{
         background-color: #0A1828;
         border-radius: 0.6rem; 
     }
+    .addMoreBtn{
+        background-color: #161b40;
+        color: #fff;
+        border: 1px solid #fff;
+    }
+
     .table th, .table td {
       vertical-align: middle;
     }
@@ -76,6 +82,7 @@ else{
                 <span><a href="#orders" class="text-decoration-none text-light textFont fs-5">Orders</a></span>
                 <span><a href="#products" class="text-decoration-none text-light textFont fs-5">Products</a></span>
                 <span><a href="#users" class="text-decoration-none text-light textFont fs-5">Users</a></span>
+                <span><a href="#sales" class="text-decoration-none text-light textFont fs-5">Sales</a></span>
             </div>
             <?php echo $adminAvatar ?>
         </div>
@@ -137,7 +144,7 @@ else{
 
         <!-- orders section start here  -->
         <div class="py-3 vh-100 border-bottom border-light-subtle" id ="orders">
-            <div class = "container py-5 vh-100 border-bottom border-light-subtle">
+            <div class = "container py-5 vh-100">
                 <h2 class ="hFont text-center text-light fw-bold py-3">Orders</h2>
                 <hr class = "container text-light">
 
@@ -194,7 +201,7 @@ else{
         <!-- product section  -->
         <div class="py-5 border-bottom border-light-subtle" id = "products">
             <h2 class = "text-center text-light hFont py-5">Products</h2>
-            <hr class = "container text-light">
+            <!-- <hr class = "container text-light"> -->
 
             <!-- laptops section  -->
             <div class="py-2 container" id = "laptops">
@@ -204,7 +211,7 @@ else{
                 
                 <div class="d-flex justify-content-between mt-3 container">
                     <h4 class= "hFont text-light">Current Stock</h4>
-                    <button type="button" class="btn btn-info text-light" data-bs-toggle="modal" data-bs-target="#addLaptop"><i class="fas fa-plus"></i>
+                    <button type="button" class="btn addMoreBtn" data-bs-toggle="modal" data-bs-target="#addLaptop"><i class="fas fa-plus"></i>
                         Add more
                     </button>
                 </div>
@@ -305,7 +312,7 @@ else{
                 
                 <div class="d-flex justify-content-between mt-3 container">
                     <h4 class= "hFont text-light">Current Stock</h4>
-                    <button type="button" class="btn btn-info text-light" data-bs-toggle="modal" data-bs-target="#addMobile"><i class="fas fa-plus"></i>
+                    <button type="button" class="btn addMoreBtn" data-bs-toggle="modal" data-bs-target="#addMobile"><i class="fas fa-plus"></i>
                         Add more
                     </button>
                 </div>
@@ -406,7 +413,7 @@ else{
                 
                 <div class="d-flex justify-content-between mt-3 container">
                     <h4 class= "hFont text-light">Current Stock</h4>
-                    <button type="button" class="btn btn-info text-light" data-bs-toggle="modal" data-bs-target="#addSmartWatch"><i class="fas fa-plus"></i>
+                    <button type="button" class="btn addMoreBtn" data-bs-toggle="modal" data-bs-target="#addSmartWatch"><i class="fas fa-plus"></i>
                         Add more
                     </button>
                 </div>
@@ -453,6 +460,7 @@ else{
                                 <th>Brand</th>
                                 <th>Model</th>
                                 <th>Other Specifications</th>
+                                <th>Price</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -538,7 +546,7 @@ else{
         </div>
 
          <!-- sales section  -->
-         <div class="py-5" id = "sales">
+         <div class="py-5 vh-100 border-bottom border-light-subtle" id = "sales">
             <h2 class="text-center text-light py-5 hFont">Sales</h2>
             <hr class="text-light container">
 
@@ -548,37 +556,52 @@ else{
                 <table class="table table-bordered text-center">
                     <thead>
                         <tr class="text-font">
-                            <th>SN</th>
-                            <th></th>
-                            <th>Prducts</th>
-                            <th>Address</th>
-                            <th>Contact No.</th>
-                            <th>Email</th>
-                            <th>Username</th>
-                            <th>Action</th>
+                            <th rowspan = "3">SN</th>
+                            <th rowspan = "3">Date</th>
+                            <th colspan = "6">Products</th>
+                            <th rowspan = "3">Total</th>
+                        </tr>
+                        <tr>
+                            <th colspan = "2">Laptop</th>
+                            <th colspan = "2">Mobile</th>
+                            <th colspan = "2">Smart Watch</th>
+                        </tr>
+                        <tr>
+                            <th>Quantity</th>
+                            <th>Total Price</th>
+                            <th>Quantity</th>
+                            <th>Total Price</th>
+                            <th>Quantity</th>
+                            <th>Total Price</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php 
-                        $userData = "SELECT * FROM sales";
-                        $fetchedUserData = $conn->query($userData);
-                        $count = 1;
-                        if($fetchedUserData->num_rows>0){
-                            while($userInfo = $fetchedUserData->fetch_assoc()){
+                        $salesData = "SELECT * FROM sales";
+                        $fetchedSalesData = $conn->query($salesData);
+                        $Scount = 1;
+                        if($fetchedSalesData->num_rows>0){
+                            while($salesInfo = $fetchedsalesData->fetch_assoc()){
                                 ?>
                             <tr>
                                 <td><?php echo $count ?></td>
-                                <td><?php echo $userInfo['uId'] ?></td>
-                                <td><?php echo $userInfo['uName'] ?></td>
-                                <td><?php echo $userInfo['uAddress'] ?></td>
-                                <td><?php echo $userInfo['uContact'] ?></td>
-                                <td><?php echo $userInfo['uEmail'] ?></td>
-                                <td><?php echo $userInfo['username'] ?></td>
-                                <td><i class = "fas fa-trash text-danger"></i></td>
+                                <td><?php echo $salesInfo['Date'] ?></td>
+                                <td><?php echo $userInfo['laptopQty'] ?></td>
+                                <td><?php echo $userInfo['Lprice'] ?></td>
+                                <td><?php echo $userInfo['mobileQty'] ?></td>
+                                <td><?php echo $userInfo['Mprice'] ?></td>
+                                <td><?php echo $userInfo['watchQty'] ?></td>
+                                <td><?php echo $userInfo['Wprice'] ?></td>
+                                <td><?php echo $userInfo['totalPrice'] ?></td>
                             </tr>
                             <?php
                             $count++;
                             }
+                        }
+                        else{
+                            echo "<tr>";
+                            echo "<td colspan = '9'>No sales at the moment🥲!!!</td>";
+                            echo "</tr>";
                         }
                     ?>
                     </tbody>
