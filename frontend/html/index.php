@@ -42,6 +42,32 @@ if (isset($_SESSION['user'])) {
   href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap"
   rel="stylesheet">
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<!-- Demo styles -->
+<style>
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  } */
+</style>
+
 <body>
 
   <div class="loginModal" id="loginModal">
@@ -200,114 +226,47 @@ if (isset($_SESSION['user'])) {
     <div class="productsContainer container">
       <div class="mobleProducts px-2">
         <h2 class="pt-3">Mobiles</h2>
-        <div id="carouselMobileControls" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="col-md-4">
+          <!-- Swiper -->
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
                 <div class="card">
-                  <img src="/gadgetHubWithBackend/frontend/images/samsung.jpg" class="card-img-top" alt="Testimonial 1">
+                  <img src="/gadgetHubWithBackend/frontend/images/smartwatch.jpg" class="card-img-top" alt="Testimonial 1">
+                  <div class="card-body">
+                    <h5 class="card-title">Smart Watch 1</h5>
+                    <p class="card-text">Testimonial from customer 1.</p>
+                  </div>
+                  <div class="watchDetails">
+                    <h2>Honor</h2>
+                    <p>8GB RAM, 512GB Storage, 50MP rear Camera, 16MP Front Camera, 5000mAh Battery</p>
+                    <button class="addToCartBtn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+              <div class="card">
+                  <img src="/gadgetHubWithBackend/frontend/images/laptop1.jpg" class="card-img-top" alt="Testimonial 1">
                   <div class="card-body">
                     <h5 class="card-title">Samsung Mobile</h5>
-                    <p class="card-text">RS. 150000</p>
+                    <p class="card-text">Testimonial from customer 1.</p>
                   </div>
-
-                  <div class="mobileDetails">
-                    <h2>Samsung Galaxy S24</h2>
-                    <p>16GB RAM, 1TB Storage, 100MP Rear Camera, 30MP Front Camera, 6000mAh Battery</p>
-                    <button class="addToCartBtn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card">
-                  <img src="/gadgetHubWithBackend/frontend/images/honor.jpg" class="card-img-top" alt="Testimonial 2">
-                  <div class="card-body">
-                    <h5 class="card-title">Honor Mobile</h5>
-                    <p class="card-text">Testimonial from customer 2.</p>
-                  </div>
-                  <div class="mobileDetails">
+                  <div class="laptopDetails">
                     <h2>Honor</h2>
                     <p>8GB RAM, 512GB Storage, 50MP rear Camera, 16MP Front Camera, 5000mAh Battery</p>
                     <button class="addToCartBtn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
                   </div>
                 </div>
               </div>
-
-              <div class="col-md-4">
-                <div class="card">
-                  <img src="/gadgetHubWithBackend/frontend/images/poco.jpg" class="card-img-top" alt="Testimonial 3">
-                  <div class="card-body">
-                    <h5 class="card-title">Poco Mobile</h5>
-                    <p class="card-text">Testimonial from customer 3.</p>
-                  </div>
-                  <div class="mobileDetails">
-                    <h2>Poco</h2>
-                    <p>4GB RAM, 64GB Storage, 50MP rear Camera, 16MP Front Camera, 5000mAh Battery</p>
-                    <button class="addToCartBtn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                  </div>
-                </div>
-              </div>
+              <div class="swiper-slide">Slide 3</div>
+              <div class="swiper-slide">Slide 4</div>
+              <div class="swiper-slide">Slide 5</div>
+              <div class="swiper-slide">Slide 6</div>
+              <div class="swiper-slide">Slide 7</div>
+              <div class="swiper-slide">Slide 8</div>
+              <div class="swiper-slide">Slide 9</div>
             </div>
-
-            <div class="carousel-item">
-              <div class="col-md-4">
-                <div class="card">
-                  <img src="/gadgetHubWithBackend/frontend/images/iphone.webp" class="card-img-top" alt="Testimonial 4">
-                  <div class="card-body">
-                    <h5 class="card-title">Iphone</h5>
-                    <p class="card-text">Testimonial from customer 4.</p>
-                  </div>
-                  <div class="mobileDetails">
-                    <h2>Honor</h2>
-                    <p>8GB RAM, 512GB Storage, 50MP rear Camera, 16MP Front Camera, 5000mAh Battery</p>
-                    <button class="addToCartBtn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card">
-                  <img src="/gadgetHubWithBackend/frontend/images/samsung.jpg" class="card-img-top" alt="Testimonial 5">
-                  <div class="card-body">
-                    <h5 class="card-title">Samsung</h5>
-                    <p class="card-text">Testimonial from customer 5.</p>
-                  </div>
-                  <div class="mobileDetails">
-                    <h2>Honor</h2>
-                    <p>8GB RAM, 512GB Storage, 50MP rear Camera, 16MP Front Camera, 5000mAh Battery</p>
-                    <button class="addToCartBtn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card">
-                  <img src="/gadgetHubWithBackend/frontend/images/honor.jpg" class="card-img-top" alt="Testimonial 6">
-                  <div class="card-body">
-                    <h5 class="card-title">Honor</h5>
-                    <p class="card-text">Testimonial from customer 6.</p>
-                  </div>
-                  <div class="mobileDetails">
-                    <h2>Honor</h2>
-                    <p>8GB RAM, 512GB Storage, 50MP rear Camera, 16MP Front Camera, 5000mAh Battery</p>
-                    <button class="addToCartBtn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div class="swiper-pagination mt-3"></div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselMobileControls"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next text-black" type="button" data-bs-target="#carouselMobileControls"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
       </div>
 
       <div class="smartWatchProducts px-2 my-4">
@@ -732,4 +691,19 @@ if (isset($_SESSION['user'])) {
         }
     }
 </script>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- script for swiper  -->
+  <!-- Initialize Swiper -->
+   <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  </script>
 </html>
