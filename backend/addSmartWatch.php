@@ -3,7 +3,7 @@ require 'database/databaseConnection.php';
 
 if($_SERVER["REQUEST_METHOD"]== "POST"){
 
-    $target_folder = 'gadgetHubWithBackend/watchPhotos/';
+    $target_folder = '../watchPhotos/';
     $target_file = $target_folder . basename($_FILES["watchPhoto"]["name"]);
     move_uploaded_file($_FILES["watchPhoto"]["tmp_name"], $target_file);
 

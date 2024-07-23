@@ -1,5 +1,5 @@
 <?php
-require '../../backend/database/databaseConnection.php';
+require '../backend/database/databaseConnection.php';
 $userAvatar = '<div class="user me-3" onclick="openLoginModal()"><i class="fa-solid fa-user"></i></div>';
 session_start();
 if (isset($_SESSION['user'])) {
@@ -59,7 +59,7 @@ if (isset($_SESSION['user'])) {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 57%;
+    height: 90%;
   }
 
   .swiper-slide img {
@@ -67,6 +67,10 @@ if (isset($_SESSION['user'])) {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  .card{
+    height: 100%
   }
 </style>
 
@@ -174,7 +178,7 @@ if (isset($_SESSION['user'])) {
   <!-- ----------------------------------------------------Website banner section------------------------------------------------ -->
   <div class="banner">
     <div class="photo" style = "witdh: 100%; height:40rem">
-      <img src="../images/banner1.jpg" alt="" class="img-fluid" style="width:100%; height:100%">
+      <img src="images/banner1.jpg" alt="" class="img-fluid" style="width:100%; height:100%">
     </div>
     <div class="bannerDesc">
       <h2>The best place</h2>
@@ -229,7 +233,8 @@ if (isset($_SESSION['user'])) {
       <div class="mobleProducts px-2">
         <h2 class="pt-3">Mobiles</h2>
           <!-- Swiper -->
-            <div class="swiper mySwiper">
+            <div class="container">
+            <div class="swiper mySwiper" style = "height: 30rem">
               <div class="swiper-wrapper">
                 <?php 
                   $getMobles = "SELECT * FROM mobiles";
@@ -261,7 +266,8 @@ if (isset($_SESSION['user'])) {
                   }
                 ?>
             </div>
-            <div class="swiper-pagination mt-3"></div>
+            <div class="swiper-pagination" style="margin-top: -2rem"></div>
+            </div>
           </div>
       </div>
 
@@ -638,7 +644,7 @@ if (isset($_SESSION['user'])) {
 <!-- swiperjs CDN  -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 
-<script src="../js/script.js"></script>
+<script src="js/script.js"></script>
 <script src="/gadgetHubWithBackend/frontend/js/formValidation.js"></script>
 <script>
     document.addEventListener('click', function(event) {
@@ -690,7 +696,7 @@ if (isset($_SESSION['user'])) {
 
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<!-- script for swiper  -->
+  <!-- script for swiper  -->
   <!-- Initialize Swiper -->
    <script>
     var swiper = new Swiper(".mySwiper", {

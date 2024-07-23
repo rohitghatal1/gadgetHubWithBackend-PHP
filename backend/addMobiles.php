@@ -3,7 +3,9 @@ require 'database/databaseConnection.php';
 
 if($_SERVER["REQUEST_METHOD"]== "POST"){
 
-    $target_folder = 'gadgetHubWithBackend/mobilePhotos/';
+    // Combine them to get the target folder
+    $target_folder = '../mobilePhotos/';
+
     $target_file = $target_folder . basename($_FILES["mobilePhoto"]["name"]);
     move_uploaded_file($_FILES["mobilePhoto"]["tmp_name"], $target_file);
 
@@ -26,6 +28,6 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
     else {
         die("Error: " . $sql . "<br>" . $conn->error());
     }
-    $addLaptop->close();
+    $addMobile->close();
     $conn->close();
 }
