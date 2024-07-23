@@ -1,4 +1,5 @@
 <?php
+require '../../backend/database/databaseConnection.php';
 $userAvatar = '<div class="user me-3" onclick="openLoginModal()"><i class="fa-solid fa-user"></i></div>';
 session_start();
 if (isset($_SESSION['user'])) {
@@ -58,14 +59,15 @@ if (isset($_SESSION['user'])) {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 57%;
   }
 
-  /* .swiper-slide img {
+  .swiper-slide img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-  } */
+  }
 </style>
 
 <body>
@@ -227,43 +229,37 @@ if (isset($_SESSION['user'])) {
       <div class="mobleProducts px-2">
         <h2 class="pt-3">Mobiles</h2>
           <!-- Swiper -->
-          <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="card">
-                  <img src="/gadgetHubWithBackend/frontend/images/smartwatch.jpg" class="card-img-top" alt="Testimonial 1">
-                  <div class="card-body">
-                    <h5 class="card-title">Smart Watch 1</h5>
-                    <p class="card-text">Testimonial from customer 1.</p>
-                  </div>
-                  <div class="watchDetails">
-                    <h2>Honor</h2>
-                    <p>8GB RAM, 512GB Storage, 50MP rear Camera, 16MP Front Camera, 5000mAh Battery</p>
-                    <button class="addToCartBtn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-              <div class="card">
-                  <img src="/gadgetHubWithBackend/frontend/images/laptop1.jpg" class="card-img-top" alt="Testimonial 1">
-                  <div class="card-body">
-                    <h5 class="card-title">Samsung Mobile</h5>
-                    <p class="card-text">Testimonial from customer 1.</p>
-                  </div>
-                  <div class="laptopDetails">
-                    <h2>Honor</h2>
-                    <p>8GB RAM, 512GB Storage, 50MP rear Camera, 16MP Front Camera, 5000mAh Battery</p>
-                    <button class="addToCartBtn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">Slide 3</div>
-              <div class="swiper-slide">Slide 4</div>
-              <div class="swiper-slide">Slide 5</div>
-              <div class="swiper-slide">Slide 6</div>
-              <div class="swiper-slide">Slide 7</div>
-              <div class="swiper-slide">Slide 8</div>
-              <div class="swiper-slide">Slide 9</div>
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper">
+                <?php 
+                  $getMobles = "SELECT * FROM mobiles";
+                  $fetchedMobileData = $conn->query($getMobles);
+                  if($fetchedMobileData->num_rows>0){
+                    while($mobileInfo = $fetchedMobileData->fetch_assoc()){
+                      $mobileId = $mobileInfo['MId'];
+                      ?>
+                      <div class="swiper-slide">
+                        <div class="card">
+                          <img src="<?php echo $mobileInfo['photoPath']?>" class="card-img-top" alt="Testimonial 1">
+                          <div class="card-body">
+                            <h5 class="card-title"><?php echo $mobileInfo['brand']?></h5>
+                            <p class="card-text">Rs<?php echo $mobileInfo['Mprice']?></p>
+                          </div>
+                          <div class="watchDetails">
+                            <h2><?php echo $mobileInfo['brand']?></h2>
+                            <p><strong>Model:</strong> <span><?php echo $mobileInfo['model']?></span></p>
+                            <p><strong>Processor:</strong> <span><?php echo $mobileInfo['processor']?></span></p>
+                            <p><strong>RAM:</strong> <span><?php echo $mobileInfo['RAM']?></span></p>
+                            <p><strong>Storage:</strong> <span><?php echo $mobileInfo['storage']?></span></p>
+                            <p><strong>Price:</strong> <span><?php echo $mobileInfo['Mprice']?></span></p>
+                            <p><strong>Other Details:</strong> <span><?php echo $mobileInfo['otherSpecs']?></span></p>
+                            <button class="addToCartBtn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                          </div>
+                        </div>
+                      </div>
+                    <?php }
+                  }
+                ?>
             </div>
             <div class="swiper-pagination mt-3"></div>
           </div>
