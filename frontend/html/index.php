@@ -54,7 +54,8 @@ if (isset($_SESSION['user'])) {
       <input type="text" placeholder="Enter your usernane" name="uName" class="form-control">
 
       <label for="password" class="mt-2 form-label">Password</label>
-      <input type="password" placeholder="Enter your password" name="uPassword" class="form-control">
+      <input type="password" placeholder="Enter your password" name="uPassword" id="loginPassword" class="form-control">
+      <span class="d-flex mt-2" onclick = "showPassword1();" style="cursor:pointer;"><input type="checkbox" class="form-check" id="checkbox"> Show Password</span>
 
       <input type="submit" value="Login" class="loginBtn fw-bold">
       <p class="mt-2">Don't have an account <span class="text-primary text-decoration-underline" onclick="openSignupModal()">Create account here.</span></p>
@@ -67,39 +68,34 @@ if (isset($_SESSION['user'])) {
         <span class="fs-3 closeSignupModal" onclick="closeSignupModal();">&times;</span>
     </div>
     <form id="registerform" action="../../backend/userRegistration.php" method="post">
-        <label class="mt-2 form-label">Full Name</label>
+        <label class="mt-1 form-label">Full Name</label>
         <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name">
         <div id="nameError" class="error-message"></div>
 
-        <label class="mt-2 form-label">Address</label>
+        <label class="mt-1 form-label">Address</label>
         <input type="text" id="address" name="address" class="form-control" placeholder="Enter your address">
         <div id="addressError" class="error-message"></div>
 
-        <label class="mt-2 form-label">Contact No.</label>
+        <label class="mt-1 form-label">Contact No.</label>
         <input type="text" id="contact" name="contact" class="form-control" placeholder="Enter your contact number">
         <div id="contactError" class="error-message"></div>
 
-        <label class="mt-2 form-label">Email</label>
+        <label class="mt-1 form-label">Email</label>
         <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email">
         <div id="emailError" class="error-message"></div>
 
-        <label class="mt-2 form-label">Username</label>
+        <label class="mt-1 form-label">Username</label>
         <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username">
         <div id="usernameError" class="error-message"></div>
 
-        <label class="mt-2 form-label">Password</label>
+        <label class="mt-1 form-label">Password</label>
         <input type="password" id="password" name="password" class="form-control" placeholder="Create a new password">
+        <span class="d-flex mt-2" onclick = "showPassword();" style="cursor:pointer;"><input type="checkbox" class="form-check" id="checkboxInput"> Show Password</span>
         <div id="passwordError" class="error-message"></div>
 
-        <label class="mt-2 form-label">Confirm Password</label>
+        <label class="mt-1 form-label">Confirm Password</label>
         <input type="password" id="cPassword" class="form-control" placeholder="Re-type the password">
         <div id="cPasswordError" class="error-message"></div>
-
-        <div class="form-check mt-2">
-            <input type="checkbox" class="form-check-input" id="showPasswordCheckbox" onclick="togglePassword();">
-            <label class="form-check-label" for="showPasswordCheckbox">Show Password</label>
-        </div>
-        <span id="showPasswordBtn" onclick="togglePassword();" class="text-decoration-underline d-block" style="cursor: pointer;">Toggle Password Visibility</span>
 
         <input type="submit" value="Submit" class="submitbtn fw-bold">
         <p class="mt-2">Already have an account? <span class="text-primary text-decoration-underline" onclick="openLoginModal()">Login here.</span></p>
@@ -690,24 +686,50 @@ if (isset($_SESSION['user'])) {
 <script src="../js/script.js"></script>
 <script src="/gadgetHubWithBackend/frontend/js/formValidation.js"></script>
 <script>
-  document.addEventListener('click', function(event) {
-    var dropdownContent = document.getElementById("droppedDownContent");
-    var userDropdown = document.querySelector('.userDropdown');
-    
-    if (dropdownContent && !userDropdown.contains(event.target)) {
-        dropdownContent.style.display = "none";
-    }
-});
+    document.addEventListener('click', function(event) {
+        var dropdownContent = document.getElementById("droppedDownContent");
+        var userDropdown = document.querySelector('.userDropdown');
+        
+        if (dropdownContent && !userDropdown.contains(event.target)) {
+            dropdownContent.style.display = "none";
+        }
+    });
 
-function toggleDropdown(event) {
-    event.stopPropagation(); // Prevent the document click listener from immediately hiding the dropdown
-    var dropdownContent = document.getElementById("droppedDownContent");
-    if (dropdownContent.style.display === "block") {
-      console.log('button clicked');
-      dropdownContent.style.display = "none";
-    } else {
-        dropdownContent.style.display = "block";
+  function toggleDropdown(event) {
+      event.stopPropagation(); // Prevent the document click listener from immediately hiding the dropdown
+      var dropdownContent = document.getElementById("droppedDownContent");
+      if (dropdownContent.style.display === "block") {
+        console.log('button clicked');
+        dropdownContent.style.display = "none";
+      } else {
+          dropdownContent.style.display = "block";
+        }
+  }
+  function showPassword(){
+        let passwordInput = document.getElementById("password");
+        let checkbox = document.getElementById("checkboxInput");
+        
+        checkbox.checked = !checkbox.checked;
+
+        if(passwordInput.type == "password"){
+            passwordInput.type = "text";
+        }
+        else{
+            passwordInput.type = "password";
+        }
     }
-}
+  function showPassword1(){
+        let passwordInput = document.getElementById("loginPassword");
+        let checkbox = document.getElementById("checkbox");
+        
+        checkbox.checked = !checkbox.checked;
+
+        if(passwordInput.type == "password"){
+            passwordInput.type = "text";
+        }
+        else{
+            passwordInput.type = "password";
+        }
+    }
 </script>
 </html>

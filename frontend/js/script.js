@@ -38,10 +38,6 @@ function togglePassword() {
     }
 }
 
-
-
-
-
 const products = document.getElementById("products");
 const allProducts = ["Laptops", "Mobile Phones", "Smart Watches"];
 let arrayIndex = 0;
