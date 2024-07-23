@@ -234,14 +234,14 @@ if (isset($_SESSION['user'])) {
         <h2 class="pt-3">Mobiles</h2>
           <!-- Swiper -->
             <div class="container">
-            <div class="swiper mySwiper" style = "height: 35rem">
-              <div class="swiper-wrapper">
+              <div class="swiper mySwiper" style = "height: 35rem">
+                <div class="swiper-wrapper">
 
                 <!-- to display all mobies  -->
-                <?php require 'php/mobileCards.php'?>
+                  <?php require 'php/mobileCards.php'?>
                 
-            </div>
-            <div class="swiper-pagination" style="margin-top: -2rem"></div>
+                </div>
+              <div class="swiper-pagination" style="margin-top: -2rem"></div>
             </div>
           </div>
       </div>
@@ -359,112 +359,18 @@ if (isset($_SESSION['user'])) {
 
       <div class="laptopProducts px-2 my-4">
         <h2 class="pt-3">Laptops</h2>
-        <div id="carouselLaptopControls" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="col-md-4">
-                <div class="card">
-                  <img src="/gadgetHubWithBackend/frontend/images/laptop1.jpg" class="card-img-top" alt="Testimonial 1">
-                  <div class="card-body">
-                    <h5 class="card-title">Samsung Mobile</h5>
-                    <p class="card-text">Testimonial from customer 1.</p>
-                  </div>
-                  <div class="laptopDetails">
-                    <h2>Honor</h2>
-                    <p>8GB RAM, 512GB Storage, 50MP rear Camera, 16MP Front Camera, 5000mAh Battery</p>
-                    <button class="addToCartBtn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                  </div>
-                </div>
-              </div>
+                  <!-- Swiper -->
+            <div class="container">
+              <div class="swiper mySwiper" style = "height: 35rem">
+                <div class="swiper-wrapper">
 
-              <div class="col-md-4">
-                <div class="card">
-                  <img src="/gadgetHubWithBackend/frontend/images/laptop2.jpg" class="card-img-top" alt="Testimonial 2">
-                  <div class="card-body">
-                    <h5 class="card-title">Honor Mobile</h5>
-                    <p class="card-text">Testimonial from customer 2.</p>
-                  </div>
-                  <div class="laptopDetails">
-                    <h2>Honor</h2>
-                    <p>8GB RAM, 512GB Storage, 50MP rear Camera, 16MP Front Camera, 5000mAh Battery</p>
-                    <button class="addToCartBtn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                  </div>
+                <!-- to display all mobies  -->
+                  <?php require 'php/laptopCards.php'?>
+                
                 </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card">
-                  <img src="/gadgetHubWithBackend/frontend/images/laptop3.jpg" class="card-img-top" alt="Testimonial 3">
-                  <div class="card-body">
-                    <h5 class="card-title">Poco Mobile</h5>
-                    <p class="card-text">Testimonial from customer 3.</p>
-                  </div>
-                  <div class="laptopDetails">
-                    <h2>Honor</h2>
-                    <p>8GB RAM, 512GB Storage, 50MP rear Camera, 16MP Front Camera, 5000mAh Battery</p>
-                    <button class="addToCartBtn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                  </div>
-                </div>
-              </div>
+              <div class="swiper-pagination"></div>
             </div>
 
-            <div class="carousel-item">
-              <div class="col-md-4">
-                <div class="card">
-                  <img src="/gadgetHubWithBackend/frontend/images/laptop4.jpg" class="card-img-top" alt="Testimonial 4">
-                  <div class="card-body">
-                    <h5 class="card-title">Iphone</h5>
-                    <p class="card-text">Testimonial from customer 4.</p>
-                  </div>
-                  <div class="laptopDetails">
-                    <h2>Honor</h2>
-                    <p>8GB RAM, 512GB Storage, 50MP rear Camera, 16MP Front Camera, 5000mAh Battery</p>
-                    <button class="addToCartBtn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card">
-                  <img src="/gadgetHubWithBackend/frontend/images/laptop2.jpg" class="card-img-top" alt="Testimonial 5">
-                  <div class="card-body">
-                    <h5 class="card-title">Samsung</h5>
-                    <p class="card-text">Testimonial from customer 5.</p>
-                  </div>
-                  <div class="laptopDetails">
-                    <h2>Honor</h2>
-                    <p>8GB RAM, 512GB Storage, 50MP rear Camera, 16MP Front Camera, 5000mAh Battery</p>
-                    <button class="addToCartBtn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card">
-                  <img src="/gadgetHubWithBackend/frontend/images/laptop1.jpg" class="card-img-top" alt="Testimonial 6">
-                  <div class="card-body">
-                    <h5 class="card-title">Honor</h5>
-                    <p class="card-text">Testimonial from customer 6.</p>
-                  </div>
-                  <div class="laptopDetails">
-                    <h2>Honor</h2>
-                    <p>8GB RAM, 512GB Storage, 50MP rear Camera, 16MP Front Camera, 5000mAh Battery</p>
-                    <button class="addToCartBtn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselLaptopControls"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselLaptopControls"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
         </div>
       </div>
     </div>
