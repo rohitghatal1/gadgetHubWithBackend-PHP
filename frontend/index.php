@@ -148,8 +148,8 @@ if (isset($_SESSION['user'])) {
   <!-- login and signup modal end here  -->
 
   <!-- mycartSection -->
-   <div class="myCartModal p-2" id="myMcart" style="display:none; position:absolute; top: 0rem; right:0; width:60rem; z-index:11; background-color: #c4dfe6">
-    <div class="container d-flex justify-content-between align-items-center bg-dark text-light">
+   <div class="myCartModal rounded" id="myCart" style="display:none; position:absolute; top: 0; right:6rem; width:60rem; z-index:11; background-color: #c4dfe6">
+    <div class="container p-2 d-flex justify-content-between align-items-center bg-dark text-light">
       <h2 class="hFont text-center p-1">My Cart ~ <?php echo "Rohit Ghatal";?></h2>
       <span style="font-size:2rem; cursor:pointer;" onclick="closeMyCart()">&times;</span>
     </div>
@@ -195,7 +195,7 @@ if (isset($_SESSION['user'])) {
         <span class="me-3"><i class="fa fa-phone"></i> 9856435452</span>
         <div class="cartAndLogin d-flex me-2">
           <?php echo $userAvatar ?>
-          <div class="cartAndQuantity" conlick="">
+          <div class="cartAndQuantity" onclick="openMyCart();">
             <div class="cart"><i class="fas fa-shopping-cart"></i></div>
             <span class="quantity d-flex justify-content-center align-items-center"><label class="mt-1" style="font-size:15px;">0</label></span>
           </div>
@@ -474,59 +474,68 @@ if (isset($_SESSION['user'])) {
 
 <script src="js/script.js"></script>
 <script src="/gadgetHubWithBackend/frontend/js/formValidation.js"></script>
-<script>
-    document.addEventListener('click', function(event) {
-        var dropdownContent = document.getElementById("droppedDownContent");
-        var userDropdown = document.querySelector('.userDropdown');
-        
-        if (dropdownContent && !userDropdown.contains(event.target)) {
+  <script>
+      // script to open and close my cart modal 
+    let myCart = document.getElementById("myCart");
+    function openMyCart(){
+        myCart.style.display = "block";
+    }
+
+    function closeMyCart(){
+        myCart.style.display = "none";
+    }
+        document.addEventListener('click', function(event) {
+            var dropdownContent = document.getElementById("droppedDownContent");
+            var userDropdown = document.querySelector('.userDropdown');
+            
+            if (dropdownContent && !userDropdown.contains(event.target)) {
+                dropdownContent.style.display = "none";
+            }
+        });
+
+      function toggleDropdown(event) {
+          event.stopPropagation(); // Prevent the document click listener from immediately hiding the dropdown
+          var dropdownContent = document.getElementById("droppedDownContent");
+          if (dropdownContent.style.display === "block") {
+            console.log('button clicked');
             dropdownContent.style.display = "none";
-        }
-    });
+          } else {
+              dropdownContent.style.display = "block";
+            }
+      }
+      function showPassword(){
+            let passwordInput = document.getElementById("password");
+            let checkbox = document.getElementById("checkboxInput");
+            
+            checkbox.checked = !checkbox.checked;
 
-  function toggleDropdown(event) {
-      event.stopPropagation(); // Prevent the document click listener from immediately hiding the dropdown
-      var dropdownContent = document.getElementById("droppedDownContent");
-      if (dropdownContent.style.display === "block") {
-        console.log('button clicked');
-        dropdownContent.style.display = "none";
-      } else {
-          dropdownContent.style.display = "block";
+            if(passwordInput.type == "password"){
+                passwordInput.type = "text";
+            }
+            else{
+                passwordInput.type = "password";
+            }
         }
-  }
-  function showPassword(){
-        let passwordInput = document.getElementById("password");
-        let checkbox = document.getElementById("checkboxInput");
-        
-        checkbox.checked = !checkbox.checked;
+      function showPassword1(){
+            let passwordInput = document.getElementById("loginPassword");
+            let checkbox = document.getElementById("checkbox");
+            
+            checkbox.checked = !checkbox.checked;
 
-        if(passwordInput.type == "password"){
-            passwordInput.type = "text";
-        }
-        else{
-            passwordInput.type = "password";
-        }
-    }
-  function showPassword1(){
-        let passwordInput = document.getElementById("loginPassword");
-        let checkbox = document.getElementById("checkbox");
-        
-        checkbox.checked = !checkbox.checked;
-
-        if(passwordInput.type == "password"){
-            passwordInput.type = "text";
-        }
-        else{
-            passwordInput.type = "password";
-        }
-    }
-</script>
+            if(passwordInput.type == "password"){
+                passwordInput.type = "text";
+            }
+            else{
+                passwordInput.type = "password";
+            }
+      }
+  </script>
 
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <!-- script for swiper  -->
   <!-- Initialize Swiper -->
-   <script>
+  <script>
     var swiper = new Swiper(".mySwiper", {
       slidesPerView: 3,
       spaceBetween: 30,
