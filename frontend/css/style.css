@@ -130,7 +130,6 @@ body::-webkit-scrollbar-thumb {
     right: -10px;
     width: 1rem;
     height: 1rem;
-    text-align: center;
     background-color: #E7EBE0FF;
     color: black;
     border-radius: 50%;

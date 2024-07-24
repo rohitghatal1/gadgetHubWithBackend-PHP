@@ -28,9 +28,8 @@ if (isset($_SESSION['user'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GadjetHub</title>
-</head>
 
-<link rel="stylesheet" href="/gadgetHubWithBackend/frontend/css/style.css">
+  <link rel="stylesheet" href="/gadgetHubWithBackend/frontend/css/style.css">
 <link rel="icon" href="/gadgetHubWithBackend/frontend/logos/favicon1.png">
 <!-- bootstrap css  -->
 <link href="/gadgetHubWithBackend/frontend/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -71,10 +70,23 @@ if (isset($_SESSION['user'])) {
   .card{
     height: 100%
   }
+
+  .table th, .table td {
+      vertical-align: middle;
+      text-align:center;
+    }
+    .table th{
+        background-color: black;
+        color: white;
+        padding: 0.5rem
+    }
 </style>
+
+</head>
 
 <body>
 
+  <!-- login and signup modals  -->
   <div class="loginModal" id="loginModal">
     <div class="d-flex justify-content-between align-items-center">
       <h3><i class="fas fa-user"></i> User Login</h3>
@@ -93,7 +105,7 @@ if (isset($_SESSION['user'])) {
     </form>
   </div>
 
-  <div class="signupModal" id="signupModal">
+<div class="signupModal" id="signupModal">
     <div class="d-flex justify-content-between align-items-center">
         <h3><i class="fa-solid fa-user-pen"></i> Create an account</h3>
         <span class="fs-3 closeSignupModal" onclick="closeSignupModal();">&times;</span>
@@ -133,8 +145,40 @@ if (isset($_SESSION['user'])) {
         <div id="generalError" class="error-message"></div>
     </form>
 </div>
+  <!-- login and signup modal end here  -->
 
-
+  <!-- mycartSection -->
+   <div class="myCartModal p-2" id="myMcart" style="display:none; position:absolute; top: 0rem; right:0; width:60rem; z-index:11; background-color: #c4dfe6">
+    <div class="container d-flex justify-content-between align-items-center bg-dark text-light">
+      <h2 class="hFont text-center p-1">My Cart ~ <?php echo "Rohit Ghatal";?></h2>
+      <span style="font-size:2rem; cursor:pointer;" onclick="closeMyCart()">&times;</span>
+    </div>
+    <h4 class="textFont p-1 container">Items Added to cart</h4>
+    <div class="itemsTable container">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>SN</th>
+            <th>Items</th>
+            <th>Photo</th>
+            <th>Price</th>
+            <th>Date</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Laptop</td>
+            <td><img src="images/asus.jpg" alt="" style="width:80%; height:8rem"></td>
+            <td>50000</td>
+            <td>2081/05/04</td>
+            <td><a href="removeFromcart.php" class="text-decoration-none p-1 bg-danger text-light fw-bold rounded"><i class="fas fa-trash"></i> Remove</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   </div>
   
   <!-- ----------------------------------------------------Navbar  section--------------------------------------------- -->
   <header id="start">
@@ -151,9 +195,9 @@ if (isset($_SESSION['user'])) {
         <span class="me-3"><i class="fa fa-phone"></i> 9856435452</span>
         <div class="cartAndLogin d-flex me-2">
           <?php echo $userAvatar ?>
-          <div class="cartAndQuantity">
+          <div class="cartAndQuantity" conlick="">
             <div class="cart"><i class="fas fa-shopping-cart"></i></div>
-            <span class="quantity"><sup>5</sup></span>
+            <span class="quantity d-flex justify-content-center align-items-center"><label class="mt-1" style="font-size:15px;">0</label></span>
           </div>
         </div>
       </div>
