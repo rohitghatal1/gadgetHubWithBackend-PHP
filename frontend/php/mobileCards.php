@@ -20,7 +20,7 @@
                             <p><strong>Storage:</strong> <span><?php echo $mobileInfo['storage']?></span></p>
                             <p><strong>Price:</strong> <span><?php echo $mobileInfo['Mprice']?></span></p>
                             <p><strong>Other Details:</strong> <span><?php echo $mobileInfo['otherSpecs']?></span></p>
-                            <button class="addToCartBtn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                            <button class="addToCartBtn" onclick='handleAddToCart(<?php echo json_encode($mobileId); ?>)'><i class="fas fa-shopping-cart"></i> Add to Cart</button>
                           </div>
                         </div>
                       </div>

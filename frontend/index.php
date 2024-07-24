@@ -92,7 +92,7 @@ if (isset($_SESSION['user'])) {
       <h3><i class="fas fa-user"></i> User Login</h3>
       <span class="fs-3 closeLoginModal" onclick="closeLoginModal();">&times;</span>
     </div>
-    <form method="post" action="../../backend/userLogin.php">
+    <form method="post" action="../backend/userLogin.php">
       <label for="usernane" class="mt-2 form-label">Username</label>
       <input type="text" placeholder="Enter your usernane" name="uName" class="form-control">
 
@@ -545,4 +545,31 @@ if (isset($_SESSION['user'])) {
       },
     });
   </script>
+
+  <!-- for checking user login on add to cart  -->
+  <script>
+        function handleAddToCart(mobileId) {
+            <?php if (isset($_SESSION['user'])) {?>
+                try {
+                    let userId = <?php echo $_SESSION['userId']; ?>;
+                    if (!userId) {
+                        throw new Error('User ID not found in session.');
+                    }
+                    console.log(userId);
+                    console.log(mobileId);
+                    let xhr = new XMLHttpRequest();
+                    xhr.open("POST", "php/addToCart.php", true);
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xhr.send("userId=" + encodeURIComponent(userId) + "&mobileId=" + encodeURIComponent(mobileId));
+
+                } catch (error) {
+                    console.error('Error handling booking:', error.message);
+                    alert('An error occurred while processing your booking. Please try again later.');
+                }
+            <?php } else {?>
+                alert('Please login first!');
+                document.getElementById("loginModal").style.display = "block";
+            <?php }?>
+        }
+    </script>
 </html>
