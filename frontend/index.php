@@ -66,7 +66,6 @@ if (isset($_SESSION['user'])) {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
   }
 
   .card{
@@ -234,7 +233,7 @@ if (isset($_SESSION['user'])) {
         <h2 class="pt-3">Mobiles</h2>
           <!-- Swiper -->
             <div class="container">
-              <div class="swiper mySwiper" style = "height: 35rem">
+              <div class="swiper mySwiper" style = "height: 32rem">
                 <div class="swiper-wrapper">
 
                 <!-- to display all mobies  -->
@@ -248,120 +247,24 @@ if (isset($_SESSION['user'])) {
 
       <div class="smartWatchProducts px-2 my-4">
         <h2 class="pt-3">Smart Watches</h2>
-        <div id="carouselSmartWatchControls" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="col-md-4">
-                <div class="card">
-                  <img src="/gadgetHubWithBackend/frontend/images/smartwatch.jpg" class="card-img-top" alt="Testimonial 1">
-                  <div class="card-body">
-                    <h5 class="card-title">Smart Watch 1</h5>
-                    <p class="card-text">Testimonial from customer 1.</p>
-                  </div>
-                  <div class="watchDetails">
-                    <h2>Honor</h2>
-                    <p>8GB RAM, 512GB Storage, 50MP rear Camera, 16MP Front Camera, 5000mAh Battery</p>
-                    <button class="addToCartBtn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                  </div>
-                </div>
-              </div>
+                     <!-- Swiper -->
+            <div class="container">
+              <div class="swiper mySwiper" style = "height: 32rem">
+                <div class="swiper-wrapper">
 
-              <div class="col-md-4">
-                <div class="card">
-                  <img src="/gadgetHubWithBackend/frontend/images/smartwatch1.webp" class="card-img-top" alt="Testimonial 2">
-                  <div class="card-body">
-                    <h5 class="card-title">Smart Watch 2</h5>
-                    <p class="card-text">Testimonial from customer 2.</p>
-                  </div>
-                  <div class="watchDetails">
-                    <h2>Honor</h2>
-                    <p>8GB RAM, 512GB Storage, 50MP rear Camera, 16MP Front Camera, 5000mAh Battery</p>
-                    <button class="addToCartBtn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                  </div>
+                <!-- to display all mobies  -->
+                  <?php require 'php/watchCards.php'?>
+                
                 </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card">
-                  <img src="/gadgetHubWithBackend/frontend/images/smartwatch2.jpg" class="card-img-top" alt="Testimonial 3">
-                  <div class="card-body">
-                    <h5 class="card-title">Smart Watch 3</h5>
-                    <p class="card-text">Testimonial from customer 3.</p>
-                  </div>
-                  <div class="watchDetails">
-                    <h2>Honor</h2>
-                    <p>8GB RAM, 512GB Storage, 50MP rear Camera, 16MP Front Camera, 5000mAh Battery</p>
-                    <button class="addToCartBtn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                  </div>
-                </div>
-              </div>
+              <div class="swiper-pagination"></div>
             </div>
-
-            <div class="carousel-item">
-              <div class="col-md-4">
-                <div class="card">
-                  <img src="/gadgetHubWithBackend/frontend/images/smartwatch3.jpg" class="card-img-top" alt="Testimonial 4">
-                  <div class="card-body">
-                    <h5 class="card-title">Smart Watch 4</h5>
-                    <p class="card-text">Testimonial from customer 4.</p>
-                  </div>
-                  <div class="watchDetails">
-                    <h2>Honor</h2>
-                    <p>8GB RAM, 512GB Storage, 50MP rear Camera, 16MP Front Camera, 5000mAh Battery</p>
-                    <button class="addToCartBtn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card">
-                  <img src="/gadgetHubWithBackend/frontend/images/smartwatch5.jpg" class="card-img-top" alt="Testimonial 5">
-                  <div class="card-body">
-                    <h5 class="card-title">Smart Watch 5</h5>
-                    <p class="card-text">Testimonial from customer 5.</p>
-                  </div>
-                  <div class="watchDetails">
-                    <h2>Honor</h2>
-                    <p>8GB RAM, 512GB Storage, 50MP rear Camera, 16MP Front Camera, 5000mAh Battery</p>
-                    <button class="addToCartBtn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card">
-                  <img src="/gadgetHubWithBackend/frontend/images/smartwatch6.jpg" class="card-img-top" alt="Testimonial 6">
-                  <div class="card-body">
-                    <h5 class="card-title">Smart Watch 6</h5>
-                    <p class="card-text">Testimonial from customer 6.</p>
-                  </div>
-                  <div class="watchDetails">
-                    <h2>Honor</h2>
-                    <p>8GB RAM, 512GB Storage, 50MP rear Camera, 16MP Front Camera, 5000mAh Battery</p>
-                    <button class="addToCartBtn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselSmartWatchControls"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselSmartWatchControls"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
       </div>
 
       <div class="laptopProducts px-2 my-4">
         <h2 class="pt-3">Laptops</h2>
                   <!-- Swiper -->
             <div class="container">
-              <div class="swiper mySwiper" style = "height: 35rem">
+              <div class="swiper mySwiper" style = "height: 32rem">
                 <div class="swiper-wrapper">
 
                 <!-- to display all mobies  -->
