@@ -21,9 +21,8 @@ if (isset($_GET['itemId'])) {
 
         // Execute the statement
         if ($stmt->execute()) {
-            // Redirect or show a success message
-            header('Location: cart.php'); // Redirect to a page showing the updated cart
-            exit();
+            echo "<script>alert('Item removed form cart successfully')</script>";
+            echo "<script>window.location.href = '../index.php'</script>";
         } else {
             // Handle error
             echo "Error removing item from cart.";

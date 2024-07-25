@@ -1,25 +1,4 @@
-<?php
-require '../backend/database/databaseConnection.php';
-$userAvatar = '<div class="user me-3" onclick="openLoginModal()"><i class="fa-solid fa-user"></i></div>';
-session_start();
-if (isset($_SESSION['user'])) {
-    $username = $_SESSION['user'];
-    $uid = $_SESSION['userId'];
-    $firstLetterAvatar = strtoupper(substr($username, 0, 1));
-    $userAvatar = <<<dropdown
-            <div class="userDropdown position-relative">
-                <div class="avatar mb-1 bg-danger p-1 px-2 me-3 text-center rounded-circle" onclick="toggleDropdown(event);">$firstLetterAvatar</div>
-
-                <div class="dropdown-container bg-dark p-3 px-5 me-2 rounded z-3" id="droppedDownContent" style="position:absolute; right:5px; display:none">
-                    <h3 class="heading-font text-center">$firstLetterAvatar</h3>
-                    <p class="text-font">$username</p>
-                    <p class="text-font myBooking text-center"><a href="userPage.php?userId={$uid}" class="text-decoration-none">My cart</a></p>
-                    <a id = "logout"href="../backend/logout.php" class="text-font text-center ms-3 text-decoration-none">Log out</a>
-                </div>
-            </div>
-        dropdown;
-}
-?>
+<?php require 'php/userSession.php' ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -151,67 +130,90 @@ if (isset($_SESSION['user'])) {
 </div>
   <!-- login and signup modal end here  -->
 
-  <!-- mycartSection -->
-  <?php 
-  if(isset($_SESSION['user'])){
+  <?php
+// Include the database connection file
+require '../backend/database/databaseConnection.php';
+
+// Initialize cart items count
+$allCartItems = 0;
+
+// Check if the user is logged in
+if (isset($_SESSION['user'])) {
     $personId = $_SESSION["userId"];
-    $getCartItems = "SELECT count(id) AS totalCartItems FROM cart WHERE userId = $personId";
-    $cartItems = $conn->query($getCartItems);
-    $cartItem = $cartItems->fetch_assoc();
+
+    // Fetch the count of items in the cart
+    $getCartItems = "SELECT COUNT(id) AS totalCartItems FROM cart WHERE userId = ?";
+    $stmt = $conn->prepare($getCartItems);
+    $stmt->bind_param("i", $personId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $cartItem = $result->fetch_assoc();
     $allCartItems = $cartItem['totalCartItems'];
-  }
-  else{
-    $allCartItems = 0;
-  }
-  ?>
-   <div class="myCartModal rounded" id="myCart" style="display:none; position:fixed; top: 0; right:6rem; width:60rem; z-index:11; background-color: #c4dfe6;">
+    $stmt->close();
+}
+?>
+
+<!-- My Cart Modal -->
+<div class="myCartModal rounded" id="myCart" style="display:none; position:fixed; top: 0; right:6rem; width:60rem; z-index:11; background-color: #c4dfe6;">
     <div class="container p-2 d-flex justify-content-between align-items-center bg-dark text-light">
-      <h2 class="hFont text-center p-1">My Cart ~ <?php echo "Rohit Ghatal";?></h2>
-      <span style="font-size:2rem; cursor:pointer;" onclick="closeMyCart()">&times;</span>
+        <h2 class="hFont text-center p-1">My Cart ~ <?php echo "Rohit Ghatal"; ?></h2>
+        <span style="font-size:2rem; cursor:pointer;" onclick="closeMyCart()">&times;</span>
     </div>
-    <h4 class="textFont p-1 container">Items Added to cart</h4>
+    <h4 class="textFont p-1 container">Items Added to Cart</h4>
     <div class="itemsTable container" style="max-height: 80vh; overflow-y: auto;">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>SN</th>
-            <th>Items</th>
-            <th>Model</th>
-            <th>Photo</th>
-            <th>Price</th>
-            <th>Remove</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php 
-          if(isset($_SESSION['user'])){
-            $getCartDetails = "SELECT * FROM cart WHERE userId = $personId";
-            $fetechedCartData = $conn->query($getCartDetails);
-            $cartItemsCount = 1;
-            if($fetechedCartData->num_rows>0){
-              while($cartData = $fetechedCartData->fetch_assoc()){
-                $itemId = $fetechedCartData['itemId']; ?>
+        <table class="table table-bordered">
+            <thead>
                 <tr>
-                  <td><?php echo $cartItemsCount ?></td>
-                  <td><?php echo $cartData['itemBrand']?></td>
-                  <td><?php echo $cartData['itemModel']?></td>
-                  <td><img src="<?php echo $cartData['itemPhoto']?>" alt="" style="width:80%; height:8rem"></td>
-                  <td><?php echo $cartData['itemPrice']?></td>
-                  <td><a href="php/removeFromCart.php?itemId=<?php echo $itemId ?>&personId=<?php echo $personId ?>" class="text-decoration-none p-1 bg-danger text-light fw-bold rounded"><i class="fas fa-trash"></i> Remove</a></td>
+                    <th>SN</th>
+                    <th>Items</th>
+                    <th>Model</th>
+                    <th>Photo</th>
+                    <th>Price</th>
+                    <th>Remove</th>
                 </tr>
-             <?php $cartItemsCount++; }
-            }
-          }
-          else{
-            echo "<tr>";
-            echo "<td colspan = '6'>No items added to cart</td>";
-            echo "</tr>";
-          }
-          ?>
-        </tbody>
-      </table>
+            </thead>
+            <tbody>
+                <?php
+                if (isset($_SESSION['user'])) {
+                    // Fetch cart details
+                    $getCartDetails = "SELECT * FROM cart WHERE userId = ?";
+                    $stmt = $conn->prepare($getCartDetails);
+                    $stmt->bind_param("i", $personId);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+
+                    // Check if there are items in the cart
+                    if ($result->num_rows > 0) {
+                        $cartItemsCount = 1;
+                        while ($cartData = $result->fetch_assoc()) {
+                            $itemId = $cartData['itemId']; ?>
+                            <tr>
+                                <td><?php echo $cartItemsCount; ?></td>
+                                <td><?php echo htmlspecialchars($cartData['itemBrand']); ?></td>
+                                <td><?php echo htmlspecialchars($cartData['itemModel']); ?></td>
+                                <td><img src="<?php echo htmlspecialchars($cartData['itemPhoto']); ?>" alt="" style="width:80%; height:8rem;"></td>
+                                <td><?php echo htmlspecialchars($cartData['itemPrice']); ?></td>
+                                <td>
+                                    <a href="php/removeFromCart.php?itemId=<?php echo urlencode($itemId); ?>" class="text-decoration-none p-1 bg-danger text-light fw-bold rounded">
+                                        <i class="fas fa-trash"></i> Remove
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php $cartItemsCount++;
+                        }
+                    } else {
+                        echo "<tr><td colspan='6'>No items added to cart</td></tr>";
+                    }
+                    $stmt->close();
+                } else {
+                    echo "<tr><td colspan='6'>No items added to cart</td></tr>";
+                }
+                ?>
+            </tbody>
+        </table>
     </div>
-   </div>
+</div>
+
 
   <!-- ----------------------------------------------------Navbar  section--------------------------------------------- -->
   <header id="start">
