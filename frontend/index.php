@@ -152,6 +152,13 @@ if (isset($_SESSION['user'])) {
   <!-- login and signup modal end here  -->
 
   <!-- mycartSection -->
+  <?php 
+    $personId = $_SESSION["userId"];
+    $getCartItems = "SELECT count(cId) AS totalCartItems FROM cart";
+    $cartItems = $conn->query($getCartItems);
+    $cartItem = $cartItems->fetch_assoc();
+    $allCartItems = $cartItem['totalCartItems'];
+  ?>
    <div class="myCartModal rounded" id="myCart" style="display:none; position:fixed; top: 0; right:6rem; width:60rem; z-index:11; background-color: #c4dfe6">
     <div class="container p-2 d-flex justify-content-between align-items-center bg-dark text-light">
       <h2 class="hFont text-center p-1">My Cart ~ <?php echo "Rohit Ghatal";?></h2>
@@ -171,6 +178,9 @@ if (isset($_SESSION['user'])) {
           </tr>
         </thead>
         <tbody>
+          <?php 
+            $getCartDetails = "SELECT * FROM cart WHERE "
+          ?>
           <tr>
             <td>1</td>
             <td>Laptop</td>
@@ -183,13 +193,7 @@ if (isset($_SESSION['user'])) {
       </table>
     </div>
    </div>
-  
-  <?php 
-    $getCartItems = "SELECT count(cId) AS totalCartItems FROM cart";
-    $cartItems = $conn->query($getCartItems);
-    $cartItem = $cartItems->fetch_assoc();
-    $allCartItems = $cartItem['totalCartItems'];
-  ?>
+
   <!-- ----------------------------------------------------Navbar  section--------------------------------------------- -->
   <header id="start">
     <div class="address pt-3 d-flex justify-content-between">
