@@ -14,7 +14,7 @@ if (isset($_SESSION['user'])) {
                     <h3 class="heading-font text-center">$firstLetterAvatar</h3>
                     <p class="text-font">$username</p>
                     <p class="text-font myBooking text-center"><a href="userPage.php?userId={$uid}" class="text-decoration-none">My cart</a></p>
-                    <a id = "logout"href="../../backend/logout.php" class="text-font text-center ms-3 text-decoration-none">Log out</a>
+                    <a id = "logout"href="../backend/logout.php" class="text-font text-center ms-3 text-decoration-none">Log out</a>
                 </div>
             </div>
         dropdown;
@@ -153,42 +153,60 @@ if (isset($_SESSION['user'])) {
 
   <!-- mycartSection -->
   <?php 
+  if(isset($_SESSION['user'])){
     $personId = $_SESSION["userId"];
-    $getCartItems = "SELECT count(cId) AS totalCartItems FROM cart";
+    $getCartItems = "SELECT count(id) AS totalCartItems FROM cart WHERE userId = $personId";
     $cartItems = $conn->query($getCartItems);
     $cartItem = $cartItems->fetch_assoc();
     $allCartItems = $cartItem['totalCartItems'];
+  }
+  else{
+    $allCartItems = 0;
+  }
   ?>
-   <div class="myCartModal rounded" id="myCart" style="display:none; position:fixed; top: 0; right:6rem; width:60rem; z-index:11; background-color: #c4dfe6">
+   <div class="myCartModal rounded" id="myCart" style="display:none; position:fixed; top: 0; right:6rem; width:60rem; z-index:11; background-color: #c4dfe6;">
     <div class="container p-2 d-flex justify-content-between align-items-center bg-dark text-light">
       <h2 class="hFont text-center p-1">My Cart ~ <?php echo "Rohit Ghatal";?></h2>
       <span style="font-size:2rem; cursor:pointer;" onclick="closeMyCart()">&times;</span>
     </div>
     <h4 class="textFont p-1 container">Items Added to cart</h4>
-    <div class="itemsTable container">
+    <div class="itemsTable container" style="max-height: 80vh; overflow-y: auto;">
       <table class="table table-bordered">
         <thead>
           <tr>
             <th>SN</th>
             <th>Items</th>
+            <th>Model</th>
             <th>Photo</th>
             <th>Price</th>
-            <th>Date</th>
             <th>Remove</th>
           </tr>
         </thead>
         <tbody>
           <?php 
-            $getCartDetails = "SELECT * FROM cart WHERE "
+          if(isset($_SESSION['user'])){
+            $getCartDetails = "SELECT * FROM cart WHERE userId = $personId";
+            $fetechedCartData = $conn->query($getCartDetails);
+            $cartItemsCount = 1;
+            if($fetechedCartData->num_rows>0){
+              while($cartData = $fetechedCartData->fetch_assoc()){?>
+                <tr>
+                  <td><?php echo $cartItemsCount ?></td>
+                  <td><?php echo $cartData['itemBrand']?></td>
+                  <td><?php echo $cartData['itemModel']?></td>
+                  <td><img src="<?php echo $cartData['itemPhoto']?>" alt="" style="width:80%; height:8rem"></td>
+                  <td><?php echo $cartData['itemPrice']?></td>
+                  <td><a href="removeFromcart.php" class="text-decoration-none p-1 bg-danger text-light fw-bold rounded"><i class="fas fa-trash"></i> Remove</a></td>
+                </tr>
+             <?php $cartItemsCount++; }
+            }
+          }
+          else{
+            echo "<tr>";
+            echo "<td colspan = '6'>No items added to cart</td>";
+            echo "</tr>";
+          }
           ?>
-          <tr>
-            <td>1</td>
-            <td>Laptop</td>
-            <td><img src="images/asus.jpg" alt="" style="width:80%; height:8rem"></td>
-            <td>50000</td>
-            <td>2081/05/04</td>
-            <td><a href="removeFromcart.php" class="text-decoration-none p-1 bg-danger text-light fw-bold rounded"><i class="fas fa-trash"></i> Remove</a></td>
-          </tr>
         </tbody>
       </table>
     </div>
