@@ -2,26 +2,30 @@
 require '../../backend/database/databaseConnection.php';
 
 session_start();
+header('Content-Type: application/json');
+
 if($_SERVER["REQUEST_METHOD"] === "POST"){
     $userId = $_POST['userId'];
-    $mobileId = $_POST['mobileId'];
+    $itemId = $_POST['itemId'];
+    $itemType = $_POST['itemType'];
 
-    if(!empty($userId) && !empty($mobileId)){
+    if(!empty($userId) && !empty($itemId) && !empty($itemType)){
+        // Query for the user and item details based on itemType
         $getUserName = "SELECT uName FROM users WHERE uId = $userId";
-        $fetechedUserName = $conn->query($getUserName);
-        $userName = $fetechedUserName->fetch_assoc();
+        $fetchedUserName = $conn->query($getUserName);
+        $userName = $fetchedUserName->fetch_assoc();
 
-        $getMobileDetails = "SELECT * FROM mobiles WHERE MId = $mobileId";
-        $fetechedMobileData = $conn->query($getMobileDetails);
-        $mobileData = $fetechedMobileData->fetch_assoc();
-        
-        $mobileBrand = $mobileData['brand'];
-        $mobileModel = $mobileData['model'];
-        $mobilePhoto = $mobileData['photoPath'];
-        $mobilePrice = $mobileData['Mprice'];
+        $getItemDetails = "SELECT * FROM $itemType WHERE Id = $itemId";
+        $fetchedItemData = $conn->query($getItemDetails);
+        $itemData = $fetchedItemData->fetch_assoc();
+
+        $itemBrand = $itemData['brand'];
+        $itemModel = $itemData['model'];
+        $itemPhoto = $itemData['photoPath'];
+        $itemPrice = $itemData['price'];
     
         $insert = $conn->prepare("INSERT INTO cart(itemBrand, itemModel, itemPhoto, itemPrice) VALUES (?, ?, ?, ?)");
-        $insert->bind_param("ssss", $mobileBrand, $mobileModel, $mobilePhoto, $mobilePrice);
+        $insert->bind_param("ssss", $itemBrand, $itemModel, $itemPhoto, $itemPrice);
 
         if($insert->execute()){
             echo json_encode(['status' => 'success', 'message' => 'Added to cart successfully']);
@@ -29,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
             echo json_encode(['status' => 'error', 'message' => 'Failed to add to cart']);
         }
     } else {
-        echo json_encode(['status' => 'error', 'message' => 'Invalid user or mobile ID']);
+        echo json_encode(['status' => 'error', 'message' => 'Invalid user, item ID, or item type']);
     }
 }
 ?>

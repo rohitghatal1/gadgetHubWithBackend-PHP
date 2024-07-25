@@ -558,32 +558,39 @@ if (isset($_SESSION['user'])) {
 
   <!-- for checking user login on add to cart  -->
   <script>
-    function handleAddToCart(mobileId) {
+    function handleAddToCart(itemId, itemType) {
         <?php if (isset($_SESSION['user'])) { ?>
             try {
                 let userId = <?php echo $_SESSION['userId']; ?>;
                 if (!userId) {
                     throw new Error('User ID not found in session.');
                 }
-                console.log(userId);
-                console.log(mobileId);
+                console.log("User ID:", userId);
+                console.log("Item ID:", itemId);
+                console.log("Item Type:", itemType);
                 
                 let xhr = new XMLHttpRequest();
                 xhr.open("POST", "php/addToCart.php", true);
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhr.onreadystatechange = function() {
                     if (xhr.readyState === 4) {
-                        let response = JSON.parse(xhr.responseText);
-                        if (xhr.status === 200 && response.status === 'success') {
-                            alert(response.message); // Show success message
-                            alert("Added to cart successfully");
-                        } else {
-                            console.error('Error adding to cart:', response.message);
-                            alert('An error occurred while adding to cart. Please try again later.');
+                        try {
+                            console.log("XHR Response:", xhr.responseText);
+                            let response = JSON.parse(xhr.responseText);
+                            if (xhr.status === 200 && response.status === 'success') {
+                                alert(response.message); // Show success message
+                            } else {
+                                console.error('Error adding to cart:', response.message);
+                                alert('An error occurred while adding to cart. Please try again later.');
+                            }
+                        } catch (e) {
+                            console.error('Failed to parse response as JSON:', e);
+                            // alert('An error occurred while processing the response. Please try again later.');
                         }
                     }
                 };
-                xhr.send("userId=" + userId + "&mobileId=" + mobileId);
+                xhr.send("userId=" + userId + "&itemId=" + itemId + "&itemType=" + itemType);
+                location.reload();
 
             } catch (error) {
                 console.error('Error handling add to cart:', error.message);
