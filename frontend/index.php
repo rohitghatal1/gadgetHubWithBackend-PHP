@@ -189,14 +189,15 @@ if (isset($_SESSION['user'])) {
             $fetechedCartData = $conn->query($getCartDetails);
             $cartItemsCount = 1;
             if($fetechedCartData->num_rows>0){
-              while($cartData = $fetechedCartData->fetch_assoc()){?>
+              while($cartData = $fetechedCartData->fetch_assoc()){
+                $itemId = $fetechedCartData['itemId']; ?>
                 <tr>
                   <td><?php echo $cartItemsCount ?></td>
                   <td><?php echo $cartData['itemBrand']?></td>
                   <td><?php echo $cartData['itemModel']?></td>
                   <td><img src="<?php echo $cartData['itemPhoto']?>" alt="" style="width:80%; height:8rem"></td>
                   <td><?php echo $cartData['itemPrice']?></td>
-                  <td><a href="removeFromcart.php" class="text-decoration-none p-1 bg-danger text-light fw-bold rounded"><i class="fas fa-trash"></i> Remove</a></td>
+                  <td><a href="php/removeFromCart.php?itemId=<?php echo $itemId ?>&personId=<?php echo $personId ?>" class="text-decoration-none p-1 bg-danger text-light fw-bold rounded"><i class="fas fa-trash"></i> Remove</a></td>
                 </tr>
              <?php $cartItemsCount++; }
             }
