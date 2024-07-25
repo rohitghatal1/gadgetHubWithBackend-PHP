@@ -13,7 +13,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 
         $getMobileDetails = "SELECT * FROM mobiles WHERE MId = $mobileId";
         $fetechedMobileData = $conn->query($getMobileDetails);
-        $mobileData = $fetechedMobileData->fetech_assoc();
+        $mobileData = $fetechedMobileData->fetch_assoc();
         
         $mobileBrand = $mobileData['brand'];
         $mobileModel = $mobileData['model'];
@@ -24,7 +24,12 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
         $insert->bind_param("ssss", $mobileBrand, $mobileModel, $mobilePhoto, $mobilePrice);
 
         if($insert->execute()){
-            echo "<script>alert('Added to cart successfully')</script>";
+            echo json_encode(['status' => 'success', 'message' => 'Added to cart successfully']);
+        } else {
+            echo json_encode(['status' => 'error', 'message' => 'Failed to add to cart']);
         }
+    } else {
+        echo json_encode(['status' => 'error', 'message' => 'Invalid user or mobile ID']);
     }
 }
+?>

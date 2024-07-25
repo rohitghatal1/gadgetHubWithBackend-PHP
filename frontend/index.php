@@ -80,6 +80,10 @@ if (isset($_SESSION['user'])) {
         color: white;
         padding: 0.5rem
     }
+
+    button:active{
+      transform: scale(0.8);
+    }
 </style>
 
 </head>
@@ -148,7 +152,7 @@ if (isset($_SESSION['user'])) {
   <!-- login and signup modal end here  -->
 
   <!-- mycartSection -->
-   <div class="myCartModal rounded" id="myCart" style="display:none; position:absolute; top: 0; right:6rem; width:60rem; z-index:11; background-color: #c4dfe6">
+   <div class="myCartModal rounded" id="myCart" style="display:none; position:fixed; top: 0; right:6rem; width:60rem; z-index:11; background-color: #c4dfe6">
     <div class="container p-2 d-flex justify-content-between align-items-center bg-dark text-light">
       <h2 class="hFont text-center p-1">My Cart ~ <?php echo "Rohit Ghatal";?></h2>
       <span style="font-size:2rem; cursor:pointer;" onclick="closeMyCart()">&times;</span>
@@ -180,6 +184,12 @@ if (isset($_SESSION['user'])) {
     </div>
    </div>
   
+  <?php 
+    $getCartItems = "SELECT count(cId) AS totalCartItems FROM cart";
+    $cartItems = $conn->query($getCartItems);
+    $cartItem = $cartItems->fetch_assoc();
+    $allCartItems = $cartItem['totalCartItems'];
+  ?>
   <!-- ----------------------------------------------------Navbar  section--------------------------------------------- -->
   <header id="start">
     <div class="address pt-3 d-flex justify-content-between">
@@ -197,7 +207,7 @@ if (isset($_SESSION['user'])) {
           <?php echo $userAvatar ?>
           <div class="cartAndQuantity" onclick="openMyCart();">
             <div class="cart"><i class="fas fa-shopping-cart"></i></div>
-            <span class="quantity d-flex justify-content-center align-items-center"><label class="mt-1" style="font-size:15px;">0</label></span>
+            <span class="quantity d-flex justify-content-center align-items-center"><label class="mt-1" style="font-size:15px;"><?php echo $allCartItems ?></label></span>
           </div>
         </div>
       </div>
@@ -548,28 +558,42 @@ if (isset($_SESSION['user'])) {
 
   <!-- for checking user login on add to cart  -->
   <script>
-        function handleAddToCart(mobileId) {
-            <?php if (isset($_SESSION['user'])) {?>
-                try {
-                    let userId = <?php echo $_SESSION['userId']; ?>;
-                    if (!userId) {
-                        throw new Error('User ID not found in session.');
-                    }
-                    console.log(userId);
-                    console.log(mobileId);
-                    let xhr = new XMLHttpRequest();
-                    xhr.open("POST", "php/addToCart.php", true);
-                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                    xhr.send("userId=" + encodeURIComponent(userId) + "&mobileId=" + encodeURIComponent(mobileId));
-
-                } catch (error) {
-                    console.error('Error handling booking:', error.message);
-                    alert('An error occurred while processing your booking. Please try again later.');
+    function handleAddToCart(mobileId) {
+        <?php if (isset($_SESSION['user'])) { ?>
+            try {
+                let userId = <?php echo $_SESSION['userId']; ?>;
+                if (!userId) {
+                    throw new Error('User ID not found in session.');
                 }
-            <?php } else {?>
-                alert('Please login first!');
-                document.getElementById("loginModal").style.display = "block";
-            <?php }?>
-        }
-    </script>
+                console.log(userId);
+                console.log(mobileId);
+                
+                let xhr = new XMLHttpRequest();
+                xhr.open("POST", "php/addToCart.php", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {
+                        let response = JSON.parse(xhr.responseText);
+                        if (xhr.status === 200 && response.status === 'success') {
+                            alert(response.message); // Show success message
+                            alert("Added to cart successfully");
+                        } else {
+                            console.error('Error adding to cart:', response.message);
+                            alert('An error occurred while adding to cart. Please try again later.');
+                        }
+                    }
+                };
+                xhr.send("userId=" + userId + "&mobileId=" + mobileId);
+
+            } catch (error) {
+                console.error('Error handling add to cart:', error.message);
+                alert('An error occurred while processing your request. Please try again later.');
+            }
+        <?php } else { ?>
+            alert('Please login first!');
+            document.getElementById("loginModal").style.display = "block";
+        <?php } ?>
+    }
+</script>
+
 </html>
