@@ -8,7 +8,7 @@ if (isset($_SESSION['user'])) {
     $firstLetterAvatar = strtoupper(substr($username, 0, 1));
     $userAvatar = <<<dropdown
             <div class="userDropdown position-relative">
-                <div class="avatar mb-1 bg-danger p-1 px-2 me-3 text-center rounded-circle" onclick="toggleDropdown(event);">$firstLetterAvatar</div>
+                <div class="avatar mb-2 bg-danger p-1 px-2 me-3 text-center rounded-circle" onclick="toggleDropdown(event);">$firstLetterAvatar</div>
 
                 <div class="dropdown-container bg-dark p-3 px-5 me-2 rounded z-3" id="droppedDownContent" style="position:absolute; right:5px; display:none">
                     <h3 class="heading-font text-center">$firstLetterAvatar</h3>

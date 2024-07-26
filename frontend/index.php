@@ -54,7 +54,7 @@
             <h3><i class="fa-solid fa-user-pen"></i> Create an account</h3>
             <span class="fs-3 closeSignupModal" onclick="closeSignupModal();">&times;</span>
         </div>
-        <form id="registerform" action="../../backend/userRegistration.php" method="post">
+        <form id="registerform" action="../backend/userRegistration.php" method="post">
             <label class="mt-1 form-label">Full Name</label>
             <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name">
             <div id="nameError" class="error-message"></div>
@@ -118,7 +118,7 @@
             </div>
         </div>
 
-        <nav class="navbar py-3" id="top">
+        <nav class="navbar py-4" id="top">
             <div class="container d-flex align-items-center" id="navItemContainer">
                 <div class="logo col-auto"><img src="/gadgetHubWithBackend/frontend/logos/gadgetHub3.png"></div>
                 <div class="navitems">
@@ -449,7 +449,7 @@
           <?php } ?>
         }
   </script>
-  
+
   <script>
     let loginModal = document.getElementById("loginModal");
     let signupModal = document.getElementById("signupModal");

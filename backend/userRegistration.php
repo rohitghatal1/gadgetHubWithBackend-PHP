@@ -39,6 +39,7 @@ if ($existingEmail) {
 
     if ($insertStmt->execute()) {
         echo "<script>alert('Regiration Successful')</script>";
+        echo "<script>window.location.href = '../frontend/index.php' </script>";
     } else {
         echo "Error inserting data: " . $insertStmt->error;
     }
