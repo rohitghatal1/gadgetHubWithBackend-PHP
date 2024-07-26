@@ -75,6 +75,15 @@ body::-webkit-scrollbar-thumb {
     font-size: 20px;
 }
 
+.myCartModal{
+    display:none;
+    position:fixed; 
+    top: 0; 
+    right:6rem; 
+    width:60rem; 
+    z-index:11; 
+    background-color: #c4dfe6;
+}
 .navbar{
     position: relative;
     top: 2rem;

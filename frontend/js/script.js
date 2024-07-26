@@ -1,8 +1,5 @@
+
 document.addEventListener("DOMContentLoaded", () => {
-    let loginModal = document.getElementById("loginModal");
-    let signupModal = document.getElementById("signupModal");
-    let feedbackForm = document.getElementById("feedbackForm");
-    let myCart = document.getElementById("myCart");
     let products = document.getElementById("products");
     let allProducts = ["Laptops", "Mobile Phones", "Smart Watches"];
     let arrayIndex = 0;
@@ -12,40 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let newTextDelay = 2000;
     let hiddenDiv = document.getElementById('goToTop');
     let topSection = document.getElementById('top');
-
-    function openLoginModal(){
-        loginModal.style.display = 'block';
-        signupModal.style.display = 'none';
-    }
-
-    function closeLoginModal(){
-        loginModal.style.display = 'none';
-    }
-
-    function openSignupModal(){
-        signupModal.style.display = 'block';
-        loginModal.style.display = 'none';
-    }
-
-    function closeSignupModal(){
-        signupModal.style.display = 'none';
-    }
-
-    function togglePassword() {
-        let passwordInput = document.getElementById("password");
-        let cPasswordInput = document.getElementById("cPassword");
-        let showPasswordCheckbox = document.getElementById("showPasswordCheckbox");
-
-        if (passwordInput.type === "password") {
-            passwordInput.type = "text";
-            cPasswordInput.type = "text";
-            showPasswordCheckbox.checked = true;
-        } else {
-            passwordInput.type = "password";
-            cPasswordInput.type = "password";
-            showPasswordCheckbox.checked = false;
-        }
-    }
 
     function type(){
         if (charIndex < allProducts[arrayIndex].length){
@@ -100,23 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
         },
     });
 
-    function openFeedbackForm(){
-        feedbackForm.style.display = "block";
-        feedbackForm.style.width = "22rem";
-    }
-
-    function closeFeedbackForm(){
-        feedbackForm.style.display = "none";
-    }
-
-    function openMyCart(){
-        myCart.style.display = "block";
-    }
-
-    function closeMyCart(){
-        myCart.style.display = "none";
-    }
-
     document.addEventListener('click', function(event) {
         var dropdownContent = document.getElementById("droppedDownContent");
         var userDropdown = document.querySelector('.userDropdown');
@@ -125,43 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
             dropdownContent.style.display = "none";
         }
     });
-
-    function toggleDropdown(event) {
-        event.stopPropagation(); // Prevent the document click listener from immediately hiding the dropdown
-        var dropdownContent = document.getElementById("droppedDownContent");
-        if (dropdownContent.style.display === "block") {
-            dropdownContent.style.display = "none";
-        } else {
-            dropdownContent.style.display = "block";
-        }
-    }
-
-    function showPassword(){
-        let passwordInput = document.getElementById("password");
-        let checkbox = document.getElementById("checkboxInput");
-        checkbox.checked = !checkbox.checked;
-
-        if(passwordInput.type == "password"){
-            passwordInput.type = "text";
-        }
-        else{
-            passwordInput.type = "password";
-        }
-    }
-
-    function showPassword1(){
-        let passwordInput = document.getElementById("loginPassword");
-        let checkbox = document.getElementById("checkbox");
-
-        checkbox.checked = !checkbox.checked;
-
-        if(passwordInput.type == "password"){
-            passwordInput.type = "text";
-        }
-        else{
-            passwordInput.type = "password";
-        }
-    }
 
     const stars = document.querySelectorAll('.star');
     stars.forEach(star => {

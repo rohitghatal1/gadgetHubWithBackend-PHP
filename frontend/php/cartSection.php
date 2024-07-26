@@ -22,8 +22,7 @@ if (isset($_SESSION['user'])) {
 ?>
 
 <!-- My Cart Modal -->
-<div class="myCartModal rounded" id="myCart"
-    style="display:none; position:fixed; top: 0; right:6rem; width:60rem; z-index:11; background-color: #c4dfe6;">
+<div class="myCartModal rounded" id="myCart">
     <div class="container p-2 d-flex justify-content-between align-items-center bg-dark text-light">
         <h2 class="hFont text-center p-1">My Cart ~ <?php echo "Rohit Ghatal"; ?></h2>
         <span style="font-size:2rem; cursor:pointer;" onclick="closeMyCart()">&times;</span>
