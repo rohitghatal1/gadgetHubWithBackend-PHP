@@ -213,46 +213,54 @@ body::-webkit-scrollbar-thumb {
     color: #003B46;
     border-bottom: 1px solid #BFA181;
 }
-  .carousel-item {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.5rem;
-  }
 
-  .carousel-control-prev-icon,
-  .carousel-control-next-icon {
-    filter: brightness(0.5);
-  }
-  @media (min-width: 768px) {
-    .carousel-inner .carousel-item-next, .carousel-inner .carousel-item-prev, .carousel-inner .carousel-item.active {
-      display: flex !important;
-    }
-    .carousel-inner .carousel-item-end.active, .carousel-inner .carousel-item-next {
-      transform: translateX(25%);
-    }
-    .carousel-inner .carousel-item-start.active, .carousel-inner .carousel-item-prev {
-      transform: translateX(-25%);
-    }
-    .carousel-inner .carousel-item-end, .carousel-inner .carousel-item-start { 
-      transform: translateX(0);
-    }
-  }
-
-  .card {
-    margin: auto;
-    position: relative;
-    overflow: hidden;
-    background-color: #C4DFE6 !important;
-    color: #003B46 !important;
+.swiper {
+    width: 100%;
+    height: 100%;
 }
 
-.card img {
-    aspect-ratio: 3/2.9;
+.swiper-slide {
+text-align: center;
+font-size: 18px;
+background: #fff;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 90%;
 }
 
-.laptopProducts .card img{
-    aspect-ratio: 3/2.2;
+.swiper-slide img {
+display: block;
+width: 100%;
+height: 100%;
+}
+
+/* .card{
+height: 100%
+} */
+
+.table th, .table td {
+    vertical-align: middle;
+    text-align:center;
+}
+.table th{
+    background-color: black;
+    color: white;
+    padding: 0.5rem
+}
+
+button:active{
+    transform: scale(0.8);
+}
+
+.card {
+width: 100%;
+height: 100%;
+margin: auto;
+position: relative;
+overflow: hidden;
+background-color: #C4DFE6 !important;
+color: #003B46 !important;
 }
 
 .card .mobileDetails,
