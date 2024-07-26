@@ -447,7 +447,7 @@ else{
                                             <td><?php echo $mobilesDetails['storage'] ?></td>
                                             <td><?php echo $mobilesDetails['otherSpecs'] ?></td>
                                             <td><?php echo $mobilesDetails['price'] ?></td>
-                                            <td><button class="btn text-danger" onclick="confirmDelete(<?php echo (int)$mobileId ?>, 'moblies')"><i class="fas fa-trash text-danger"></i></button></td>
+                                            <td><button class="btn text-danger" onclick="confirmDelete(<?php echo (int)$mobileId ?>, 'mobiles')"><i class="fas fa-trash text-danger"></i></button></td>
                                         </tr>
                                     <?php $Mcount++; }    
                                 }

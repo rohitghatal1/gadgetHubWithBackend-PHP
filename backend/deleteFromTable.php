@@ -5,6 +5,8 @@ if (isset($_POST['id']) && isset($_POST['category'])) {
     $id = (int)$_POST['id'];
     $category = $_POST['category'];
 
+    error_log("ID: $id, Category: $category");
+
     // Prepare the SQL statement with parameterized query to prevent SQL injection
     $stmt = $conn->prepare("DELETE FROM $category WHERE id = ?");
     if ($stmt) {
