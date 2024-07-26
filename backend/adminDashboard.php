@@ -104,19 +104,19 @@ else{
                 $currentUsers = $users['totalUsers'];
 
                 // for counting number of laptop available 
-                $getAllLaptops= "SELECT count(LId) AS totalLaptops FROM laptops";
+                $getAllLaptops= "SELECT count(Id) AS totalLaptops FROM laptops";
                 $allLaptops = $conn->query($getAllLaptops);
                 $laptops = $allLaptops->fetch_assoc();
                 $currentLaptops = $laptops['totalLaptops'];
 
                 // for counting number of mobiles available
-                $getAllMobiles = "SELECT count(MId) AS totalMobiles FROM mobiles";
+                $getAllMobiles = "SELECT count(Id) AS totalMobiles FROM mobiles";
                 $allMobiles = $conn->query($getAllMobiles);
                 $mobiles = $allMobiles->fetch_assoc();
                 $currentMobiles = $mobiles['totalMobiles'];
 
                 // for counting number of smart watches 
-                $getAllwatches = "SELECT count(WId) AS totalWatches FROM watches";
+                $getAllwatches = "SELECT count(Id) AS totalWatches FROM watches";
                 $allwatches = $conn->query($getAllwatches);
                 $watches = $allwatches->fetch_assoc();
                 $currentWatches = $watches['totalWatches'];
@@ -232,7 +232,7 @@ else{
                                     <td><?php echo $userInfo['mobileQty'] ?></td>
                                     <td><?php echo $userInfo['Mprice'] ?></td>
                                     <td><?php echo $userInfo['watchQty'] ?></td>
-                                    <td><?php echo $userInfo['Wprice'] ?></td>
+                                    <td><?php echo $userInfo['price'] ?></td>
                                     <td><?php echo $userInfo['orderedDate'] ?></td>
                                     <td><?php echo $userInfo['totalPrice'] ?></td>
                                 </tr>
@@ -344,7 +344,7 @@ else{
                                             <td><?php echo $laptopDetails['RAM'] ?></td>
                                             <td><?php echo $laptopDetails['graphics'] ?></td>
                                             <td><?php echo $laptopDetails['otherSpecs'] ?></td>
-                                            <td><?php echo $laptopDetails['Lprice'] ?></td>
+                                            <td><?php echo $laptopDetails['price'] ?></td>
                                             <td><i class="fas fa-trash text-danger"></i></td>
                                         </tr>
                                     <?php } 
@@ -435,7 +435,8 @@ else{
                                 $getMobileData = "SELECT * FROM mobiles";
                                 $fetchedMobileData = $conn->query($getMobileData);
                                 if($fetchedMobileData->num_rows>0){
-                                    while($mobilesDetails = $fetchedMobileData->fetch_assoc()){ ?>
+                                    while($mobilesDetails = $fetchedMobileData->fetch_assoc()){
+                                        $mobileId = $mobilesDetails['Id']; ?>
                                         <tr>
                                             <td><?php echo $Mcount ?></td>
                                             <td><img src="<?php echo $mobilesDetails['photoPath'] ?>" alt="" class ="img-fluid" style = "width: 8rem; height:7rem;"></td>
@@ -445,8 +446,8 @@ else{
                                             <td><?php echo $mobilesDetails['RAM'] ?></td>
                                             <td><?php echo $mobilesDetails['storage'] ?></td>
                                             <td><?php echo $mobilesDetails['otherSpecs'] ?></td>
-                                            <td><?php echo $mobilesDetails['Mprice'] ?></td>
-                                            <td><i class="fas fa-trash text-danger"></i></td>
+                                            <td><?php echo $mobilesDetails['price'] ?></td>
+                                            <td><button class="btn text-danger" onclick="confirmDelete(<?php echo (int)$mobileId ?>, 'moblies')"><i class="fas fa-trash text-danger"></i></button></td>
                                         </tr>
                                     <?php $Mcount++; }    
                                 }
@@ -533,7 +534,7 @@ else{
                                             <td><?php echo $watchDetails['brand'] ?></td>
                                             <td><?php echo $watchDetails['model'] ?></td>
                                             <td><?php echo $watchDetails['otherSpecs'] ?></td>
-                                            <td><?php echo $watchDetails['Wprice'] ?></td>
+                                            <td><?php echo $watchDetails['price'] ?></td>
                                             <td><i class="fas fa-trash text-danger"></i></td>
                                         </tr>
                                     <?php $Wcount++; }
@@ -642,7 +643,7 @@ else{
                                 <td><?php echo $count ?></td>
                                 <td><?php echo $salesInfo['Date'] ?></td>
                                 <td><?php echo $userInfo['laptopQty'] ?></td>
-                                <td><?php echo $userInfo['Lprice'] ?></td>
+                                <td><?php echo $userInfo['price'] ?></td>
                                 <td><?php echo $userInfo['mobileQty'] ?></td>
                                 <td><?php echo $userInfo['Mprice'] ?></td>
                                 <td><?php echo $userInfo['watchQty'] ?></td>
@@ -691,6 +692,31 @@ else{
         }
 </script>
 
+<script>
+// to delete a record
+function confirmDelete(id, category) {
+    if (confirm("Are you sure you want to delete?")) {
+        deleteRecord(id, category);
+    }
+}
+
+function deleteRecord(id, category) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", 'deleteFromTable.php', true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            if (xhr.status == 200) {
+                location.reload();
+            } else {
+                console.error('Error: ' + xhr.status);
+            }
+        }
+    };
+    xhr.send("id=" + id + "&category=" + category);
+}
+
+</script>
 <!-- bootstrap javaScript  -->
 <script src="../frontend/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
 </html>
