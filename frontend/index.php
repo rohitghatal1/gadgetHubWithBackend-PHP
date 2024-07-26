@@ -199,7 +199,7 @@
                             <?php require 'php/mobileCards.php'?>
 
                         </div>
-                        <div class="swiper-pagination" style="margin-top: -2rem"></div>
+                        <div class="swiper-pagination"></div>
                     </div>
                 </div>
             </div>

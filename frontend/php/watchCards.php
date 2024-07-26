@@ -7,7 +7,9 @@
                       ?>
                       <div class="swiper-slide">
                         <div class="card">
-                          <img src="<?php echo $watchInfo['photoPath']?>" class="card-img-top" alt="Testimonial 1">
+                          <figure class="productPhoto" style="height:25.2rem">
+                            <img src="<?php echo $watchInfo['photoPath']?>" class="card-img-top" alt="Testimonial 1" style="height:100%;">
+                          </figure>
                           <div class="card-body">
                             <h5 class="card-title"><?php echo $watchInfo['brand']?></h5>
                             <p class="card-text">Rs<?php echo $watchInfo['price']?></p>

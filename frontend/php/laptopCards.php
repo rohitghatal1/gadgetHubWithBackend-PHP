@@ -7,7 +7,9 @@
                       ?>
                       <div class="swiper-slide">
                         <div class="card">
-                          <img src="<?php echo $laptopInfo['photoPath']?>" class="card-img-top" alt="laptop image">
+                          <figure class="productPhoto" style="height:25.2rem">
+                            <img src="<?php echo $laptopInfo['photoPath']?>" class="card-img-top" alt="laptop image" style="height:100%">
+                          </figure>
                           <div class="card-body">
                             <h5 class="card-title"><?php echo $laptopInfo['brand']?></h5>
                             <p class="card-text">Rs<?php echo $laptopInfo['price']?></p>
