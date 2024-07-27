@@ -11,7 +11,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 
     if(!empty($userId) && !empty($itemId) && !empty($itemType)){
         // Query for the user and item details based on itemType
-        $getUserName = "SELECT uName FROM users WHERE uId = ?";
+        $getUserName = "SELECT uName FROM users WHERE Id = ?";
         $stmt = $conn->prepare($getUserName);
         $stmt->bind_param("i", $userId);
         $stmt->execute();

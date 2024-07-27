@@ -56,27 +56,33 @@ if (isset($_SESSION['user'])) {
 
                     // Check if there are items in the cart
                     if ($result->num_rows > 0) {
+                        $placeOrderBtn = '<button class="btn" style="background-color: #28a745; color: #ffffff;" onclick="openPlaceOrder()">
+                                            <i class="fas fa-shopping-bag"></i> Place Order
+                                            </button>';
                         $cartItemsCount = 1;
                         while ($cartData = $result->fetch_assoc()) {
                             $itemId = $cartData['itemId']; ?>
-                <tr>
-                    <td><?php echo $cartItemsCount; ?></td>
-                    <td><?php echo htmlspecialchars($cartData['itemBrand']); ?></td>
-                    <td><?php echo htmlspecialchars($cartData['itemModel']); ?></td>
-                    <td><img src="<?php echo htmlspecialchars($cartData['itemPhoto']); ?>" alt=""
-                            style="width:80%; height:8rem;"></td>
-                    <td><?php echo htmlspecialchars($cartData['itemPrice']); ?></td>
-                    <td>
-                        <a href="php/removeFromCart.php?itemId=<?php echo urlencode($itemId); ?>"
-                            class="text-decoration-none p-1 bg-danger text-light fw-bold rounded">
-                            <i class="fas fa-trash"></i> Remove
-                        </a>
-                    </td>
-                </tr>
+                            <tr>
+                                <td><?php echo $cartItemsCount; ?></td>
+                                <td><?php echo htmlspecialchars($cartData['itemBrand']); ?></td>
+                                <td><?php echo htmlspecialchars($cartData['itemModel']); ?></td>
+                                <td><img src="<?php echo htmlspecialchars($cartData['itemPhoto']); ?>" alt=""
+                                        style="width:80%; height:8rem;"></td>
+                                <td><?php echo htmlspecialchars($cartData['itemPrice']); ?></td>
+                                <td>
+                                    <a href="php/removeFromCart.php?itemId=<?php echo urlencode($itemId); ?>"
+                                        class="text-decoration-none p-1 bg-danger text-light fw-bold rounded">
+                                        <i class="fas fa-trash"></i> Remove
+                                    </a>
+                                </td>
+                            </tr>
                 <?php $cartItemsCount++;
                         }
                     } else {
                         echo "<tr><td colspan='6'>No items added to cart</td></tr>";
+                        $placeOrderBtn = "<button class='btn p-1 bg-warning text-dark'>
+                        <i class='fa fa-exclamation-circle'></i> Cart is Empty
+                        </button>";
                     }
                     $stmt->close();
                 } else {
@@ -85,9 +91,7 @@ if (isset($_SESSION['user'])) {
                 ?>
                 <tr>
                     <td colspan="6">
-                        <button class="btn" style="background-color: #28a745; color: #ffffff;" onclick="openPlaceOrder()">
-                            <i class="fas fa-shopping-bag"></i> Place Order
-                        </button>
+                        <?php echo $placeOrderBtn ?>
                     </td>
                 </tr>
             </tbody>

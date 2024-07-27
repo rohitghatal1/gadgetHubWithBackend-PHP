@@ -392,8 +392,8 @@ else{
         </div>
     </div>
 
-</body>
-<script>
+    </body>
+    <script>
         document.addEventListener('click', function(event) {
             var dropdownContent = document.getElementById("droppedDownContent");
             var userDropdown = document.querySelector('.userDropdown');
@@ -413,33 +413,33 @@ else{
                 dropdownContent.style.display = "block";
             }
         }
-</script>
+    </script>
 
-<script>
-// to delete a record
-function confirmDelete(id, category) {
-    if (confirm("Are you sure you want to delete?")) {
-        deleteRecord(id, category);
-    }
-}
-
-function deleteRecord(id, category) {
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", 'deleteFromTable.php', true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            if (xhr.status == 200) {
-                location.reload();
-            } else {
-                console.error('Error: ' + xhr.status);
+    <script>
+            // to delete a record
+        function confirmDelete(id, category) {
+            if (confirm("Are you sure you want to delete?")) {
+                deleteRecord(id, category);
             }
         }
-    };
-    xhr.send("id=" + id + "&category=" + category);
-}
 
-</script>
-<!-- bootstrap javaScript  -->
-<script src="../frontend/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+        function deleteRecord(id, category) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", 'deleteFromTable.php', true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == XMLHttpRequest.DONE) {
+                    if (xhr.status == 200) {
+                        location.reload();
+                    } else {
+                        console.error('Error: ' + xhr.status);
+                    }
+                }
+            };
+            xhr.send("id=" + id + "&category=" + category);
+        }
+
+    </script>
+    <!-- bootstrap javaScript  -->
+    <script src="../frontend/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
 </html>

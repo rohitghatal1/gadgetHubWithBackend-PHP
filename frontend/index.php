@@ -106,7 +106,7 @@
                 <input type="hidden" id="userId" name="userId">
                 
                 <label class="form-label text-font">Address</label>
-                <input class="form-control" type="text" id="address" name="address">
+                <input class="form-control" type="text" id="cAddress" name="address">
 
                 <h6 class="text-center text-font mt-3">Select a payment Method:</h6>
                 <div class="d-flex align-items-center justify-content-around">
@@ -428,6 +428,7 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     function handleAddToCart(itemId, itemType) {
+        console.log("add to cart called");
       <?php if (isset($_SESSION['user'])) { ?>
         try {
           let userId = <?php echo $_SESSION['userId']; ?>;
@@ -472,6 +473,7 @@
         }
   </script>
 
+    <!-- to toggel dropdowns and modals  -->
   <script>
     let loginModal = document.getElementById("loginModal");
     let signupModal = document.getElementById("signupModal");

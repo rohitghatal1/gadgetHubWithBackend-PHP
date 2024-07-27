@@ -32,6 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($conn->query($insertIntoSales) !== TRUE) {
                     echo "Error inserting data into sales table: " . $conn->error;
                 }
+                else{
+                    echo "<script>alert('Order Placed successfully')</script>";
+                    echo "<script>window.location.href = '../index.php'</script>";
+                }
             } else {
                 echo "Error inserting data into orders table: " . $conn->error;
             }
