@@ -46,6 +46,9 @@ if (isset($_SESSION['user'])) {
             </thead>
             <tbody>
                 <?php
+                $placeOrderBtn = "<button class='btn p-1 bg-warning text-dark'>
+                                    <i class='fa fa-exclamation-circle'></i> Cart is Empty
+                                  </button>";
                 if (isset($_SESSION['user'])) {
                     // Fetch cart details
                     $getCartDetails = "SELECT * FROM cart WHERE userId = ?";
