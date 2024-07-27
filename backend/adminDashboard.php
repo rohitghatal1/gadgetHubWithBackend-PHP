@@ -40,42 +40,48 @@ else{
     <link rel="stylesheet" href="css/dashboard.css">
 
     <style>
-    html{
-        scroll-behavior: smooth;
-    }
-    body::-webkit-scrollbar {
-        width: 5px;
-        background: transparent;
-    }
+        .hFont{
+            font-family: 'Merienda', cursive;
+        }
+        .textFont{
+            font-family: 'Poppins', sans-serif;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        body::-webkit-scrollbar {
+            width: 5px;
+            background: transparent;
+        }
 
-    body::-webkit-scrollbar-track {
-        background-color: #4D648D;
-    }
+        body::-webkit-scrollbar-track {
+            background-color: #4D648D;
+        }
 
-    body::-webkit-scrollbar-thumb {
-        background-color: #0A1828;
-        border-radius: 0.6rem; 
-    }
-    .addMoreBtn{
-        background-color: #161b40;
-        color: #fff;
-        border: 1px solid #fff;
-    }
+        body::-webkit-scrollbar-thumb {
+            background-color: #0A1828;
+            border-radius: 0.6rem; 
+        }
+        .addMoreBtn{
+            background-color: #161b40;
+            color: #fff;
+            border: 1px solid #fff;
+        }
 
-    .addMoreBtn:hover{
-        background-color: #fff;
-        color: #161b40;
-        border: none;
-    }
-    .table th, .table td {
-      vertical-align: middle;
-    }
-    .table th{
-        background-color: black;
-        color: white;
-        padding: 0.5rem
-    }
-  </style>
+        .addMoreBtn:hover{
+            background-color: #fff;
+            color: #161b40;
+            border: none;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+        }
+        .table th{
+            background-color: black;
+            color: white;
+            padding: 0.5rem
+        }
+    </style>
 
 </head>
 <body>
@@ -317,53 +323,7 @@ else{
                     </div>
                 </div>
 
-                <div class ="p-2 mt-3">
-                    <table class = "table table-bordered text-center">
-                        <thead>
-                            <tr>
-                                <th>SN</th>
-                                <th>Photo</th>
-                                <th>Brand</th>
-                                <th>Model</th>
-                                <th>Processor</th>
-                                <th>RAM</th>
-                                <th>Graphics</th>
-                                <th>Other Specifications</th>
-                                <th>Price</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $sn = 1;
-                                $getLaptopData = "SELECT * FROM laptops";
-                                $fetchedLaptopData = $conn->query($getLaptopData);
-                                if($fetchedLaptopData->num_rows>0){
-                                    while($laptopDetails = $fetchedLaptopData->fetch_assoc()){ 
-                                        $laptopId = $laptopDetails['Id']?>
-                                        <tr>
-                                            <td><?php echo $sn ?></td>
-                                            <td><img src="<?php echo $laptopDetails['photoPath']?>" alt="" class ="img-fluid" style = "width: 8rem; height:7rem;"></td>
-                                            <td><?php echo $laptopDetails['brand'] ?></td>
-                                            <td><?php echo $laptopDetails['model'] ?></td>
-                                            <td><?php echo $laptopDetails['processor'] ?></td>
-                                            <td><?php echo $laptopDetails['RAM'] ?></td>
-                                            <td><?php echo $laptopDetails['graphics'] ?></td>
-                                            <td><?php echo $laptopDetails['otherSpecs'] ?></td>
-                                            <td><?php echo $laptopDetails['price'] ?></td>
-                                            <td><button class="btn text-danger" onclick="confirmDelete(<?php echo (int)$laptopId ?>, 'laptops')"><i class="fas fa-trash text-danger"></i></button></td>
-                                        </tr>
-                                    <?php } 
-                                } 
-                                else{
-                                    echo "<tr>";
-                                    echo "<td colspan = '10'>No laptops available right now!!!</td>";
-                                    echo "</tr>";
-                                }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
+                <?php require 'php/laptopDisplayTable.php'; ?>
             </div>
 
             <!-- mobiles section  -->
@@ -419,53 +379,7 @@ else{
                     </div>
                 </div>
 
-                <div class ="p-2 mt-3">
-                    <table class = "table table-bordered text-center">
-                        <thead>
-                            <tr>
-                                <th>SN</th>
-                                <th>Photo</th>
-                                <th>Brand</th>
-                                <th>Model</th>
-                                <th>Processor</th>
-                                <th>RAM</th>
-                                <th>Storage</th>
-                                <th>Other Specifications</th>
-                                <th>Price</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                                $Mcount = 1;
-                                $getMobileData = "SELECT * FROM mobiles";
-                                $fetchedMobileData = $conn->query($getMobileData);
-                                if($fetchedMobileData->num_rows>0){
-                                    while($mobilesDetails = $fetchedMobileData->fetch_assoc()){
-                                        $mobileId = $mobilesDetails['Id']; ?>
-                                        <tr>
-                                            <td><?php echo $Mcount ?></td>
-                                            <td><img src="<?php echo $mobilesDetails['photoPath'] ?>" alt="" class ="img-fluid" style = "width: 8rem; height:7rem;"></td>
-                                            <td><?php echo $mobilesDetails['brand'] ?></td>
-                                            <td><?php echo $mobilesDetails['model'] ?></td>
-                                            <td><?php echo $mobilesDetails['processor'] ?></td>
-                                            <td><?php echo $mobilesDetails['RAM'] ?></td>
-                                            <td><?php echo $mobilesDetails['storage'] ?></td>
-                                            <td><?php echo $mobilesDetails['otherSpecs'] ?></td>
-                                            <td><?php echo $mobilesDetails['price'] ?></td>
-                                            <td><button class="btn text-danger" onclick="confirmDelete(<?php echo (int)$mobileId ?>, 'mobiles')"><i class="fas fa-trash text-danger"></i></button></td>
-                                        </tr>
-                                    <?php $Mcount++; }    
-                                }
-                                else{
-                                    echo "<tr>";
-                                    echo "<td colspan = '10'>No mobiles available right now!!!</td>";
-                                    echo "</tr>";
-                                }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
+                <?php require 'php/mobileDisplayTable.php' ?>
             </div>
 
             <!-- smart watch section  -->
@@ -513,48 +427,7 @@ else{
                     </div>
                 </div>
 
-                <div class ="p-2 mt-3">
-                    <table class = "table table-bordered text-center">
-                        <thead>
-                            <tr>
-                                <th>SN</th>
-                                <th>Photo</th>
-                                <th>Brand</th>
-                                <th>Model</th>
-                                <th>Other Specifications</th>
-                                <th>Price</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                                $Wcount = 1;
-                                $getWatchData = "SELECT * FROM watches";
-                                $fetcheWatchData = $conn->query($getWatchData);
-                                if($fetcheWatchData->num_rows>0){
-                                    while($watchDetails = $fetcheWatchData->fetch_assoc()){
-                                        $watchId = $watchDetails['Id'] ?>
-
-                                        <tr>
-                                            <td><?php echo $Wcount ?></td>
-                                            <td><img src="<?php echo $watchDetails['photoPath'] ?>" alt="" class ="img-fluid" style = "width: 8rem; height:6rem;"></td>
-                                            <td><?php echo $watchDetails['brand'] ?></td>
-                                            <td><?php echo $watchDetails['model'] ?></td>
-                                            <td><?php echo $watchDetails['otherSpecs'] ?></td>
-                                            <td><?php echo $watchDetails['price'] ?></td>
-                                            <td><button class="btn text-danger" onclick="confirmDelete(<?php echo (int)$watchId ?>, 'watches')"><i class="fas fa-trash text-danger"></i></button></td>
-                                        </tr>
-                                    <?php $Wcount++; }
-                                }
-                                else{
-                                    echo "<tr>";
-                                    echo "<td colspan = '7'>No mobiles available right now!!!</td>";
-                                    echo "</tr>";
-                                }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
+                <?php require 'php/watchesDisplayTable.php' ?>
             </div>
         </div>
         <!-- product section end  -->
@@ -564,49 +437,7 @@ else{
             <h2 class="text-center text-light py-5 hFont">Users</h2>
             <hr class="text-light container">
 
-            <div class="usersTable container">
-                <h3 class="text-light hFont py-1">Current Users</h3>
-
-                <table class="table table-bordered text-center">
-                    <thead>
-                        <tr class="text-font">
-                            <th>SN</th>
-                            <th>UId</th>
-                            <th>Name</th>
-                            <th>Address</th>
-                            <th>Contact No.</th>
-                            <th>Email</th>
-                            <th>Username</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php 
-                        $userData = "SELECT * FROM users";
-                        $fetchedUserData = $conn->query($userData);
-                        $count = 1;
-                        if($fetchedUserData->num_rows>0){
-                            while($userInfo = $fetchedUserData->fetch_assoc()){
-                                $userId = $userInfo['Id'];
-                                ?>
-                            <tr>
-                                <td><?php echo $count ?></td>
-                                <td><?php echo $userInfo['Id'] ?></td>
-                                <td><?php echo $userInfo['uName'] ?></td>
-                                <td><?php echo $userInfo['uAddress'] ?></td>
-                                <td><?php echo $userInfo['uContact'] ?></td>
-                                <td><?php echo $userInfo['uEmail'] ?></td>
-                                <td><?php echo $userInfo['username'] ?></td>
-                                <td><button class="btn text-danger" onclick="confirmDelete(<?php echo (int)$userId ?>, 'users')"><i class="fas fa-trash text-danger"></i></button></td>
-                            </tr>
-                            <?php
-                            $count++;
-                            }
-                        }
-                    ?>
-                    </tbody>
-                </table>
-            </div>
+            <?php require 'php/userDisplayTable.php' ?>
         </div>
 
          <!-- sales section  -->
