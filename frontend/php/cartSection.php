@@ -4,10 +4,14 @@ require '../backend/database/databaseConnection.php';
 
 // Initialize cart items count
 $allCartItems = 0;
-
+$userName = "";
 // Check if the user is logged in
 if (isset($_SESSION['user'])) {
     $personId = $_SESSION["userId"];
+    $getUserName = "SELECT uName FROM users WHERE Id = $personId";
+    $fetchedUserName = $conn->query($getUserName);
+    $userNames = $fetchedUserName->fetch_assoc();
+    $userName = $userNames['uName'];    
 
     // Fetch the count of items in the cart
     $getCartItems = "SELECT COUNT(id) AS totalCartItems FROM cart WHERE userId = ?";
@@ -24,7 +28,7 @@ if (isset($_SESSION['user'])) {
 <!-- My Cart Modal -->
 <div class="myCartModal rounded" id="myCart">
     <div class="container p-2 d-flex justify-content-between align-items-center bg-dark text-light">
-        <h2 class="hFont text-center p-1">My Cart ~ <?php echo "Rohit Ghatal"; ?></h2>
+        <h2 class="hFont text-center p-1">My Cart: <?php echo $userName; ?></h2>
         <span style="font-size:2rem; cursor:pointer;" onclick="closeMyCart()">&times;</span>
     </div>
     <h4 class="textFont p-1 container">Items Added to Cart</h4>
@@ -37,7 +41,7 @@ if (isset($_SESSION['user'])) {
                     <th>Model</th>
                     <th>Photo</th>
                     <th>Price</th>
-                    <th>Remove</th>
+                    <th colspan = "2">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -67,6 +71,10 @@ if (isset($_SESSION['user'])) {
                             class="text-decoration-none p-1 bg-danger text-light fw-bold rounded">
                             <i class="fas fa-trash"></i> Remove
                         </a>
+                    </td>
+                    <td><button class="btn" style="background-color: #28a745; color: #ffffff;" onclick="openPlaceOrder()">
+                            <i class="fas fa-shopping-bag"></i> Place Order
+                        </button>
                     </td>
                 </tr>
                 <?php $cartItemsCount++;
