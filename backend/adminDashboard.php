@@ -334,7 +334,8 @@ else{
                                 $getLaptopData = "SELECT * FROM laptops";
                                 $fetchedLaptopData = $conn->query($getLaptopData);
                                 if($fetchedLaptopData->num_rows>0){
-                                    while($laptopDetails = $fetchedLaptopData->fetch_assoc()){ ?>
+                                    while($laptopDetails = $fetchedLaptopData->fetch_assoc()){ 
+                                        $laptopId = $laptopDetails['Id']?>
                                         <tr>
                                             <td><?php echo $sn ?></td>
                                             <td><img src="<?php echo $laptopDetails['photoPath']?>" alt="" class ="img-fluid" style = "width: 8rem; height:7rem;"></td>
@@ -345,7 +346,7 @@ else{
                                             <td><?php echo $laptopDetails['graphics'] ?></td>
                                             <td><?php echo $laptopDetails['otherSpecs'] ?></td>
                                             <td><?php echo $laptopDetails['price'] ?></td>
-                                            <td><i class="fas fa-trash text-danger"></i></td>
+                                            <td><button class="btn text-danger" onclick="confirmDelete(<?php echo (int)$laptopId ?>, 'laptops')"><i class="fas fa-trash text-danger"></i></button></td>
                                         </tr>
                                     <?php } 
                                 } 
@@ -526,7 +527,8 @@ else{
                                 $getWatchData = "SELECT * FROM watches";
                                 $fetcheWatchData = $conn->query($getWatchData);
                                 if($fetcheWatchData->num_rows>0){
-                                    while($watchDetails = $fetcheWatchData->fetch_assoc()){ ?>
+                                    while($watchDetails = $fetcheWatchData->fetch_assoc()){
+                                        $watchId = $watchDetails['Id'] ?>
 
                                         <tr>
                                             <td><?php echo $Wcount ?></td>
@@ -535,7 +537,7 @@ else{
                                             <td><?php echo $watchDetails['model'] ?></td>
                                             <td><?php echo $watchDetails['otherSpecs'] ?></td>
                                             <td><?php echo $watchDetails['price'] ?></td>
-                                            <td><i class="fas fa-trash text-danger"></i></td>
+                                            <td><button class="btn text-danger" onclick="confirmDelete(<?php echo (int)$watchId ?>, 'watches')"><i class="fas fa-trash text-danger"></i></button></td>
                                         </tr>
                                     <?php $Wcount++; }
                                 }
