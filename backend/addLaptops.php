@@ -16,7 +16,7 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
     $price = $_POST["price"];
     $laptopImage = $target_file;
 
-    $addLaptop = $conn->prepare("INSERT INTO laptops(brand, model, processor, RAM, graphics, otherSpecs, Lprice, photoPath) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $addLaptop = $conn->prepare("INSERT INTO laptops(brand, model, processor, RAM, graphics, otherSpecs, price, photoPath) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     $addLaptop->bind_param("ssssssss", $brand, $model, $processor, $RAM, $graphics, $otherSpecifications, $price, $laptopImage);
 
     if($addLaptop->execute() === true){

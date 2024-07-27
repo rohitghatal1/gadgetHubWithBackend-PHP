@@ -18,7 +18,7 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
     $price = $_POST["price"];
     $mobileImage = $target_file;
 
-    $addMobile = $conn->prepare("INSERT INTO mobiles(brand, model, processor, RAM, storage, otherSpecs, Mprice, photoPath) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $addMobile = $conn->prepare("INSERT INTO mobiles(brand, model, processor, RAM, storage, otherSpecs, price, photoPath) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     $addMobile->bind_param("ssssssss", $brand, $model, $processor, $RAM, $storage, $otherSpecifications, $price, $mobileImage);
 
     if($addMobile->execute() === true){

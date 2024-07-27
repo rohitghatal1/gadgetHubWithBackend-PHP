@@ -62,6 +62,11 @@ else{
         border: 1px solid #fff;
     }
 
+    .addMoreBtn:hover{
+        background-color: #fff;
+        color: #161b40;
+        border: none;
+    }
     .table th, .table td {
       vertical-align: middle;
     }
@@ -98,7 +103,7 @@ else{
 
             <?php
                 // for counting number of users 
-                $getAllusers = "SELECT count(uId) AS totalUsers FROM users";
+                $getAllusers = "SELECT count(Id) AS totalUsers FROM users";
                 $allUsers = $conn->query($getAllusers);
                 $users = $allUsers->fetch_assoc();
                 $currentUsers = $users['totalUsers'];
@@ -582,16 +587,17 @@ else{
                         $count = 1;
                         if($fetchedUserData->num_rows>0){
                             while($userInfo = $fetchedUserData->fetch_assoc()){
+                                $userId = $userInfo['Id'];
                                 ?>
                             <tr>
                                 <td><?php echo $count ?></td>
-                                <td><?php echo $userInfo['uId'] ?></td>
+                                <td><?php echo $userInfo['Id'] ?></td>
                                 <td><?php echo $userInfo['uName'] ?></td>
                                 <td><?php echo $userInfo['uAddress'] ?></td>
                                 <td><?php echo $userInfo['uContact'] ?></td>
                                 <td><?php echo $userInfo['uEmail'] ?></td>
                                 <td><?php echo $userInfo['username'] ?></td>
-                                <td><i class = "fas fa-trash text-danger"></i></td>
+                                <td><button class="btn text-danger" onclick="confirmDelete(<?php echo (int)$userId ?>, 'users')"><i class="fas fa-trash text-danger"></i></button></td>
                             </tr>
                             <?php
                             $count++;

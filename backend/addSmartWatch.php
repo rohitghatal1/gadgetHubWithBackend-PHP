@@ -13,7 +13,7 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
     $price = $_POST["price"];
     $watchImage = $target_file;
 
-    $addWatch = $conn->prepare("INSERT INTO watches(brand, model, otherSpecs, Wprice, photoPath) VALUES (?, ?, ?, ?, ?)");
+    $addWatch = $conn->prepare("INSERT INTO watches(brand, model, otherSpecs, price, photoPath) VALUES (?, ?, ?, ?, ?)");
     $addWatch->bind_param("sssss", $brand, $model, $otherSpecifications, $price, $watchImage);
 
     if($addWatch->execute() === true){
