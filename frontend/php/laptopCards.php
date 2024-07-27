@@ -7,12 +7,12 @@
                       ?>
                       <div class="swiper-slide">
                         <div class="card">
-                          <figure class="productPhoto" style="height:25.2rem">
+                          <figure class="productPhoto" style="height:22.2rem">
                             <img src="<?php echo $laptopInfo['photoPath']?>" class="card-img-top" alt="laptop image" style="height:100%">
                           </figure>
-                          <div class="card-body">
-                            <h5 class="card-title"><?php echo $laptopInfo['brand']?></h5>
-                            <p class="card-text">Rs<?php echo $laptopInfo['price']?></p>
+                          <div class="card-body" style="height:8.7rem">
+                            <h5 class="card-title mt-3"><?php echo $laptopInfo['brand']?></h5>
+                            <p class="card-text mt-3">Rs<?php echo $laptopInfo['price']?></p>
                           </div>
                           <div class="watchDetails">
                             <h2><?php echo $laptopInfo['brand']?></h2>

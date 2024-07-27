@@ -114,8 +114,8 @@
                     <?php echo $userAvatar ?>
                     <div class="cartAndQuantity" onclick="openMyCart()">
                         <div class="cart"><i class="fas fa-shopping-cart"></i></div>
-                          <span class="quantity d-flex justify-content-center align-items-center"><label class="mt-1"
-                                style="font-size:15px;"><?php echo $allCartItems ?></label></span>
+                          <span class="quantity d-flex justify-content-center align-items-center"><label
+                                style="font-size:12px;"><?php echo $allCartItems ?></label></span>
                     </div>
                 </div>
             </div>

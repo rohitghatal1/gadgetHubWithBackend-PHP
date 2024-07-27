@@ -137,8 +137,8 @@ body::-webkit-scrollbar-thumb {
     position: absolute;
     top: -10px;
     right: -10px;
-    width: 1rem;
-    height: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
     background-color: #E7EBE0FF;
     color: black;
     border-radius: 50%;
