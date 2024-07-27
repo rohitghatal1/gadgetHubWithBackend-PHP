@@ -41,7 +41,7 @@ if (isset($_SESSION['user'])) {
                     <th>Model</th>
                     <th>Photo</th>
                     <th>Price</th>
-                    <th colspan = "2">Action</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -72,10 +72,6 @@ if (isset($_SESSION['user'])) {
                             <i class="fas fa-trash"></i> Remove
                         </a>
                     </td>
-                    <td><button class="btn" style="background-color: #28a745; color: #ffffff;" onclick="openPlaceOrder()">
-                            <i class="fas fa-shopping-bag"></i> Place Order
-                        </button>
-                    </td>
                 </tr>
                 <?php $cartItemsCount++;
                         }
@@ -87,6 +83,13 @@ if (isset($_SESSION['user'])) {
                     echo "<tr><td colspan='6'>No items added to cart</td></tr>";
                 }
                 ?>
+                <tr>
+                    <td colspan="6">
+                        <button class="btn" style="background-color: #28a745; color: #ffffff;" onclick="openPlaceOrder()">
+                            <i class="fas fa-shopping-bag"></i> Place Order
+                        </button>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>

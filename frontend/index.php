@@ -96,14 +96,13 @@
     <?php require 'php/cartSection.php'?>
 
     <!-- place order Modal -->
-    <div class="palceOrderModal p-2 col-3 bg-light text-dark rounded" id ="placeOrder" style="position:fixed; top:0; right:0; z-index:13">
+    <div class="palceOrderModal p-2 col-4 bg-light text-dark rounded" id ="placeOrder" style="display:none; position:fixed; top:0; right:6rem; z-index:13">
         <div class="headingAndCloseBtn d-flex justify-content-between align-items-center p-2">
             <h3>Place Order:</h3>
-            <span style="font-size:20px;">&times;</span>
+            <span style="font-size:20px; cursor:pointer;" onclick = "closeOrderModal()">&times;</span>
         </div>
         <div class="userInfoSection">
             <form action="php/placeOrder.php" method="post">
-                <input type="hidden" id="itemId" name="itemId">
                 <input type="hidden" id="userId" name="userId">
                 
                 <label class="form-label text-font">Address</label>
@@ -112,7 +111,7 @@
                 <h6 class="text-center text-font mt-3">Select a payment Method:</h6>
                 <div class="d-flex align-items-center justify-content-around">
                     <span class="esewa mt-4" style="width:8rem; height:4rem; cursor:pointer;"><img src="logos/esewa.png" class="img-fluid"></span>
-                    <input class="p-1" type="submit" value="Cash On Delivery">
+                    <input class="p-2 rounded bg-info-subtle text-dark-subtle fw-bold border-0" type="submit" value="Cash On Delivery">
                 </div>
             </form>
         </div>
@@ -568,4 +567,33 @@
     }
 
   </script>
+
+  <!-- for place order  -->
+    <script>
+        let modal = document.getElementById("placeOrder");
+        let cart = document.getElementById("myCart");
+        function openPlaceOrder() {
+            <?php if (isset($_SESSION['user'])) { ?>
+                let userId = <?php echo json_encode($_SESSION['userId']); ?>;
+            <?php } else { ?>
+                let userId = null;
+            <?php } ?>
+
+            if (modal) {
+                modal.style.display = "block";
+                cart.style.display = "none";
+            }
+
+            let userIdInput = document.getElementById("userId");
+            if (userIdInput) {
+                userIdInput.value = userId;
+            }
+        }
+
+        function closeOrderModal(){
+            modal.style.display = "none";
+            cart.style.display = "block";
+        }
+    </script>
+
 </html>
