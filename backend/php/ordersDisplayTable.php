@@ -27,17 +27,17 @@
                                     $userName = $getName['uName'];
                                     ?>
                                 <tr>
-                                    <td><?php echo $count ?></td>
+                                    <td><?php echo $Ocount ?></td>
                                     <td><?php echo $userName?></td>
-                                    <td><?php echo $salesInfo['itemType'] ?></td>
-                                    <td><?php echo $userInfo['itemBrand'] ?></td>
-                                    <td><?php echo $userInfo['itemModel'] ?></td>
-                                    <td><?php echo $userInfo['itemPrice'] ?></td>
-                                    <td><?php echo $userInfo['cAddress'] ?></td>
-                                    <td><?php echo $userInfo['orderDate'] ?></td>
+                                    <td><?php echo $orderInfo['itemType'] ?></td>
+                                    <td><?php echo $orderInfo['itemBrand'] ?></td>
+                                    <td><?php echo $orderInfo['itemModel'] ?></td>
+                                    <td><?php echo $orderInfo['itemPrice'] ?></td>
+                                    <td><?php echo $orderInfo['cAddress'] ?></td>
+                                    <td><?php echo $orderInfo['orderDate'] ?></td>
                                 </tr>
                                 <?php
-                                $count++;
+                                $Ocount++;
                                 }
                             }
                             else{

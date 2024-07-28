@@ -18,18 +18,18 @@
                         $fetchedSalesData = $conn->query($salesData);
                         $Scount = 1;
                         if($fetchedSalesData->num_rows>0){
-                            while($salesInfo = $fetchedsalesData->fetch_assoc()){
+                            while($salesInfo = $fetchedSalesData->fetch_assoc()){
                                 ?>
                             <tr>
-                                <td><?php echo $count ?></td>
-                                <td><?php echo $userInfo['itemType'] ?></td>
-                                <td><?php echo $userInfo['itemBrand'] ?></td>
-                                <td><?php echo $userInfo['itemModel'] ?></td>
-                                <td><?php echo $userInfo['itemPrice'] ?></td>
+                                <td><?php echo $Scount ?></td>
+                                <td><?php echo $salesInfo['itemType'] ?></td>
+                                <td><?php echo $salesInfo['itemBrand'] ?></td>
+                                <td><?php echo $salesInfo['itemModel'] ?></td>
+                                <td><?php echo $salesInfo['itemPrice'] ?></td>
                                 <td><?php echo $salesInfo['saleDate'] ?></td>
                             </tr>
                             <?php
-                            $count++;
+                            $Scount++;
                             }
                         }
                         else{
