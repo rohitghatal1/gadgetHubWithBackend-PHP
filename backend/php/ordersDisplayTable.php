@@ -3,11 +3,14 @@
                     <table class = "table table-bordered text-center">
                         <thead class="">
                             <tr>
-                                <th rowspan = "3">SN</th>
-                                <th rowspan = "3">Name</th>
-                                <th colspan = "6">Products</th>
-                                <th rowspan = "3">Ordered Date</th>
-                                <th rowspan = "3">Total Price</th>
+                                <th>SN</th>
+                                <th>Customer Name</th>
+                                <th>Item Type</th>
+                                <th>Item Brand</th>
+                                <th>Item Model</th>
+                                <th>Item Price</th>
+                                <th>Customer Address</th>
+                                <th>Ordered Date</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -17,9 +20,15 @@
                             $Ocount = 1;
                             if($fetchedOrderData->num_rows>0){
                                 while($orderInfo = $fetchedOrderData->fetch_assoc()){
+                                    $userId = $orderInfo['userId'];
+                                    $getUserName = "SELECT uName FROM users WHERE Id = $userId";
+                                    $fetchedUserName = $conn->query($getUserName);
+                                    $getName = $fetchedUserName->fetch_assoc();
+                                    $userName = $getName['uName'];
                                     ?>
                                 <tr>
                                     <td><?php echo $count ?></td>
+                                    <td><?php echo $userName?></td>
                                     <td><?php echo $salesInfo['itemType'] ?></td>
                                     <td><?php echo $userInfo['itemBrand'] ?></td>
                                     <td><?php echo $userInfo['itemModel'] ?></td>

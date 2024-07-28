@@ -133,13 +133,13 @@ else{
                 $currentWatches = $watches['totalWatches'];
 
                 // for counting all sales
-                $getAllSales = "SELECT count(SId) AS totalSales FROM sales";
+                $getAllSales = "SELECT count(saleId) AS totalSales FROM sales";
                 $allSales = $conn->query($getAllSales);
                 $sales = $allSales->fetch_assoc();
                 $currentSales = $sales['totalSales'];
 
                 // for counting number of orders
-                $getAllOrders = "SELECT count(OId) AS totalOrders FROM orders";
+                $getAllOrders = "SELECT count(orderId) AS totalOrders FROM orders";
                 $allOrders = $conn->query($getAllOrders);
                 $orders = $allOrders->fetch_assoc();
                 $currentOrders = $orders['totalOrders'];
