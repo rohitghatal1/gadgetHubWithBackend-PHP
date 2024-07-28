@@ -99,7 +99,7 @@
     <?php require 'php/placeOrderSection.php'?>
     <!-- ----------------------------------------------------Navbar  section--------------------------------------------- -->
     <header id="start">
-        <div class="address pt-3 d-flex justify-content-between">
+        <div class="address pt-3 d-flex justify-content-between align-items-center">
             <div class="socialIcons d-flex ms-5">
                 <span class="ms-3"><a href="https://www.facebook.com/rohit.rohit.ghatal/" target="_blank"><i
                             class="fab fa-facebook w-50"></i></a></span>
@@ -110,7 +110,7 @@
             <div class="contact me-5 d-flex">
                 <span class="me-3"><i class="fa fa-phone"></i> 9856435452</span>
                 <span class="me-3"><i class="fa fa-phone"></i> 9856435452</span>
-                <div class="cartAndLogin d-flex me-2">
+                <div class="cartAndLogin d-flex align-items-center me-2">
                     <?php echo $userAvatar ?>
                     <div class="cartAndQuantity" onclick="openMyCart()">
                         <div class="cart"><i class="fas fa-shopping-cart"></i></div>
@@ -288,11 +288,12 @@
         <div class="contactUsContainer container d-flex justify-content-between gap-1">
             <div class="sendMessageSection p-3">
                 <h2 class="text-center">Send Message</h2>
-                <form action="#" class="w-75 m-auto">
-                    <input class="sendMessageInputs" type="text" placeholder="Your Name">
-                    <input class="sendMessageInputs" type="email" placeholder="Your Email">
-                    <input class="sendMessageInputs" type="text" placeholder="Subject">
-                    <textarea class="sendMessageInputs" rows="6" placeholder="Message"></textarea>
+                <form action="https://formspree.io/f/mvoedkbr" method="post" class="w-75 m-auto">
+                    <input class="sendMessageInputs" name="customerName" type="text" placeholder="Your Name" required>
+                    <input class="sendMessageInputs" name="customerEmail" type="email" placeholder="Your Email" required>
+                    <input class="sendMessageInputs" name="subject" type="text" placeholder="Subject" required>
+                    <textarea class="sendMessageInputs" name="message" rows="6" placeholder="Message" required></textarea>
+                    <input type="submit" value="Submit" class="btn" style="background-color:#0a1828; color:#fff; border:1px solid #fff">
                 </form>
             </div>
             <div class="getInTouchSection p-3">
