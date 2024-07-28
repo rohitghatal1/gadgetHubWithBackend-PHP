@@ -8,7 +8,7 @@
                 <input type="hidden" id="userId" name="userId">
                 
                 <label class="form-label text-font">Address</label>
-                <input class="form-control" type="text" id="cAddress" name="address" placeholder="Enter address to where the order to be delivered">
+                <input class="form-control" type="text" id="cAddress" name="address" placeholder="Enter address to where the order to be delivered" required>
 
                 <h5 class="text-center text-font mt-3 fw-bold">Select a payment Method:</h5>
                 <div class="d-flex align-items-center justify-content-around">

@@ -4,23 +4,12 @@
                 <table class="table table-bordered text-center">
                     <thead>
                         <tr class="text-font">
-                            <th rowspan = "3">SN</th>
-                            <th rowspan = "3">Date</th>
-                            <th colspan = "6">Products</th>
-                            <th rowspan = "3">Total</th>
-                        </tr>
-                        <tr>
-                            <th colspan = "2">Laptop</th>
-                            <th colspan = "2">Mobile</th>
-                            <th colspan = "2">Smart Watch</th>
-                        </tr>
-                        <tr>
-                            <th>Quantity</th>
-                            <th>Total Price</th>
-                            <th>Quantity</th>
-                            <th>Total Price</th>
-                            <th>Quantity</th>
-                            <th>Total Price</th>
+                            <th>SN</th>
+                            <th>Item Type</th>
+                            <th>Item Brand</th>
+                            <th>Item Model</th>
+                            <th>Item Price</th>
+                            <th>Sold Date</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,14 +22,11 @@
                                 ?>
                             <tr>
                                 <td><?php echo $count ?></td>
-                                <td><?php echo $salesInfo['Date'] ?></td>
-                                <td><?php echo $userInfo['laptopQty'] ?></td>
-                                <td><?php echo $userInfo['price'] ?></td>
-                                <td><?php echo $userInfo['mobileQty'] ?></td>
-                                <td><?php echo $userInfo['Mprice'] ?></td>
-                                <td><?php echo $userInfo['watchQty'] ?></td>
-                                <td><?php echo $userInfo['Wprice'] ?></td>
-                                <td><?php echo $userInfo['totalPrice'] ?></td>
+                                <td><?php echo $userInfo['itemType'] ?></td>
+                                <td><?php echo $userInfo['itemBrand'] ?></td>
+                                <td><?php echo $userInfo['itemModel'] ?></td>
+                                <td><?php echo $userInfo['itemPrice'] ?></td>
+                                <td><?php echo $salesInfo['saleDate'] ?></td>
                             </tr>
                             <?php
                             $count++;
@@ -48,7 +34,7 @@
                         }
                         else{
                             echo "<tr>";
-                            echo "<td colspan = '9'>No sales at the moment🥲!!!</td>";
+                            echo "<td colspan = '6'>No sales at the moment🥲!!!</td>";
                             echo "</tr>";
                         }
                     ?>

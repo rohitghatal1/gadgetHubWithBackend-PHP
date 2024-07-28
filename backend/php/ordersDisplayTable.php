@@ -9,23 +9,6 @@
                                 <th rowspan = "3">Ordered Date</th>
                                 <th rowspan = "3">Total Price</th>
                             </tr>
-
-                            <tr>
-                                <th colspan = "2">Laptop</th>
-                                <th colspan = "2">Mobile</th>
-                                <th colspan = "2">Smart Watch</th>
-                            </tr>
-
-                            <tr>
-                                <th>Quantity</th>
-                                <th>Price</th>
-
-                                <th>Quantity</th>
-                                <th>Price</th>
-
-                                <th>Quantity</th>
-                                <th>Price</th>
-                            </tr>
                         </thead>
                         <tbody>
                         <?php 
@@ -37,15 +20,12 @@
                                     ?>
                                 <tr>
                                     <td><?php echo $count ?></td>
-                                    <td><?php echo $salesInfo['Cname'] ?></td>
-                                    <td><?php echo $userInfo['laptopQty'] ?></td>
-                                    <td><?php echo $userInfo['Lprice'] ?></td>
-                                    <td><?php echo $userInfo['mobileQty'] ?></td>
-                                    <td><?php echo $userInfo['Mprice'] ?></td>
-                                    <td><?php echo $userInfo['watchQty'] ?></td>
-                                    <td><?php echo $userInfo['price'] ?></td>
-                                    <td><?php echo $userInfo['orderedDate'] ?></td>
-                                    <td><?php echo $userInfo['totalPrice'] ?></td>
+                                    <td><?php echo $salesInfo['itemType'] ?></td>
+                                    <td><?php echo $userInfo['itemBrand'] ?></td>
+                                    <td><?php echo $userInfo['itemModel'] ?></td>
+                                    <td><?php echo $userInfo['itemPrice'] ?></td>
+                                    <td><?php echo $userInfo['cAddress'] ?></td>
+                                    <td><?php echo $userInfo['orderDate'] ?></td>
                                 </tr>
                                 <?php
                                 $count++;

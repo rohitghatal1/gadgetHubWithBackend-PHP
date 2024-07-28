@@ -135,10 +135,10 @@ body::-webkit-scrollbar-thumb {
 
 .quantity{
     position: absolute;
-    top: -10px;
-    right: -10px;
-    width: 1.5rem;
-    height: 1.5rem;
+    top: -11px;
+    right: -16px;
+    width: 1.3rem;
+    height: 1.3rem;
     background-color: #E7EBE0FF;
     color: black;
     border-radius: 50%;
