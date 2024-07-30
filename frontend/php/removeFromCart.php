@@ -5,38 +5,39 @@ require '../../backend/database/databaseConnection.php';
 // Start the session
 session_start();
 
-// Check if itemId is set in the URL
-if (isset($_GET['itemId'])) {
-    // Get the itemId from the URL
-    $itemId = intval($_GET['itemId']); // Convert to integer to prevent SQL injection
+// Check if itemId and itemType are set in the URL
+if (isset($_GET['itemId']) && isset($_GET['itemType'])) {
+    // Validate and sanitize inputs
+    $itemId = intval($_GET['itemId']);
+    $itemType = $_GET['itemType'];
 
     // Ensure user is logged in
-    if (isset($_SESSION['user'])) {
-        $personId = $_SESSION["userId"];
+    if (isset($_SESSION['userId'])) {
+        $personId = intval($_SESSION['userId']);
 
         // Prepare the SQL statement to delete the item from the cart
-        $deleteQuery = "DELETE FROM cart WHERE itemId = ? AND userId = ?";
+        $deleteQuery = "DELETE FROM cart WHERE itemId = ? AND itemType = ? AND userId = ?";
         $stmt = $conn->prepare($deleteQuery);
-        $stmt->bind_param("ii", $itemId, $personId);
+        $stmt->bind_param("isi", $itemId, $itemType, $personId);
 
-        // Execute the statement
+        // Execute the statement and check if successful
         if ($stmt->execute()) {
-            echo "<script>alert('Item removed form cart successfully')</script>";
-            echo "<script>window.location.href = '../index.php'</script>";
+            echo "<script>alert('Item removed from cart successfully.');</script>";
+            echo "<script>window.location.href = '../index.php';</script>";
         } else {
             // Handle error
-            echo "Error removing item from cart.";
+            echo "<script>alert('Error removing item from cart. Please try again later.');</script>";
         }
 
         // Close the statement
         $stmt->close();
     } else {
         // Handle the case where the user is not logged in
-        echo "You need to log in to remove items from the cart.";
+        echo "<script>alert('You need to log in to remove items from the cart.');</script>";
     }
 } else {
-    // Handle the case where itemId is not set
-    echo "Invalid item ID.";
+    // Handle the case where itemId or itemType is not set
+    echo "<script>alert('Invalid item ID or type.');</script>";
 }
 
 // Close the database connection

@@ -64,7 +64,8 @@ if (isset($_SESSION['user'])) {
                                             </button>';
                         $cartItemsCount = 1;
                         while ($cartData = $result->fetch_assoc()) {
-                            $itemId = $cartData['itemId']; ?>
+                            $itemId = $cartData['itemId'];
+                            $itemType = $cartData['itemType'] ?>
                             <tr>
                                 <td><?php echo $cartItemsCount; ?></td>
                                 <td><?php echo htmlspecialchars($cartData['itemBrand']); ?></td>
@@ -73,7 +74,7 @@ if (isset($_SESSION['user'])) {
                                         style="width:80%; height:8rem;"></td>
                                 <td><?php echo htmlspecialchars($cartData['itemPrice']); ?></td>
                                 <td>
-                                    <a href="php/removeFromCart.php?itemId=<?php echo urlencode($itemId); ?>"
+                                     <a href="php/removeFromCart.php?itemId=<?php echo urlencode($itemId); ?>&itemType=<?php echo urlencode($itemType); ?>"
                                         class="text-decoration-none p-1 bg-danger text-light fw-bold rounded">
                                         <i class="fas fa-trash"></i> Remove
                                     </a>
