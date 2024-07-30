@@ -125,7 +125,7 @@
             <div class="container d-flex align-items-center" id="navItemContainer">
                 <div class="logo col-auto"><img src="/gadgetHubWithBackend/frontend/logos/gadgetHub3.png"></div>
                 <div class="navitems">
-                    <span class="cursor"><a href="index.html">Home</a></span>
+                    <span class="cursor"><a href="index.php">Home</a></span>
                     <span><a href="#services">Services</a></span>
                     <span><a href="#productsSection">Products</a></span>
                     <span><a href="#aboutSection">About Us</a></span>

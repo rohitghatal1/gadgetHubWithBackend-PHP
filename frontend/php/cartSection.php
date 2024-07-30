@@ -48,7 +48,8 @@ if (isset($_SESSION['user'])) {
                 <?php
                 $placeOrderBtn = "<button class='btn p-1 bg-warning text-dark'>
                                     <i class='fa fa-exclamation-circle'></i> Cart is Empty
-                                  </button>";
+                                </button>";
+                $totalPrice = 0; // Initialize total price
                 if (isset($_SESSION['user'])) {
                     // Fetch cart details
                     $getCartDetails = "SELECT * FROM cart WHERE userId = ?";
@@ -61,27 +62,39 @@ if (isset($_SESSION['user'])) {
                     if ($result->num_rows > 0) {
                         $placeOrderBtn = '<button class="btn" style="background-color: #28a745; color: #ffffff;" onclick="openPlaceOrder()">
                                             <i class="fas fa-shopping-bag"></i> Place Order
-                                            </button>';
+                                        </button>';
                         $cartItemsCount = 1;
                         while ($cartData = $result->fetch_assoc()) {
                             $itemId = $cartData['itemId'];
-                            $itemType = $cartData['itemType'] ?>
+                            $itemType = $cartData['itemType'];
+                            $itemPrice = floatval($cartData['itemPrice']); // Convert price to float
+                            $totalPrice += $itemPrice; // Add item price to total
+                ?>
                             <tr>
                                 <td><?php echo $cartItemsCount; ?></td>
                                 <td><?php echo htmlspecialchars($cartData['itemBrand']); ?></td>
                                 <td><?php echo htmlspecialchars($cartData['itemModel']); ?></td>
                                 <td><img src="<?php echo htmlspecialchars($cartData['itemPhoto']); ?>" alt=""
                                         style="width:80%; height:8rem;"></td>
-                                <td><?php echo htmlspecialchars($cartData['itemPrice']); ?></td>
+                                <td><?php echo number_format($itemPrice, 2); ?></td>
                                 <td>
-                                     <a href="php/removeFromCart.php?itemId=<?php echo urlencode($itemId); ?>&itemType=<?php echo urlencode($itemType); ?>"
+                                    <a href="php/removeFromCart.php?itemId=<?php echo urlencode($itemId); ?>&itemType=<?php echo urlencode($itemType); ?>"
                                         class="text-decoration-none p-1 bg-danger text-light fw-bold rounded">
                                         <i class="fas fa-trash"></i> Remove
                                     </a>
                                 </td>
                             </tr>
-                <?php $cartItemsCount++;
+                <?php
+                            $cartItemsCount++;
                         }
+                ?>
+                        <!-- Display the total price -->
+                        <tr>
+                            <td colspan="4" style="text-align: right; font-weight: bold;">Total:</td>
+                            <td><?php echo number_format($totalPrice, 2); ?></td>
+                            <td></td>
+                        </tr>
+                <?php
                     } else {
                         echo "<tr><td colspan='6'>No items added to cart</td></tr>";
                         $placeOrderBtn = "<button class='btn p-1 bg-warning text-dark'>
@@ -99,6 +112,7 @@ if (isset($_SESSION['user'])) {
                     </td>
                 </tr>
             </tbody>
+
         </table>
     </div>
 </div>
