@@ -419,8 +419,6 @@
         </section>
         <h5 class="text-center py-3">Designed and Developed by <i>Rohit Ghatal.</i></h5>
     </footer>
-
-    <video src="https://www.youtube.com/watch?v=-0bu34QnrFk&list=RDGMEMzv-WGxm7n2gYFGlxmIKWiwVM-0bu34QnrFk&start_radio=1"></video>
     <script src="/gadgetHubWithBackend/frontend/js/formValidation.js"></script>
   </body>
   
@@ -432,151 +430,151 @@
 
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script>
-    function handleAddToCart(itemId, itemType) {
-        console.log("add to cart called");
-      <?php if (isset($_SESSION['user'])) { ?>
-        try {
-          let userId = <?php echo $_SESSION['userId']; ?>;
-          if (!userId) {
-            throw new Error('User ID not found in session.');
-          }
-          console.log("User ID:", userId);
-          console.log("Item ID:", itemId);
-          console.log("Item Type:", itemType);
-
-          let xhr = new XMLHttpRequest();
-          xhr.open("POST", "php/addToCart.php", true);
-          xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-          xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4) {
-              try {
-                console.log("XHR Response:", xhr.responseText);
-                let response = JSON.parse(xhr.responseText);
-                if (xhr.status === 200 && response.status === 'success') {
-                  alert(response.message); // Show success message
-                } else {
-                  console.error('Error adding to cart:', response.message);
-                  alert('An error occurred while adding to cart. Please try again later.');
-                }
-              } catch (e) {
-                console.error('Failed to parse response as JSON:', e);
-                // alert('An error occurred while processing the response. Please try again later.');
-              }
+    <script>
+        function handleAddToCart(itemId, itemType) {
+            console.log("add to cart called");
+        <?php if (isset($_SESSION['user'])) { ?>
+            try {
+            let userId = <?php echo $_SESSION['userId']; ?>;
+            if (!userId) {
+                throw new Error('User ID not found in session.');
             }
-          };
-          xhr.send("userId=" + userId + "&itemId=" + itemId + "&itemType=" + itemType);
-          location.reload();
-          
-        } catch (error) {
-          console.error('Error handling add to cart:', error.message);
-          alert('An error occurred while processing your request. Please try again later.');
-        }
-        <?php } else { ?>
-          alert('Please login first!');
-          document.getElementById("loginModal").style.display = "block";
-          <?php } ?>
-        }
-  </script>
+            console.log("User ID:", userId);
+            console.log("Item ID:", itemId);
+            console.log("Item Type:", itemType);
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "php/addToCart.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                try {
+                    console.log("XHR Response:", xhr.responseText);
+                    let response = JSON.parse(xhr.responseText);
+                    if (xhr.status === 200 && response.status === 'success') {
+                    alert(response.message); // Show success message
+                    } else {
+                    console.error('Error adding to cart:', response.message);
+                    alert('An error occurred while adding to cart. Please try again later.');
+                    }
+                } catch (e) {
+                    console.error('Failed to parse response as JSON:', e);
+                    // alert('An error occurred while processing the response. Please try again later.');
+                }
+                }
+            };
+            xhr.send("userId=" + userId + "&itemId=" + itemId + "&itemType=" + itemType);
+            location.reload();
+            
+            } catch (error) {
+            console.error('Error handling add to cart:', error.message);
+            alert('An error occurred while processing your request. Please try again later.');
+            }
+            <?php } else { ?>
+            alert('Please login first!');
+            document.getElementById("loginModal").style.display = "block";
+            <?php } ?>
+            }
+    </script>
 
     <!-- to toggel dropdowns and modals  -->
-  <script>
-    let loginModal = document.getElementById("loginModal");
-    let signupModal = document.getElementById("signupModal");
-    let feedbackForm = document.getElementById("feedbackForm");
-    let myCart = document.getElementById("myCart");
+    <script>
+        let loginModal = document.getElementById("loginModal");
+        let signupModal = document.getElementById("signupModal");
+        let feedbackForm = document.getElementById("feedbackForm");
+        let myCart = document.getElementById("myCart");
 
-    function openMyCart(){
-        console.log("openMyCart function called");
-        myCart.style.display = "block";
-    }
-
-    function closeMyCart(){
-        myCart.style.display = "none";
-    }
-    function openLoginModal(){
-        loginModal.style.display = 'block';
-        signupModal.style.display = 'none';
-    }
-
-    function closeLoginModal(){
-        loginModal.style.display = 'none';
-    }
-
-    function openSignupModal(){
-        signupModal.style.display = 'block';
-        loginModal.style.display = 'none';
-    }
-
-    function closeSignupModal(){
-        signupModal.style.display = 'none';
-    }
-
-    function togglePassword() {
-        let passwordInput = document.getElementById("password");
-        let cPasswordInput = document.getElementById("cPassword");
-        let showPasswordCheckbox = document.getElementById("showPasswordCheckbox");
-
-        if (passwordInput.type === "password") {
-            passwordInput.type = "text";
-            cPasswordInput.type = "text";
-            showPasswordCheckbox.checked = true;
-        } else {
-            passwordInput.type = "password";
-            cPasswordInput.type = "password";
-            showPasswordCheckbox.checked = false;
+        function openMyCart(){
+            console.log("openMyCart function called");
+            myCart.style.display = "block";
         }
-    }
 
-    function openFeedbackForm(){
-        feedbackForm.style.display = "block";
-        feedbackForm.style.width = "22rem";
-    }
-
-    function closeFeedbackForm(){
-        feedbackForm.style.display = "none";
-    }
-
-    function toggleDropdown(event) {
-        event.stopPropagation(); // Prevent the document click listener from immediately hiding the dropdown
-        var dropdownContent = document.getElementById("droppedDownContent");
-        if (dropdownContent.style.display === "block") {
-            dropdownContent.style.display = "none";
-        } else {
-            dropdownContent.style.display = "block";
+        function closeMyCart(){
+            myCart.style.display = "none";
         }
-    }
-
-    function showPassword(){
-        let passwordInput = document.getElementById("password");
-        let checkbox = document.getElementById("checkboxInput");
-        checkbox.checked = !checkbox.checked;
-
-        if(passwordInput.type == "password"){
-            passwordInput.type = "text";
+        function openLoginModal(){
+            loginModal.style.display = 'block';
+            signupModal.style.display = 'none';
         }
-        else{
-            passwordInput.type = "password";
+
+        function closeLoginModal(){
+            loginModal.style.display = 'none';
         }
-    }
 
-    function showPassword1(){
-        let passwordInput = document.getElementById("loginPassword");
-        let checkbox = document.getElementById("checkbox");
-
-        checkbox.checked = !checkbox.checked;
-
-        if(passwordInput.type == "password"){
-            passwordInput.type = "text";
+        function openSignupModal(){
+            signupModal.style.display = 'block';
+            loginModal.style.display = 'none';
         }
-        else{
-            passwordInput.type = "password";
+
+        function closeSignupModal(){
+            signupModal.style.display = 'none';
         }
-    }
 
-  </script>
+        function togglePassword() {
+            let passwordInput = document.getElementById("password");
+            let cPasswordInput = document.getElementById("cPassword");
+            let showPasswordCheckbox = document.getElementById("showPasswordCheckbox");
 
-  <!-- for place order  -->
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                cPasswordInput.type = "text";
+                showPasswordCheckbox.checked = true;
+            } else {
+                passwordInput.type = "password";
+                cPasswordInput.type = "password";
+                showPasswordCheckbox.checked = false;
+            }
+        }
+
+        function openFeedbackForm(){
+            feedbackForm.style.display = "block";
+            feedbackForm.style.width = "22rem";
+        }
+
+        function closeFeedbackForm(){
+            feedbackForm.style.display = "none";
+        }
+
+        function toggleDropdown(event) {
+            event.stopPropagation(); // Prevent the document click listener from immediately hiding the dropdown
+            var dropdownContent = document.getElementById("droppedDownContent");
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+        }
+
+        function showPassword(){
+            let passwordInput = document.getElementById("password");
+            let checkbox = document.getElementById("checkboxInput");
+            checkbox.checked = !checkbox.checked;
+
+            if(passwordInput.type == "password"){
+                passwordInput.type = "text";
+            }
+            else{
+                passwordInput.type = "password";
+            }
+        }
+
+        function showPassword1(){
+            let passwordInput = document.getElementById("loginPassword");
+            let checkbox = document.getElementById("checkbox");
+
+            checkbox.checked = !checkbox.checked;
+
+            if(passwordInput.type == "password"){
+                passwordInput.type = "text";
+            }
+            else{
+                passwordInput.type = "password";
+            }
+        }
+
+    </script>
+
+    <!-- for place order  -->
     <script>
         let orderModal = document.getElementById("placeOrder");
         let cart = document.getElementById("myCart");
@@ -611,15 +609,14 @@
             QRCode.style.display = "none";
         }
     </script>
-
-<script>
-        var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 3,
-        spaceBetween: 30,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-    });
-</script>
+    <script>
+            var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    </script>
 </html>
