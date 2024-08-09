@@ -23,6 +23,29 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="js/script.js"></script>
+
+    <style>
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    }
+
+    .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    }
+    </style>
 </head>
 
 <body>
@@ -397,6 +420,7 @@
         <h5 class="text-center py-3">Designed and Developed by <i>Rohit Ghatal.</i></h5>
     </footer>
 
+    <video src="https://www.youtube.com/watch?v=-0bu34QnrFk&list=RDGMEMzv-WGxm7n2gYFGlxmIKWiwVM-0bu34QnrFk&start_radio=1"></video>
     <script src="/gadgetHubWithBackend/frontend/js/formValidation.js"></script>
   </body>
   
@@ -588,4 +612,14 @@
         }
     </script>
 
+<script>
+        var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+</script>
 </html>

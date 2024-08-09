@@ -54,14 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
     handleScroll();
     window.addEventListener('scroll', handleScroll);
 
-    var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 3,
-        spaceBetween: 30,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-    });
 
     document.addEventListener('click', function(event) {
         var dropdownContent = document.getElementById("droppedDownContent");
