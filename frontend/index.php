@@ -154,6 +154,11 @@
                     <span><a href="#aboutSection">About Us</a></span>
                     <span><a href="#contactSection">Contact Us</a></span>
                 </div>
+                <div class="hamburgerMenu" onclick="openMobileNavbar()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </nav>
     </header>
