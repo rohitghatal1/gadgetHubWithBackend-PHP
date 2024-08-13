@@ -159,7 +159,7 @@
         bottom: 2rem;
         text-align: center;
     }
-    
+
     .feedbackbtn{
         display: none;
     }
@@ -170,5 +170,55 @@
         background-color: #0A1828;
         border: 1px solid #BFA181;
         padding: 0.2rem;
+    }
+    footer{
+        font-size: small;
+    }
+
+    .footerSection .about{
+        width: 40%;
+    }
+
+    .footerSection .tabLinks{
+        width: 35%;
+        margin-left: 0.4rem;
+    }
+
+    .footerSection .socialAndRatings{
+        width: 25%
+    }
+
+    .about .websiteLogo{
+        width: 8rem;
+        height: 3rem;
+        border-radius: 1px;
+    }
+    
+    .about .websiteLogo img{
+        width: 100%;
+        height: 100%;
+        filter: brightness(3) contrast(5);
+        object-fit: contain;
+    }
+
+    .tabLinks h3{
+        font-size: medium;
+    }
+
+    .socialSection h3{
+        font-size: medium;
+    }
+
+    .ratingsContainer{
+        margin-right: 0.5rem;
+    }
+    .ratingsContainer h3{
+        font-size: medium;
+    }
+
+    .star{
+        font-size: 1rem;
+        color: gray;
+        transition: color 0.3s;
     }
 }
