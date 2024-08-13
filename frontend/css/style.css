@@ -116,6 +116,24 @@ body::-webkit-scrollbar-thumb {
     font-size: large;
     cursor: pointer;
 }
+
+.hamburgerMenu {
+    width: 25px;
+    height: 25px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.hamburgerMenu span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px; 
+}
+
 .cartAndLogin .user,
 .cart{
     width: 2rem;
