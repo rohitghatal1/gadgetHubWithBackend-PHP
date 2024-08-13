@@ -1,0 +1,108 @@
+@media (max-width: 600px) {
+    .loginModal,
+    .signupModal{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 15%;
+    background-color: #0A1828;
+    color: #BFA181;
+    width: 20rem;
+    padding: 0.5rem;
+    z-index: 20;
+    border-radius: 0.4rem;
+    }
+
+    .loginModal h3,
+    .signupModal h3{
+        font-size: medium;
+    }
+
+    .loginModal p span,
+    .signupModal p span,
+    .closeLoginModal,
+    .closeSignupModal{
+     cursor: pointer;
+     font-size: small;
+    }
+
+    .loginBtn,
+    .submitbtn{
+        margin-top: 0.7rem;
+        background-color: #0A1828;
+        color: #BFA181;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        font-size: small;
+        border: 1px solid #BFA181
+    }
+    .address i{
+        color: #178582;
+        font-size: small;
+    }
+    .contact span{
+        font-size: smaller;
+    }
+
+    .quantity{
+        position: absolute;
+        top: -4px;
+        right: 2px;
+        width: 0.8rem;
+        height: 0.8rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: #E7EBE0FF;
+        color: black;
+        border-radius: 50%;
+    }
+    .navbar{
+        position: relative;
+        top: 2.3rem;
+        background-color: #0A1828;
+        color: #BFA181;
+    }
+
+    .mobileNavbar{
+        display:block !important;
+    }
+
+    .logo{
+        width: 2rem;
+        height: 3rem;
+        border-radius: 1rem;
+        overflow: hidden;
+    }
+
+    .navitems{
+        display: none;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1rem;
+        position: fixed;
+        top:4rem;
+        right:0;
+        text-align: left;
+        padding: 0.5rem;
+        background-color: #0A1828;
+        width: 12rem;
+        z-index: 5;
+        height: 100vh;
+        transition: all 0.8s ease;
+    }
+
+    .closeMobileNavbar{
+        display: block;
+        position: absolute;
+        top: -5px;
+        right: 1rem;
+        font-size: 1.3rem;
+        color: #ccc;
+    }
+    .hamburgerMenu{
+        display: flex;
+    }
+}
