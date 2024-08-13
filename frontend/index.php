@@ -31,19 +31,19 @@
     }
 
     .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 90%;
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90%;
     }
 
     .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
+        display: block;
+        width: 100%;
+        height: 100%;
     }
     </style>
 </head>
@@ -137,7 +137,7 @@
                     <?php echo $userAvatar ?>
                     <div class="cartAndQuantity" onclick="openMyCart()">
                         <div class="cart"><i class="fas fa-shopping-cart"></i></div>
-                          <span class="quantity d-flex justify-content-center align-items-center"><label
+                        <span class="quantity d-flex justify-content-center align-items-center"><label
                                 style="font-size:15px;"><?php echo $allCartItems ?></label></span>
                     </div>
                 </div>
@@ -166,7 +166,7 @@
 
 
     <!-- ----------------------------------------------------Website banner section------------------------------------------------ -->
-    
+
     <div class="banner">
         <div class="photo" style="witdh: 100%; height:40rem">
             <img src="images/banner1.jpg" alt="" class="img-fluid" style="width:100%; height:100%">
@@ -179,13 +179,13 @@
     </div>
 
     <div class="services py-5" id="services">
-      <h2 class="w-100 text-center">Services</h2>
-      <div class="container mt-3 d-flex gap-5">
+        <h2 class="w-100 text-center">Services</h2>
+        <div class="container mt-3 d-flex gap-5">
             <div class="service">
-              <i class="fas fa-shopping-cart"></i>
-              <div class="serviceDetail">
-                  <h5>FREE DELIVERY</h5>
-                  <p>We provide the free home delivery service</p>
+                <i class="fas fa-shopping-cart"></i>
+                <div class="serviceDetail">
+                    <h5>FREE DELIVERY</h5>
+                    <p>We provide the free home delivery service</p>
                 </div>
             </div>
 
@@ -318,10 +318,13 @@
                 <h2 class="text-center">Send Message</h2>
                 <form action="https://formspree.io/f/mvoedkbr" method="post" class="w-75 m-auto">
                     <input class="sendMessageInputs" name="customerName" type="text" placeholder="Your Name" required>
-                    <input class="sendMessageInputs" name="customerEmail" type="email" placeholder="Your Email" required>
+                    <input class="sendMessageInputs" name="customerEmail" type="email" placeholder="Your Email"
+                        required>
                     <input class="sendMessageInputs" name="subject" type="text" placeholder="Subject" required>
-                    <textarea class="sendMessageInputs" name="message" rows="6" placeholder="Message" required></textarea>
-                    <input type="submit" value="Submit" class="btn" style="background-color:#0a1828; color:#fff; border:1px solid #fff">
+                    <textarea class="sendMessageInputs" name="message" rows="6" placeholder="Message"
+                        required></textarea>
+                    <input type="submit" value="Submit" class="btn"
+                        style="background-color:#0a1828; color:#fff; border:1px solid #fff">
                 </form>
             </div>
             <div class="getInTouchSection p-3">
@@ -425,203 +428,219 @@
         <h5 class="text-center py-3">Designed and Developed by <i>Rohit Ghatal.</i></h5>
     </footer>
     <script src="/gadgetHubWithBackend/frontend/js/formValidation.js"></script>
-  </body>
-  
-  <!-- bootstrap javaScript  -->
-  <script src="/gadgetHubWithBackend/frontend/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
-  
-  <!-- swiperjs CDN  -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+</body>
 
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        function handleAddToCart(itemId, itemType) {
-            console.log("add to cart called");
-        <?php if (isset($_SESSION['user'])) { ?>
-            try {
-            let userId = <?php echo $_SESSION['userId']; ?>;
-            if (!userId) {
-                throw new Error('User ID not found in session.');
-            }
-            console.log("User ID:", userId);
-            console.log("Item ID:", itemId);
-            console.log("Item Type:", itemType);
+<!-- bootstrap javaScript  -->
+<script src="/gadgetHubWithBackend/frontend/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
 
-            let xhr = new XMLHttpRequest();
-            xhr.open("POST", "php/addToCart.php", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4) {
+<!-- swiperjs CDN  -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+function handleAddToCart(itemId, itemType) {
+    console.log("add to cart called");
+    <?php if (isset($_SESSION['user'])) { ?>
+    try {
+        let userId = <?php echo $_SESSION['userId']; ?>;
+        if (!userId) {
+            throw new Error('User ID not found in session.');
+        }
+        console.log("User ID:", userId);
+        console.log("Item ID:", itemId);
+        console.log("Item Type:", itemType);
+
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "php/addToCart.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
                 try {
                     console.log("XHR Response:", xhr.responseText);
                     let response = JSON.parse(xhr.responseText);
                     if (xhr.status === 200 && response.status === 'success') {
-                    alert(response.message); // Show success message
+                        alert(response.message); // Show success message
                     } else {
-                    console.error('Error adding to cart:', response.message);
-                    alert('An error occurred while adding to cart. Please try again later.');
+                        console.error('Error adding to cart:', response.message);
+                        alert('An error occurred while adding to cart. Please try again later.');
                     }
                 } catch (e) {
                     console.error('Failed to parse response as JSON:', e);
                     // alert('An error occurred while processing the response. Please try again later.');
                 }
-                }
-            };
-            xhr.send("userId=" + userId + "&itemId=" + itemId + "&itemType=" + itemType);
-            location.reload();
-            
-            } catch (error) {
-            console.error('Error handling add to cart:', error.message);
-            alert('An error occurred while processing your request. Please try again later.');
             }
-            <?php } else { ?>
-            alert('Please login first!');
-            document.getElementById("loginModal").style.display = "block";
-            <?php } ?>
-            }
-    </script>
+        };
+        xhr.send("userId=" + userId + "&itemId=" + itemId + "&itemType=" + itemType);
+        location.reload();
 
-    <!-- to toggel dropdowns and modals  -->
-    <script>
-        let loginModal = document.getElementById("loginModal");
-        let signupModal = document.getElementById("signupModal");
-        let feedbackForm = document.getElementById("feedbackForm");
-        let myCart = document.getElementById("myCart");
+    } catch (error) {
+        console.error('Error handling add to cart:', error.message);
+        alert('An error occurred while processing your request. Please try again later.');
+    }
+    <?php } else { ?>
+    alert('Please login first!');
+    document.getElementById("loginModal").style.display = "block";
+    <?php } ?>
+}
+</script>
 
-        function openMyCart(){
-            console.log("openMyCart function called");
-            myCart.style.display = "block";
-        }
+<!-- to toggel dropdowns and modals  -->
+<script>
+let loginModal = document.getElementById("loginModal");
+let signupModal = document.getElementById("signupModal");
+let feedbackForm = document.getElementById("feedbackForm");
+let myCart = document.getElementById("myCart");
 
-        function closeMyCart(){
-            myCart.style.display = "none";
-        }
-        function openLoginModal(){
-            loginModal.style.display = 'block';
-            signupModal.style.display = 'none';
-        }
+function openMyCart() {
+    console.log("openMyCart function called");
+    myCart.style.display = "block";
+}
 
-        function closeLoginModal(){
-            loginModal.style.display = 'none';
-        }
+function closeMyCart() {
+    myCart.style.display = "none";
+}
 
-        function openSignupModal(){
-            signupModal.style.display = 'block';
-            loginModal.style.display = 'none';
-        }
+function openLoginModal() {
+    loginModal.style.display = 'block';
+    signupModal.style.display = 'none';
+}
 
-        function closeSignupModal(){
-            signupModal.style.display = 'none';
-        }
+function closeLoginModal() {
+    loginModal.style.display = 'none';
+}
 
-        function togglePassword() {
-            let passwordInput = document.getElementById("password");
-            let cPasswordInput = document.getElementById("cPassword");
-            let showPasswordCheckbox = document.getElementById("showPasswordCheckbox");
+function openSignupModal() {
+    signupModal.style.display = 'block';
+    loginModal.style.display = 'none';
+}
 
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-                cPasswordInput.type = "text";
-                showPasswordCheckbox.checked = true;
-            } else {
-                passwordInput.type = "password";
-                cPasswordInput.type = "password";
-                showPasswordCheckbox.checked = false;
-            }
-        }
+function closeSignupModal() {
+    signupModal.style.display = 'none';
+}
 
-        function openFeedbackForm(){
-            feedbackForm.style.display = "block";
-            feedbackForm.style.width = "22rem";
-        }
+function togglePassword() {
+    let passwordInput = document.getElementById("password");
+    let cPasswordInput = document.getElementById("cPassword");
+    let showPasswordCheckbox = document.getElementById("showPasswordCheckbox");
 
-        function closeFeedbackForm(){
-            feedbackForm.style.display = "none";
-        }
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        cPasswordInput.type = "text";
+        showPasswordCheckbox.checked = true;
+    } else {
+        passwordInput.type = "password";
+        cPasswordInput.type = "password";
+        showPasswordCheckbox.checked = false;
+    }
+}
 
-        function toggleDropdown(event) {
-            event.stopPropagation(); // Prevent the document click listener from immediately hiding the dropdown
-            var dropdownContent = document.getElementById("droppedDownContent");
-            if (dropdownContent.style.display === "block") {
-                dropdownContent.style.display = "none";
-            } else {
-                dropdownContent.style.display = "block";
-            }
-        }
+function openFeedbackForm() {
+    feedbackForm.style.display = "block";
+    feedbackForm.style.width = "22rem";
+}
 
-        function showPassword(){
-            let passwordInput = document.getElementById("password");
-            let checkbox = document.getElementById("checkboxInput");
-            checkbox.checked = !checkbox.checked;
+function closeFeedbackForm() {
+    feedbackForm.style.display = "none";
+}
 
-            if(passwordInput.type == "password"){
-                passwordInput.type = "text";
-            }
-            else{
-                passwordInput.type = "password";
-            }
-        }
+function toggleDropdown(event) {
+    event.stopPropagation(); // Prevent the document click listener from immediately hiding the dropdown
+    var dropdownContent = document.getElementById("droppedDownContent");
+    if (dropdownContent.style.display === "block") {
+        dropdownContent.style.display = "none";
+    } else {
+        dropdownContent.style.display = "block";
+    }
+}
 
-        function showPassword1(){
-            let passwordInput = document.getElementById("loginPassword");
-            let checkbox = document.getElementById("checkbox");
+function showPassword() {
+    let passwordInput = document.getElementById("password");
+    let checkbox = document.getElementById("checkboxInput");
+    checkbox.checked = !checkbox.checked;
 
-            checkbox.checked = !checkbox.checked;
+    if (passwordInput.type == "password") {
+        passwordInput.type = "text";
+    } else {
+        passwordInput.type = "password";
+    }
+}
 
-            if(passwordInput.type == "password"){
-                passwordInput.type = "text";
-            }
-            else{
-                passwordInput.type = "password";
-            }
-        }
+function showPassword1() {
+    let passwordInput = document.getElementById("loginPassword");
+    let checkbox = document.getElementById("checkbox");
 
-    </script>
+    checkbox.checked = !checkbox.checked;
 
-    <!-- for place order  -->
-    <script>
-        let orderModal = document.getElementById("placeOrder");
-        let cart = document.getElementById("myCart");
-        let QRCode = document.getElementById("QRCode");
-        function openPlaceOrder() {
-            <?php if (isset($_SESSION['user'])) { ?>
-                let userId = <?php echo json_encode($_SESSION['userId']); ?>;
-            <?php } else { ?>
-                let userId = null;
-            <?php } ?>
+    if (passwordInput.type == "password") {
+        passwordInput.type = "text";
+    } else {
+        passwordInput.type = "password";
+    }
+}
+</script>
 
-            if (orderModal) {
-                orderModal.style.display = "block";
-                cart.style.display = "none";
-            }
+<!-- for place order  -->
+<script>
+let orderModal = document.getElementById("placeOrder");
+let cart = document.getElementById("myCart");
+let QRCode = document.getElementById("QRCode");
 
-            let userIdInput = document.getElementById("userId");
-            if (userIdInput) {
-                userIdInput.value = userId;
-            }
-        }
+function openPlaceOrder() {
+    <?php if (isset($_SESSION['user'])) { ?>
+    let userId = <?php echo json_encode($_SESSION['userId']); ?>;
+    <?php } else { ?>
+    let userId = null;
+    <?php } ?>
 
-        function closeOrderModal(){
-            orderModal.style.display = "none";
-            cart.style.display = "block";
-        }
+    if (orderModal) {
+        orderModal.style.display = "block";
+        cart.style.display = "none";
+    }
 
-        function openQR(){
-            QRCode.style.display = "block";
-        }
-        function closeQR(){
-            QRCode.style.display = "none";
-        }
-    </script>
-    <script>
-            var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 3,
-            spaceBetween: 30,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-        });
-    </script>
+    let userIdInput = document.getElementById("userId");
+    if (userIdInput) {
+        userIdInput.value = userId;
+    }
+}
+
+function closeOrderModal() {
+    orderModal.style.display = "none";
+    cart.style.display = "block";
+}
+
+function openQR() {
+    QRCode.style.display = "block";
+}
+
+function closeQR() {
+    QRCode.style.display = "none";
+}
+</script>
+<script>
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+});
+</script>
+
+<!-- js for toggling mobile navbar  -->
+<script>
+function openMobileNavbar() {
+    document.getElementById("navItems").style.display = "flex";
+}
+
+function closeMobileNav() {
+    document.getElementById("navItems").style.display = "none";
+}
+
+document.querySelectorAll("#navItems a").forEach(link => {
+    link.addEventListener('click', closeMobileNav);
+})
+</script>
+
 </html>
