@@ -399,6 +399,8 @@
                 <span><a href="#productsSection">Products</a></span>
                 <span><a href="#aboutSection">About Us</a></span>
                 <span><a href="#contactSection">Contact Us</a></span>
+
+                <span class="feedbackbtnMobile text-center text-font mt-5 rounded" onclick="openFeedbackForm()">Feedback <i class="fa-solid fa-pen"></i></span>
             </div>
 
             <div class="socialAndRatings">

@@ -377,6 +377,9 @@ color: #003B46 !important;
     transition: width 1s all ease;
 }
 
+.feedbackbtnMobile{
+    display:none !important;
+}
 .closeFeedback{
     cursor: pointer;
 }
