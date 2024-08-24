@@ -9,6 +9,7 @@
     <title>GadjetHub</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <link rel="icon" href="/gadgetHubWithBackend/frontend/logos/favicon1.png">
     <!-- bootstrap css  -->
     <link href="/gadgetHubWithBackend/frontend/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -49,7 +50,6 @@
 </head>
 
 <body>
-
     <!-- login and signup modals  -->
     <div class="loginModal" id="loginModal">
         <div class="d-flex justify-content-between align-items-center">
@@ -180,7 +180,7 @@
 
     <div class="services py-5" id="services">
         <h2 class="w-100 text-center">Services</h2>
-        <div class="container mt-3 d-flex gap-5">
+        <div class="container servicesContainer mt-3 d-flex gap-5">
             <div class="service">
                 <i class="fas fa-shopping-cart"></i>
                 <div class="serviceDetail">
