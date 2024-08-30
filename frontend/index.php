@@ -224,7 +224,7 @@
                 <h2 class="pt-3">Mobiles</h2>
                 <!-- Swiper -->
                 <div class="container">
-                    <div class="swiper mySwiper" style="height: 32rem">
+                    <div class="swiper mySwiper" style="height: 33rem">
                         <div class="swiper-wrapper">
 
                             <!-- to display all mobies  -->
