@@ -41,11 +41,11 @@
         height: 90%;
     }
 
-    .swiper-slide img {
+    /* .swiper-slide img {
         display: block;
         width: 100%;
         height: 90%;
-    }
+    } */
     </style>
 </head>
 
@@ -224,7 +224,7 @@
                 <h2 class="pt-3">Mobiles</h2>
                 <!-- Swiper -->
                 <div class="container">
-                    <div class="swiper mySwiper" style="height: 33rem">
+                    <div class="swiper mySwiper" style="height: 36.1rem">
                         <div class="swiper-wrapper">
 
                             <!-- to display all mobies  -->
@@ -240,7 +240,7 @@
                 <h2 class="pt-3">Smart Watches</h2>
                 <!-- Swiper -->
                 <div class="container">
-                    <div class="swiper mySwiper" style="height: 32rem">
+                    <div class="swiper mySwiper" style="height: 36.1rem">
                         <div class="swiper-wrapper">
 
                             <!-- to display all mobies  -->
@@ -255,7 +255,7 @@
                     <h2 class="pt-3">Laptops</h2>
                     <!-- Swiper -->
                     <div class="container">
-                        <div class="swiper mySwiper" style="height: 32rem">
+                        <div class="swiper mySwiper" style="height: 36.1rem">
                             <div class="swiper-wrapper">
 
                                 <!-- to display all mobies  -->
