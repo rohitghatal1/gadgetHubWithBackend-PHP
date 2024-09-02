@@ -9,7 +9,7 @@
     <title>GadjetHub</title>
 
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
     <link rel="icon" href="/gadgetHubWithBackend/frontend/logos/favicon1.png">
     <!-- bootstrap css  -->
     <link href="/gadgetHubWithBackend/frontend/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -44,7 +44,7 @@
     .swiper-slide img {
         display: block;
         width: 100%;
-        height: 100%;
+        height: 90%;
     }
     </style>
 </head>
@@ -80,39 +80,39 @@
         <form id="registerform" action="../backend/userRegistration.php" method="post">
             <label class="mt-1 form-label">Full Name</label>
             <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name">
-            <div id="nameError" class="error-message"></div>
+            <div id="nameError" class="error-message" style="color:red"></div>
 
             <label class="mt-1 form-label">Address</label>
             <input type="text" id="address" name="address" class="form-control" placeholder="Enter your address">
-            <div id="addressError" class="error-message"></div>
+            <div id="addressError" class="error-message" style="color:red"></div>
 
             <label class="mt-1 form-label">Contact No.</label>
             <input type="text" id="contact" name="contact" class="form-control" placeholder="Enter your contact number">
-            <div id="contactError" class="error-message"></div>
+            <div id="contactError" class="error-message" style="color:red"></div>
 
             <label class="mt-1 form-label">Email</label>
             <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email">
-            <div id="emailError" class="error-message"></div>
+            <div id="emailError" class="error-message" style="color:red"></div>
 
             <label class="mt-1 form-label">Username</label>
             <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username">
-            <div id="usernameError" class="error-message"></div>
+            <div id="usernameError" class="error-message" style="color:red"></div>
 
             <label class="mt-1 form-label">Password</label>
             <input type="password" id="password" name="password" class="form-control"
                 placeholder="Create a new password">
             <span class="d-flex mt-2" onclick="showPassword();" style="cursor:pointer;"><input type="checkbox"
                     class="form-check" id="checkboxInput"> Show Password</span>
-            <div id="passwordError" class="error-message"></div>
+            <div id="passwordError" class="error-message" style="color:red"></div>
 
             <label class="mt-1 form-label">Confirm Password</label>
             <input type="password" id="cPassword" class="form-control" placeholder="Re-type the password">
-            <div id="cPasswordError" class="error-message"></div>
+            <div id="cPasswordError" class="error-message" style="color:red"></div>
 
             <input type="submit" value="Submit" class="submitbtn fw-bold">
             <p class="mt-2">Already have an account? <span class="text-primary text-decoration-underline"
                     onclick="openLoginModal()">Login here.</span></p>
-            <div id="generalError" class="error-message"></div>
+            <div id="generalError" class="error-message" style="color:red"></div>
         </form>
     </div>
     <!-- login and signup modal end here  -->
