@@ -13,6 +13,7 @@
                           <div class="card-body" style="height:8.7rem">
                             <h5 class="card-title mt-3"><?php echo $laptopInfo['brand']?></h5>
                             <p class="card-text mt-3">Rs<?php echo $laptopInfo['price']?></p>
+                            <button class="showWatchDetails" title="showDetails"><i class="fa-solid fa-angle-up"></i></button>
                           </div>
                           <div class="watchDetails">
                             <h2><?php echo $laptopInfo['brand']?></h2>
