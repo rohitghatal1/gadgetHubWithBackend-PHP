@@ -18,7 +18,7 @@ if($fetchedWatchData->num_rows > 0){
           </button>
         </div>
         <div class="watchDetails" id="<?php echo 'details-' . $watchId; ?>">
-          <button class="hideDetails" onclick="hideDetails('<?php echo 'details-' . $watchId; ?>')"><i class="fa-solid fa-angle-down"></i></button>
+          <button class="hideDetails" title="Hide Details" onclick="hideDetails('<?php echo 'details-' . $watchId; ?>')"><i class="fa-solid fa-angle-down"></i></button>
           <h2><?php echo $watchInfo['brand']?></h2>
           <p><strong>Model:</strong> <span><?php echo $watchInfo['model']?></span></p>
           <p><strong>Price:</strong> <span><?php echo $watchInfo['price']?></span></p>
