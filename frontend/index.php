@@ -494,6 +494,12 @@ let signupModal = document.getElementById("signupModal");
 let feedbackForm = document.getElementById("feedbackForm");
 let myCart = document.getElementById("myCart");
 
+
+function showMoreDetails(detailId) {
+  const detailElement = document.getElementById(detailId);
+  detailElement.classList.add("show");
+}
+
 function openMyCart() {
     console.log("openMyCart function called");
     myCart.style.display = "block";
