@@ -18,7 +18,7 @@ if($fetchedLaptopData->num_rows > 0){
           </button>
         </div>
         <div class="watchDetails" id="<?php echo 'details-' . $laptopId; ?>">
-        <button class="hideDetails" onclick="hideDetails()"><i class="fa-solid fa-angle-down"></i></button>
+        <button class="hideDetails" onclick="hideDetails('<?php echo 'details-' . $laptopId; ?>')"><i class="fa-solid fa-angle-down"></i></button>
           <h2><?php echo $laptopInfo['brand']?></h2>
           <p><strong>Model:</strong> <span><?php echo $laptopInfo['model']?></span></p>
           <p><strong>Processor:</strong> <span><?php echo $laptopInfo['processor']?></span></p>

@@ -500,6 +500,11 @@ function showMoreDetails(detailId) {
   detailElement.classList.add("show");
 }
 
+function hideDetails(detailId){
+    const detailElement = document.getElementById(detailId);
+    detailElement.classList.remove("show");
+}
+
 function openMyCart() {
     console.log("openMyCart function called");
     myCart.style.display = "block";
