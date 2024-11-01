@@ -13,6 +13,7 @@
                           <div class="card-body">
                             <h5 class="card-title"><?php echo $mobileInfo['brand']?></h5>
                             <p class="card-text">Rs<?php echo $mobileInfo['price']?></p>
+                            <button class="showMoreDetails" title="showDetails" onclick="showMoreDetails()"><i class="fa-solid fa-angle-up"></i></button>
                           </div>
                           <div class="watchDetails">
                             <h2><?php echo $mobileInfo['brand']?></h2>
