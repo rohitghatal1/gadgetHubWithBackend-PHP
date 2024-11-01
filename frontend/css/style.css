@@ -280,6 +280,19 @@ button:active{
     align-items: center;
     padding: 0.4rem;
 }
+.hideDetails{
+    position: absolute;
+    top: 1rem;
+    right: 0.5rem;
+    background-color: #0A1828;
+    color: #BFA181;
+    border: 1px solid #BFA181;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.4rem;
+}
 
 .card .mobileDetails,
 .card .laptopDetails,

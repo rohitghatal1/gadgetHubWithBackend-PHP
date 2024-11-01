@@ -18,6 +18,7 @@ if($fetchedMobileData->num_rows > 0){
           </button>
         </div>
         <div class="watchDetails" id="<?php echo 'details-' . $mobileId; ?>">
+        <button class="hideDetails" onclick="hideDetails()"><i class="fa-solid fa-angle-down"></i></button>
           <h2><?php echo $mobileInfo['brand']?></h2>
           <p><strong>Model:</strong> <span><?php echo $mobileInfo['model']?></span></p>
           <p><strong>Processor:</strong> <span><?php echo $mobileInfo['processor']?></span></p>
