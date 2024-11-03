@@ -184,19 +184,21 @@ body::-webkit-scrollbar-thumb {
 
 .banner .bannerDesc{
     position: absolute;
-    top: 0;
-    right: 2rem;
+    top: 0rem;
+    left: 1rem;
     margin-top: 0.2rem;
     width: 100%;
     height: 100%;
     z-index: 2;
-    text-align: center;
-    color: #BFA181;
+    text-align: left;
+    /* color: #BFA181; */
+    color: black;
 }
 
 .banner .bannerDesc h2{
     margin-top: 1rem;
     font-size: 30px;
+    text-align: left;
 }
 
 #products{
