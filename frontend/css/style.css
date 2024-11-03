@@ -191,8 +191,7 @@ body::-webkit-scrollbar-thumb {
     height: 100%;
     z-index: 2;
     text-align: left;
-    /* color: #BFA181; */
-    color: black;
+    color: #BFA181;
 }
 
 .banner .bannerDesc h2{

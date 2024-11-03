@@ -164,7 +164,7 @@
 
     <div class="banner">
         <div class="photo" style="witdh: 100%; height:50rem">
-            <img src="images/banner2.jpg" alt=""  style="width:100%; margin:auto; height:100%">
+            <img src="images/laptopMobiles.jpg" alt=""  style="width:100%; margin:auto; height:100%">
         </div>
         <div class="bannerDesc">
             <h2>The best place</h2>
