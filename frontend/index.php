@@ -41,11 +41,6 @@
         height: 90%;
     }
 
-    /* .swiper-slide img {
-        display: block;
-        width: 100%;
-        height: 90%;
-    } */
     </style>
 </head>
 
@@ -168,8 +163,8 @@
     <!-- ----------------------------------------------------Website banner section------------------------------------------------ -->
 
     <div class="banner">
-        <div class="photo" style="witdh: 100%; height:40rem">
-            <img src="images/banner1.jpg" alt="" class="img-fluid" style="width:100%; height:100%">
+        <div class="photo" style="witdh: 100%; height:50rem">
+            <img src="images/banner2.jpg" alt=""  style="width:100%; margin:auto; height:100%">
         </div>
         <div class="bannerDesc">
             <h2>The best place</h2>
