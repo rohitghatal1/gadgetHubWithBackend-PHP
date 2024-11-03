@@ -13,11 +13,11 @@ if($fetchedWatchData->num_rows > 0){
         <div class="card-body">
           <h5 class="card-title"><?php echo $watchInfo['brand']?></h5>
           <p class="card-text">Rs<?php echo $watchInfo['price']?></p>
-          <button class="showMoreDetails" title="Show Details" onclick="showMoreDetails('<?php echo 'details-' . $watchId; ?>')">
+          <button class="showMoreDetails" title="Show Details" onclick="showMoreDetails('<?php echo 'watch-' . $watchId; ?>')">
             <i class="fa-solid fa-angle-up"></i>
           </button>
         </div>
-        <div class="watchDetails" id="<?php echo 'details-' . $watchId; ?>">
+        <div class="watchDetails" id="<?php echo 'watch-' . $watchId; ?>">
           <button class="hideDetails" title="Hide Details" onclick="hideDetails('<?php echo 'details-' . $watchId; ?>')"><i class="fa-solid fa-angle-down"></i></button>
           <h2><?php echo $watchInfo['brand']?></h2>
           <p><strong>Model:</strong> <span><?php echo $watchInfo['model']?></span></p>

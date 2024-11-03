@@ -13,11 +13,11 @@ if($fetchedMobileData->num_rows > 0){
         <div class="card-body">
           <h5 class="card-title"><?php echo $mobileInfo['brand']?></h5>
           <p class="card-text">Rs<?php echo $mobileInfo['price']?></p>
-          <button class="showMoreDetails" title="Show Details" onclick="showMoreDetails('<?php echo 'details-' . $mobileId; ?>')">
+          <button class="showMoreDetails" title="Show Details" onclick="showMoreDetails('<?php echo 'mobile-' . $mobileId; ?>')">
             <i class="fa-solid fa-angle-up"></i>
           </button>
         </div>
-        <div class="watchDetails" id="<?php echo 'details-' . $mobileId; ?>">
+        <div class="watchDetails" id="<?php echo 'mobile-' . $mobileId; ?>">
         <button class="hideDetails" title="Hide Details" onclick="hideDetails('<?php echo 'details-' . $mobileId; ?>')"><i class="fa-solid fa-angle-down"></i></button>
           <h2><?php echo $mobileInfo['brand']?></h2>
           <p><strong>Model:</strong> <span><?php echo $mobileInfo['model']?></span></p>

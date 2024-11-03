@@ -13,11 +13,11 @@ if($fetchedLaptopData->num_rows > 0){
         <div class="card-body" style="height:8.7rem">
           <h5 class="card-title mt-3"><?php echo $laptopInfo['brand']?></h5>
           <p class="card-text mt-3">Rs<?php echo $laptopInfo['price']?></p>
-          <button class="showMoreDetails" title="Show Details" onclick="showMoreDetails('<?php echo 'details-' . $laptopId; ?>')">
+          <button class="showMoreDetails" title="Show Details" onclick="showMoreDetails('<?php echo 'laptop-' . $laptopId; ?>')">
             <i class="fa-solid fa-angle-up"></i>
           </button>
         </div>
-        <div class="watchDetails" id="<?php echo 'details-' . $laptopId; ?>">
+        <div class="watchDetails" id="<?php echo 'laptop-' . $laptopId; ?>">
         <button class="hideDetails" title="Hide Details" onclick="hideDetails('<?php echo 'details-' . $laptopId; ?>')"><i class="fa-solid fa-angle-down"></i></button>
           <h2><?php echo $laptopInfo['brand']?></h2>
           <p><strong>Model:</strong> <span><?php echo $laptopInfo['model']?></span></p>
