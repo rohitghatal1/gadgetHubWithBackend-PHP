@@ -281,6 +281,7 @@ button:active{
     align-items: center;
     padding: 0.4rem;
 }
+
 .hideDetails{
     position: absolute;
     top: 1rem;
