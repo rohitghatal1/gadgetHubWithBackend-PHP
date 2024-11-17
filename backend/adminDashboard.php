@@ -252,6 +252,9 @@ else{
                                 <label class="form-label mt-2">Other Specifications</label>
                                 <textarea class="form-control" name = "specifications"></textarea>
 
+                                <label class="form-label mt-2">Quantity</label>
+                                <input type="number" class="form-control" name="lquantity">
+
                                 <label class="form-label mt-2">Price</label>
                                 <input type="text" name ="price" class="form-control">
 
@@ -308,6 +311,9 @@ else{
                                 <label class="form-label mt-2">Other Specifications</label>
                                 <textarea class="form-control" name = "specifications"></textarea>
 
+                                <label class="form-label mt-2">Quantity</label>
+                                <input type="number" class="form-control" name="mquantity">
+
                                 <label class="form-label mt-2">Price</label>
                                 <input type="text" name = "price" class="form-control">
 
@@ -355,6 +361,9 @@ else{
                                 
                                 <label class="form-label mt-2">Other Specifications</label>
                                 <textarea class="form-control" name = "specifications"></textarea>
+
+                                <label class="form-label mt-2">Quantity</label>
+                                <input type="number" class="form-control" name="wquantity">
 
                                 <label class="form-label mt-2">Price</label>
                                 <input type="text" name = "price" class="form-control">
