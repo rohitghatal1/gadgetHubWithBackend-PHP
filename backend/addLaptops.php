@@ -13,11 +13,12 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
     $RAM = $_POST["RAM"];
     $graphics = $_POST["graphics"];
     $otherSpecifications = $_POST["specifications"];
+    $quantity = $_POST["lquantity"];
     $price = $_POST["price"];
     $laptopImage = $target_file;
 
-    $addLaptop = $conn->prepare("INSERT INTO laptops(brand, model, processor, RAM, graphics, otherSpecs, price, photoPath) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $addLaptop->bind_param("ssssssss", $brand, $model, $processor, $RAM, $graphics, $otherSpecifications, $price, $laptopImage);
+    $addLaptop = $conn->prepare("INSERT INTO laptops(brand, model, processor, RAM, graphics, otherSpecs, lquantity, price, photoPath) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)");
+    $addLaptop->bind_param("sssssssss", $brand, $model, $processor, $RAM, $graphics, $otherSpecifications, $quantity, $price, $laptopImage);
 
     if($addLaptop->execute() === true){
         echo "<script>alert('Laptop added successfully')</script>";
