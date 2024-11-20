@@ -15,11 +15,12 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
     $RAM = $_POST["RAM"];
     $storage = $_POST["storage"];
     $otherSpecifications = $_POST["specifications"];
+    $quantity = $_POST["mQuantity"]
     $price = $_POST["price"];
     $mobileImage = $target_file;
 
-    $addMobile = $conn->prepare("INSERT INTO mobiles(brand, model, processor, RAM, storage, otherSpecs, price, photoPath) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $addMobile->bind_param("ssssssss", $brand, $model, $processor, $RAM, $storage, $otherSpecifications, $price, $mobileImage);
+    $addMobile = $conn->prepare("INSERT INTO mobiles(brand, model, processor, RAM, storage, otherSpecs, mQuantity, price, photoPath) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $addMobile->bind_param("ssssssiss", $brand, $model, $processor, $RAM, $storage, $otherSpecifications, $quantity, $price, $mobileImage);
 
     if($addMobile->execute() === true){
         echo "<script>alert('Mobile added successfully')</script>";
