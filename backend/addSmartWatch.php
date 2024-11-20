@@ -10,11 +10,12 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
     $brand = $_POST["brand"];
     $model = $_POST["model"];
     $otherSpecifications = $_POST["specifications"];
+    $quantity = $_POST["wQuantity"]
     $price = $_POST["price"];
     $watchImage = $target_file;
 
-    $addWatch = $conn->prepare("INSERT INTO watches(brand, model, otherSpecs, price, photoPath) VALUES (?, ?, ?, ?, ?)");
-    $addWatch->bind_param("sssss", $brand, $model, $otherSpecifications, $price, $watchImage);
+    $addWatch = $conn->prepare("INSERT INTO watches(brand, model, otherSpecs, wQuantity,  price, photoPath) VALUES (?, ?, ?, ?, ?, ?)");
+    $addWatch->bind_param("sssiss", $brand, $model, $otherSpecifications, $quantity, $price, $watchImage);
 
     if($addWatch->execute() === true){
         echo "<script>alert('Watch added successfully')</script>";
