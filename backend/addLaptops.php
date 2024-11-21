@@ -4,6 +4,7 @@ require 'database/databaseConnection.php';
 if($_SERVER["REQUEST_METHOD"]== "POST"){
 
     $target_folder = '../laptopPhotos/';
+    
     $target_file = $target_folder . basename($_FILES["laptopPhoto"]["name"]);
     move_uploaded_file($_FILES["laptopPhoto"]["tmp_name"], $target_file);
 
@@ -27,6 +28,7 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
     else {
         die("Error: " . $sql . "<br>" . $conn->error());
     }
+    
     $addLaptop->close();
     $conn->close();
 }

@@ -3,7 +3,6 @@ require 'database/databaseConnection.php';
 
 if($_SERVER["REQUEST_METHOD"]== "POST"){
 
-    // Combine them to get the target folder
     $target_folder = '../mobilePhotos/';
 
     $target_file = $target_folder . basename($_FILES["mobilePhoto"]["name"]);
