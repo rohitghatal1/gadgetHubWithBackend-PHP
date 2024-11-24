@@ -10,6 +10,7 @@
                 <th>RAM</th>
                 <th>Graphics</th>
                 <th>Other Specifications</th>
+                <th>Quantity</th>
                 <th>Price</th>
                 <th>Action</th>
             </tr>
