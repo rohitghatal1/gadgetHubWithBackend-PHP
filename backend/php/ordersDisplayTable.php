@@ -33,7 +33,7 @@
                 <td><?php echo $orderInfo['itemType'] ?></td>
                 <td><?php echo $orderInfo['itemBrand'] ?></td>
                 <td><?php echo $orderInfo['itemModel'] ?></td>
-                <td><?php echo $orderInfo['pQantity'] ?></td>
+                <td><?php echo $orderInfo['pQuantity'] ?></td>
                 <td><?php echo $orderInfo['itemPrice'] ?></td>
                 <td><?php echo $orderInfo['cAddress'] ?></td>
                 <td><?php echo $orderInfo['orderDate'] ?></td>

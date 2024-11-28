@@ -24,7 +24,7 @@
                                     while($laptopDetails = $fetchedLaptopData->fetch_assoc()){ 
                                         $laptopId = $laptopDetails['Id']?>
             <tr>
-                <td><?php echo $sn ?></td>
+                <td><?php echo $lQuantity ?></td>
                 <td><img src="<?php echo $laptopDetails['photoPath']?>" alt="" class="img-fluid"
                         style="width: 8rem; height:7rem;"></td>
                 <td><?php echo $laptopDetails['brand'] ?></td>
@@ -38,7 +38,7 @@
                 <td><button class="btn text-danger" onclick="confirmDelete(<?php echo (int)$laptopId ?>, 'laptops')"><i
                             class="fas fa-trash text-danger"></i></button></td>
             </tr>
-            <?php $lQuantity++} 
+            <?php $lQuantity++; }
                                 } 
                                 else{
                                     echo "<tr>";
