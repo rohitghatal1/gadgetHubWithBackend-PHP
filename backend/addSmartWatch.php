@@ -10,7 +10,7 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
     $brand = $_POST["brand"];
     $model = $_POST["model"];
     $otherSpecifications = $_POST["specifications"];
-    $quantity = $_POST["wQuantity"]
+    $quantity = $_POST["wquantity"];
     $price = $_POST["price"];
     $watchImage = $target_file;
 

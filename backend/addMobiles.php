@@ -14,7 +14,7 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
     $RAM = $_POST["RAM"];
     $storage = $_POST["storage"];
     $otherSpecifications = $_POST["specifications"];
-    $quantity = $_POST["mQuantity"]
+    $quantity = $_POST["mquantity"];
     $price = $_POST["price"];
     $mobileImage = $target_file;
 
