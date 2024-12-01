@@ -40,7 +40,6 @@
         align-items: center;
         height: 90%;
     }
-
     </style>
 </head>
 
@@ -164,7 +163,7 @@
 
     <div class="banner">
         <div class="photo" style="witdh: 100%; height:50rem">
-            <img src="images/laptopMobiles.jpg" alt=""  style="width:100%; margin:auto; height:100%">
+            <img src="images/laptopMobiles.jpg" alt="" style="width:100%; margin:auto; height:100%">
         </div>
         <div class="bannerDesc">
             <h2>The best place</h2>
@@ -395,7 +394,8 @@
                 <span><a href="#aboutSection">About Us</a></span>
                 <span><a href="#contactSection">Contact Us</a></span>
 
-                <span class="feedbackbtnMobile text-center text-font mt-5 rounded" onclick="openFeedbackForm()">Feedback <i class="fa-solid fa-pen"></i></span>
+                <span class="feedbackbtnMobile text-center text-font mt-5 rounded" onclick="openFeedbackForm()">Feedback
+                    <i class="fa-solid fa-pen"></i></span>
             </div>
 
             <div class="socialAndRatings">
@@ -491,11 +491,11 @@ let myCart = document.getElementById("myCart");
 
 
 function showMoreDetails(detailId) {
-  const detailElement = document.getElementById(detailId);
-  detailElement.classList.add("show");
+    const detailElement = document.getElementById(detailId);
+    detailElement.classList.add("show");
 }
 
-function hideDetails(detailId){
+function hideDetails(detailId) {
     const detailElement = document.getElementById(detailId);
     detailElement.classList.remove("show");
 }
