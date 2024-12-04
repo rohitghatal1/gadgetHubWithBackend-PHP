@@ -373,6 +373,13 @@
         </div>
     </div>
 
+    <div class="itemDetailsSectoin">
+        <div>
+            <h2>Item Details</h2>
+            <hr>
+        </div>
+
+    </div>
     <footer class="py-3">
         <section class="footerSection container d-flex justify-content-between">
 
