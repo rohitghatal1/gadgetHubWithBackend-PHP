@@ -373,11 +373,11 @@
         </div>
     </div>
 
-    <div class="itemDetailsSectoin">
+    <div class="itemDetailsSectoin d-none">
         <div>
-            <h2>Item Details</h2>
+            <h2 class="text-align-center fs-6">Item Details</h2>
             <hr>
-            <div class="itemInfo">
+            <div class="itemInfo border-2 border-dark-subtle p-3">
                 <figure>
                     <img src="/laptopPhotos/asus.jpg" alt="">
                 </figure>
