@@ -377,6 +377,15 @@
         <div>
             <h2>Item Details</h2>
             <hr>
+            <div class="itemInfo">
+                <figure>
+                    <img src="/laptopPhotos/asus.jpg" alt="">
+                </figure>
+                <div class="itemBody">
+                    <p>Laptop</p>
+                    <p>Price: 150000</p>
+                </div>
+            </div>
         </div>
 
     </div>
