@@ -373,10 +373,9 @@
         </div>
     </div>
 
-    <div class="itemDetailsSectoin d-none">
+    <div class="itemDetailsSectoin d-none position-absolute top-50 left-50">
         <div>
-            <h2 class="text-align-center fs-6">Item Details</h2>
-            <hr>
+            <h2 class="text-align-center fs-6 p-4 border-0 border-bottom border-secondary">Item Details</h2>
             <div class="cardsContainer">
                 <div class="card border-dark-subtle mb-3" style="max-width: 18rem;">
                     <div class="row g-0">
@@ -394,7 +393,6 @@
                 </div>
             </div>
         </div>
-
     </div>
     <footer class="py-3">
         <section class="footerSection container d-flex justify-content-between">
