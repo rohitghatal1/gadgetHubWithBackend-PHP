@@ -377,21 +377,22 @@
         <div>
             <h2 class="text-align-center fs-6">Item Details</h2>
             <hr>
-            <div class="card border-dark-subtle mb-3" style="max-width: 18rem;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="/laptopPhotos/asus.jpg" alt="Laptop" class="img-fluid rounded-start h-100">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Laptop</h5>
-                            <p class="card-text">Price: <strong>₹150,000</strong></p>
-                            <a href="#" class="btn btn-primary btn-sm">Buy Now</a>
+            <div class="cardsContainer">
+                <div class="card border-dark-subtle mb-3" style="max-width: 18rem;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="/laptopPhotos/asus.jpg" alt="Laptop" class="img-fluid rounded-start h-100">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Laptop</h5>
+                                <p class="card-text">Price: <strong>₹150,000</strong></p>
+                                <button href="#" class="btn btn-primary btn-sm">Add to cart</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
 
     </div>
