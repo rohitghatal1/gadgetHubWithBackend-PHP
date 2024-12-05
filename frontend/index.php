@@ -377,15 +377,21 @@
         <div>
             <h2 class="text-align-center fs-6">Item Details</h2>
             <hr>
-            <div class="itemInfo border-2 border-dark-subtle p-3">
-                <figure>
-                    <img src="/laptopPhotos/asus.jpg" alt="">
-                </figure>
-                <div class="itemBody">
-                    <p>Laptop</p>
-                    <p>Price: 150000</p>
+            <div class="card border-dark-subtle mb-3" style="max-width: 18rem;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="/laptopPhotos/asus.jpg" alt="Laptop" class="img-fluid rounded-start h-100">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Laptop</h5>
+                            <p class="card-text">Price: <strong>₹150,000</strong></p>
+                            <a href="#" class="btn btn-primary btn-sm">Buy Now</a>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
 
     </div>
