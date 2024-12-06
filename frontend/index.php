@@ -386,7 +386,8 @@
                             <div class="card-body">
                                 <h5 class="card-title">Laptop</h5>
                                 <p class="card-text">Price: <strong>₹150,000</strong></p>
-                                <button href="#" class="btn btn-primary btn-sm"><i class="fas fa-shopping-cart"></i>Add
+                                <button href="#" class="btn btn-primary btn-sm"><i
+                                        class="fas fa-shopping-cart me-1"></i>Add
                                     to cart</button>
                             </div>
                         </div>
@@ -395,6 +396,7 @@
             </div>
         </div>
     </div>
+
     <footer class="py-3">
         <section class="footerSection container d-flex justify-content-between">
 
@@ -449,7 +451,6 @@
     <script src="/gadgetHubWithBackend/frontend/js/formValidation.js"></script>
 </body>
 
-<!-- bootstrap javaScript  -->
 <script src="/gadgetHubWithBackend/frontend/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- swiperjs CDN  -->
