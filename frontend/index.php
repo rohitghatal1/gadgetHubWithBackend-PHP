@@ -386,7 +386,8 @@
                             <div class="card-body">
                                 <h5 class="card-title">Laptop</h5>
                                 <p class="card-text">Price: <strong>₹150,000</strong></p>
-                                <button href="#" class="btn btn-primary btn-sm">Add to cart</button>
+                                <button href="#" class="btn btn-primary btn-sm"><i class="fas fa-shopping-cart"></i>Add
+                                    to cart</button>
                             </div>
                         </div>
                     </div>

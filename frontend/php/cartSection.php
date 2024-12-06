@@ -1,10 +1,9 @@
 <?php
-// Include the database connection file
 require '../backend/database/databaseConnection.php';
 
 $allCartItems = 0;
 $userName = "";
-// Check if the user is logged in
+
 if (isset($_SESSION['user'])) {
     $personId = $_SESSION["userId"];
     $getUserName = "SELECT uName FROM users WHERE Id = $personId";
@@ -12,7 +11,6 @@ if (isset($_SESSION['user'])) {
     $userNames = $fetchedUserName->fetch_assoc();
     $userName = $userNames['uName'];    
 
-    // Fetch the count of items in the cart
     $getCartItems = "SELECT COUNT(id) AS totalCartItems FROM cart WHERE userId = ?";
     $stmt = $conn->prepare($getCartItems);
     $stmt->bind_param("i", $personId);
