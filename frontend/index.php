@@ -374,27 +374,6 @@
     </div>
 
     <div class="itemDetailsSectoin d-none position-absolute top-50 left-50">
-        <div>
-            <h2 class="text-align-center fs-6 p-4 border-0 border-bottom border-secondary">Item Details</h2>
-            <div class="cardsContainer">
-                <div class="card border-dark-subtle mb-3" style="max-width: 18rem;">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="/laptopPhotos/asus.jpg" alt="Laptop" class="img-fluid rounded-start h-100">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Laptop</h5>
-                                <p class="card-text">Price: <strong>₹150,000</strong></p>
-                                <button href="#" class="btn btn-primary btn-sm"><i
-                                        class="fas fa-shopping-cart me-1"></i>Add
-                                    to cart</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <footer class="py-3">
@@ -453,6 +432,58 @@
 
 <script src="/gadgetHubWithBackend/frontend/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
 
+<!-- to fectch all data based on the item clicked -->
+<script>
+function showItemDetails(button) {
+    const itemId = button.getAttribute('data-id');
+    const category = button.getAttribute('data-category');
+    const itemDetailsSection = document.querySelector('.itemDetailsSectoin');
+
+    // Fetch data dynamically
+    fetch(`/php/getItemDetails.php?id=${itemId}&category=${category}`)
+        .then(response => response.json())
+        .then(data => {
+            // Populate the Item Details Section
+            const detailsHTML = `
+                <h2 class="text-align-center fs-6 p-4 border-0 border-bottom border-secondary">Item Details</h2>
+                <div class="cardsContainer">
+                    <div class="card border-dark-subtle mb-3" style="max-width: 18rem;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="${data.photoPath}" alt="${data.brand}" class="img-fluid rounded-start h-100">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">${data.brand}</h5>
+                                    <p class="card-text">Price: <strong>₹${data.price}</strong></p>
+                                    <p><strong>Model:</strong> ${data.model}</p>
+                                    <p><strong>Processor:</strong> ${data.processor || 'N/A'}</p>
+                                    <p><strong>RAM:</strong> ${data.RAM || 'N/A'}</p>
+                                    <p><strong>Graphics:</strong> ${data.graphics || 'N/A'}</p>
+                                    <button class="btn btn-primary btn-sm">
+                                        <i class="fas fa-shopping-cart me-1"></i>Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            itemDetailsSection.innerHTML = detailsHTML;
+
+            // Show the Item Details Section
+            itemDetailsSection.classList.remove('d-none');
+        })
+        .catch(error => {
+            console.error('Error fetching item details:', error);
+        });
+}
+
+// Hide details on click
+function hideItemDetails() {
+    document.querySelector('.itemDetailsSectoin').classList.add('d-none');
+}
+</script>
 <!-- swiperjs CDN  -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 
