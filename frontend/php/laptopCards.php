@@ -14,8 +14,8 @@ if($fetchedLaptopData->num_rows > 0){
         <div class="card-body" style="height:8.7rem">
             <h5 class="card-title mt-3"><?php echo $laptopInfo['brand']?></h5>
             <p class="card-text mt-3">Rs<?php echo $laptopInfo['price']?></p>
-            <button class="showMoreDetails" title="Show Details"
-                onclick="showMoreDetails('<?php echo 'laptop-' . $laptopId; ?>')">
+            <button class="showMoreDetails" title="Show Details" data-id="<?php echo $laptopId; ?>"
+                data-category="laptops" onclick="showItemDetails(this)">
                 <i class="fa-solid fa-angle-up"></i>
             </button>
         </div>

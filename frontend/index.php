@@ -435,12 +435,13 @@
 <!-- to fectch all data based on the item clicked -->
 <script>
 function showItemDetails(button) {
+    console.log("item fetch called!!!")
     const itemId = button.getAttribute('data-id');
     const category = button.getAttribute('data-category');
     const itemDetailsSection = document.querySelector('.itemDetailsSectoin');
 
     // Fetch data dynamically
-    fetch(`/php/getItemDetails.php?id=${itemId}&category=${category}`)
+    fetch(`http://localhost/gadgetHubWithBackend/frontend/php/getItemDetails.php?id=${itemId}&category=${category}`)
         .then(response => response.json())
         .then(data => {
             // Populate the Item Details Section
@@ -473,10 +474,13 @@ function showItemDetails(button) {
 
             // Show the Item Details Section
             itemDetailsSection.classList.remove('d-none');
+            console.log(data)
         })
         .catch(error => {
             console.error('Error fetching item details:', error);
         });
+
+    console.log("fetch completed")
 }
 
 // Hide details on click

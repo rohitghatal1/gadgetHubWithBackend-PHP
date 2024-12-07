@@ -1,9 +1,11 @@
 <?php
-include 'db_connection.php'; // Include your database connection
+require '../../backend/database/databaseConnection.php';
 
-$id = $_GET['id'];
-$category = $_GET['category'];
-$tableName = ''; 
+header('Content-Type: application/json');
+
+$id = intval($_GET['id']);
+$category = $_GET['category'] ?? '';
+$tableName = '';
 
 // Map category to table name
 switch ($category) {
@@ -16,10 +18,13 @@ switch ($category) {
     case 'watches':
         $tableName = 'watches';
         break;
+    default:
+        echo json_encode(['error' => 'Invalid category']);
+        exit();
 }
 
-if ($tableName) {
-    $stmt = $conn->prepare("SELECT * FROM $tableName WHERE Id = ?");
+$stmt = $conn->prepare("SELECT * FROM $tableName WHERE Id = ?");
+if ($stmt) {
     $stmt->bind_param('i', $id);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -29,6 +34,7 @@ if ($tableName) {
         echo json_encode(['error' => 'Item not found']);
     }
     $stmt->close();
+} else {
+    echo json_encode(['error' => 'Failed to prepare statement']);
 }
 $conn->close();
-?>
