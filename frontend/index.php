@@ -373,9 +373,6 @@
         </div>
     </div>
 
-    <div class="itemDetailsSectoin d-none position-absolute top-50 left-50">
-    </div>
-
     <footer class="py-3">
         <section class="footerSection container d-flex justify-content-between">
 
@@ -428,6 +425,10 @@
         <h5 class="text-center py-3">Designed and Developed by <i>Rohit Ghatal.</i></h5>
     </footer>
     <script src="/gadgetHubWithBackend/frontend/js/formValidation.js"></script>
+
+    <div class="itemDetailsSection position-fixed top-50 left-50 z-3" id="itemDetails"
+        style="transform: translate(-50%, -50%); width: 300px; height: 200px; background-color: lightgray; padding: 20px;">
+    </div>
 </body>
 
 <script src="/gadgetHubWithBackend/frontend/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
@@ -438,11 +439,16 @@ function showItemDetails(button) {
     console.log("item fetch called!!!")
     const itemId = button.getAttribute('data-id');
     const category = button.getAttribute('data-category');
-    const itemDetailsSection = document.querySelector('.itemDetailsSectoin');
+    const itemDetailsSection = document.querySelector('#itemDetails');
 
     // Fetch data dynamically
     fetch(`http://localhost/gadgetHubWithBackend/frontend/php/getItemDetails.php?id=${itemId}&category=${category}`)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`)
+            }
+            return response.json();
+        })
         .then(data => {
             // Populate the Item Details Section
             const detailsHTML = `
@@ -472,15 +478,11 @@ function showItemDetails(button) {
             `;
             itemDetailsSection.innerHTML = detailsHTML;
 
-            // Show the Item Details Section
-            itemDetailsSection.classList.remove('d-none');
             console.log(data)
         })
         .catch(error => {
             console.error('Error fetching item details:', error);
         });
-
-    console.log("fetch completed")
 }
 
 // Hide details on click

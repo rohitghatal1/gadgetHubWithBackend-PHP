@@ -3,25 +3,22 @@ require '../../backend/database/databaseConnection.php';
 
 header('Content-Type: application/json');
 
+// Enable error reporting for debugging
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Sanitize input
 $id = intval($_GET['id']);
 $category = $_GET['category'] ?? '';
-$tableName = '';
+$validTables = ['laptops', 'mobiles', 'watches'];
 
-// Map category to table name
-switch ($category) {
-    case 'laptops':
-        $tableName = 'laptops';
-        break;
-    case 'mobiles':
-        $tableName = 'mobiles';
-        break;
-    case 'watches':
-        $tableName = 'watches';
-        break;
-    default:
-        echo json_encode(['error' => 'Invalid category']);
-        exit();
+if (!in_array($category, $validTables)) {
+    echo json_encode(['error' => 'Invalid category']);
+    exit();
 }
+
+$tableName = $category; // Use sanitized category
 
 $stmt = $conn->prepare("SELECT * FROM $tableName WHERE Id = ?");
 if ($stmt) {
@@ -29,7 +26,8 @@ if ($stmt) {
     $stmt->execute();
     $result = $stmt->get_result();
     if ($result->num_rows > 0) {
-        echo json_encode($result->fetch_assoc());
+        $response = $result->fetch_assoc();
+        echo json_encode($response);
     } else {
         echo json_encode(['error' => 'Item not found']);
     }
