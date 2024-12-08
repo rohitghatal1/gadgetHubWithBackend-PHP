@@ -426,8 +426,8 @@
     </footer>
     <script src="/gadgetHubWithBackend/frontend/js/formValidation.js"></script>
 
-    <div class="itemDetailsSection position-fixed top-50 left-50 z-3" id="itemDetails"
-        style="transform: translate(-50%, -50%); width: 300px; height: 200px; background-color: lightgray; padding: 20px;">
+    <div class="itemDetailsSection" id="itemDetails"
+        style="position:fixed; top:50%; left: 50%; transform: translate(-50%, -50%); z-index:15; width: 500px; height: 300px; background-color: lightgray; padding: 20px;">
     </div>
 </body>
 
