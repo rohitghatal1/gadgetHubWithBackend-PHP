@@ -427,7 +427,7 @@
     <script src="/gadgetHubWithBackend/frontend/js/formValidation.js"></script>
 
     <div class="itemDetailsSection" id="itemDetails"
-        style="position:fixed; top:50%; left: 50%; transform: translate(-50%, -50%); z-index:15; width: 500px; height: 300px; background-color: lightgray; padding: 20px;">
+        style="position:fixed; top:50%; left: 50%; transform: translate(-50%, -50%); z-index:15; width: 700px; padding: 10px;">
     </div>
 </body>
 
@@ -450,11 +450,9 @@ function showItemDetails(button) {
             return response.json();
         })
         .then(data => {
-            // Populate the Item Details Section
             const detailsHTML = `
-                <h2 class="text-align-center fs-6 p-4 border-0 border-bottom border-secondary">Item Details</h2>
                 <div class="cardsContainer">
-                    <div class="card border-dark-subtle mb-3" style="max-width: 18rem;">
+                    <div class="card border-dark-subtle mb-3" style="width: 100%; height:100%">
                         <div class="row g-0">
                             <div class="col-md-4">
                                 <img src="${data.photoPath}" alt="${data.brand}" class="img-fluid rounded-start h-100">
@@ -478,7 +476,6 @@ function showItemDetails(button) {
             `;
             itemDetailsSection.innerHTML = detailsHTML;
 
-            console.log(data)
         })
         .catch(error => {
             console.error('Error fetching item details:', error);
