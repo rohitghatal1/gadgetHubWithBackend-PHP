@@ -1,20 +1,32 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
-html{
+
+html {
     scroll-behavior: smooth;
 }
 
-body{
-   background-color: #0A1828;
+body {
+    background-color: #0A1828;
 }
-body h1,h2,h3,h4,h5,h6{
+
+body h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Merienda', cursive;
 }
-body p,a,span,button{
+
+body p,
+a,
+span,
+button {
     font-family: 'Poppins', sans-serif;
 }
+
 body::-webkit-scrollbar {
     width: 5px;
     background: transparent;
@@ -26,11 +38,11 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
     background-color: #0A1828;
-    border-radius: 0.6rem; 
+    border-radius: 0.6rem;
 }
 
 .loginModal,
-.signupModal{
+.signupModal {
     display: none;
     position: fixed;
     top: 0;
@@ -46,12 +58,12 @@ body::-webkit-scrollbar-thumb {
 .loginModal p span,
 .signupModal p span,
 .closeLoginModal,
-.closeSignupModal{
+.closeSignupModal {
     cursor: pointer;
 }
 
 .loginBtn,
-.submitbtn{
+.submitbtn {
     margin-top: 1rem;
     background-color: #0A1828;
     color: #BFA181;
@@ -60,7 +72,7 @@ body::-webkit-scrollbar-thumb {
     border: 1px solid #BFA181
 }
 
-.address{
+.address {
     position: fixed;
     top: 0;
     left: 0;
@@ -70,46 +82,49 @@ body::-webkit-scrollbar-thumb {
     cursor: pointer;
     z-index: 10;
 }
-.address i{
+
+.address i {
     color: #178582;
     font-size: 20px;
 }
 
-.myCartModal{
-    display:none;
-    position:fixed; 
-    top: 0; 
-    right:6rem; 
-    width:60rem; 
-    z-index:11; 
+.myCartModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 6rem;
+    width: 60rem;
+    z-index: 11;
     background-color: #c4dfe6;
 }
-.navbar{
+
+.navbar {
     position: relative;
     top: 2rem;
     background-color: #0A1828;
     color: #BFA181;
 }
 
-.navbar a{
+.navbar a {
     text-decoration: none;
     color: #BFA181;
 }
-.logo{
+
+.logo {
     width: 3rem;
     height: 4rem;
     border-radius: 1rem;
     overflow: hidden;
 }
 
-.logo img{
+.logo img {
     width: 100%;
     height: 100%;
     filter: brightness(3) contrast(5);
     object-fit: cover;
 }
 
-.navitems{
+.navitems {
     display: flex;
     align-items: center;
     gap: 2rem;
@@ -131,27 +146,27 @@ body::-webkit-scrollbar-thumb {
     width: 100%;
     height: 3px;
     background-color: #fff;
-    border-radius: 3px; 
+    border-radius: 3px;
 }
 
 .cartAndLogin .user,
-.cart{
+.cart {
     width: 2rem;
     height: 2rem;
     cursor: pointer;
 }
 
 .cart img,
-.user img{
+.user img {
     width: 100%;
     height: 100%;
 }
 
-.cartAndQuantity{
+.cartAndQuantity {
     position: relative;
 }
 
-.quantity{
+.quantity {
     position: absolute;
     top: -11px;
     right: -16px;
@@ -163,7 +178,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* style for first name avatar  */
-.avatar{
+.avatar {
     padding: 5px;
     background-color: red;
     width: 30px;
@@ -176,13 +191,13 @@ body::-webkit-scrollbar-thumb {
     cursor: pointer;
 }
 
-.banner{
+.banner {
     position: relative;
     top: 2rem;
-    background-color: #4D648D;  
+    background-color: #4D648D;
 }
 
-.banner .bannerDesc{
+.banner .bannerDesc {
     position: absolute;
     top: 0rem;
     left: 1rem;
@@ -194,66 +209,76 @@ body::-webkit-scrollbar-thumb {
     color: #BFA181;
 }
 
-.banner .bannerDesc h2{
+.banner .bannerDesc h2 {
     margin-top: 1rem;
     font-size: 30px;
     text-align: left;
 }
 
-#products{
+#products {
     text-decoration: underline;
 }
 
-.tcursor{
+.tcursor {
     font-weight: bold;
     font-size: 24px;
     animation: blink 0.7s infinite;
 }
 
-@keyframes blink{
-    0%, 50%{
+@keyframes blink {
+
+    0%,
+    50% {
         opacity: 1;
     }
-    50.1%, 100%{
+
+    50.1%,
+    100% {
         opacity: 0;
     }
 }
 
-.services{
+.services {
     background-color: #C4DFE6;
     color: #003B46;
     border-bottom: 1px solid #BFA181;
 }
-.service{
+
+.service {
     display: flex;
     gap: 0.8rem;
     max-width: 19rem;
 }
-.service p{
+
+.service p {
     font-size: medium;
 }
-.service i{
+
+.service i {
     font-size: 30px;
     margin-top: 0.5rem;
 }
-.productSection{
+
+.productSection {
     background-color: #C4DFE6;
     color: #003B46;
     border-bottom: 1px solid #BFA181;
 }
 
 
-.table th, .table td {
+.table th,
+.table td {
     vertical-align: middle;
-    text-align:center;
+    text-align: center;
 }
-.table th{
+
+.table th {
     background-color: black;
     color: white;
     padding: 0.5rem
 }
 
-button:active{
+button:active {
     transform: scale(0.8);
 }
 
@@ -268,21 +293,21 @@ button:active{
     padding-bottom: 0.5rem;
 }
 
-.showMoreDetails{
+.showMoreDetails {
     position: absolute;
     bottom: 1rem;
     right: 0.5rem;
     background-color: #C4DFE6;
     color: #003B46;
     border: 1px solid #003B46;
-    border-radius: 50%;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0.4rem;
 }
 
-.hideDetails{
+.hideDetails {
     position: absolute;
     top: 1rem;
     right: 0.5rem;
@@ -323,10 +348,10 @@ button:active{
 .watchDetails.show {
     top: calc(100% - 1rem);
     opacity: 1;
-    transform: translateY(calc(-100% + 1rem)); 
-} 
+    transform: translateY(calc(-100% + 1rem));
+}
 
-.addToCartBtn{
+.addToCartBtn {
     background-color: #0A1828;
     color: #BFA181;
     border: 1px solid #BFA181;
@@ -335,33 +360,33 @@ button:active{
     border-radius: 0.4rem;
 }
 
-.aboutSection{
+.aboutSection {
     background-color: #C4DFE6;
     color: #003B46;
     margin-top: 0;
     border-bottom: 1px solid #BFA181;
 }
 
-.contactUsSection{
+.contactUsSection {
     background-color: #C4DFE6;
     color: #003B46;
 }
 
-.contactUsContainer{
+.contactUsContainer {
     background-color: #0A1828;
     color: #BFA181;
 }
 
-.sendMessageSection{
+.sendMessageSection {
     border-right: 2px solid #C4DFE6;
 }
 
-.getInTouchSection  .socialIcons{
+.getInTouchSection .socialIcons {
     text-decoration: none;
     color: #BFA181;
 }
 
-.goTotopBtn{
+.goTotopBtn {
     display: none;
     position: fixed;
     width: 2rem;
@@ -373,14 +398,14 @@ button:active{
     text-align: center;
 }
 
-.goTotopBtn a{
+.goTotopBtn a {
     text-decoration: none;
     font-size: 24px;
     color: #fff;
     font-weight: bold;
 }
 
-.feedbackbtn{
+.feedbackbtn {
     position: fixed;
     right: -2.01rem;
     bottom: 5rem;
@@ -391,7 +416,7 @@ button:active{
     cursor: pointer;
 }
 
-.feedBackForm{
+.feedBackForm {
     position: fixed;
     top: 0;
     right: 0;
@@ -405,15 +430,16 @@ button:active{
     transition: width 1s all ease;
 }
 
-.feedbackbtnMobile{
-    display:none !important;
+.feedbackbtnMobile {
+    display: none !important;
 }
-.closeFeedback{
+
+.closeFeedback {
     cursor: pointer;
 }
 
 .feedBackForm .formContainer .feedbackInputs,
-.contactUsSection .sendMessageSection  .sendMessageInputs{
+.contactUsSection .sendMessageSection .sendMessageInputs {
     width: 100%;
     padding: 0.4rem;
     border-radius: 0.2rem;
@@ -422,7 +448,7 @@ button:active{
     margin-bottom: 0.5rem;
 }
 
-.feedBackForm .formContainer .submitFeedback{
+.feedBackForm .formContainer .submitFeedback {
     padding: 0.5rem;
     font-weight: bold;
     background-color: #0A1828;
@@ -431,60 +457,63 @@ button:active{
     border-radius: 0.4rem;
 }
 
-footer{
+footer {
     background-color: #0A1828;
     color: #BFA181;
 }
 
-.footerSection{
+.footerSection {
     border-bottom: 1px solid #BFA181;
 }
-.footerSection .about{
+
+.footerSection .about {
     width: 50%;
 }
 
-.about .websiteLogo{
+.about .websiteLogo {
     width: 15rem;
     height: 4rem;
     border-radius: 1rem;
     overflow: hidden;
 }
 
-.about .websiteLogo img{
+.about .websiteLogo img {
     width: 100%;
     height: 100%;
     filter: brightness(3) contrast(5);
     object-fit: cover;
 }
 
-.footerSection .tabLinks{
+.footerSection .tabLinks {
     width: 30%;
     margin-left: 1rem;
 }
 
-.tabLinks a{
+.tabLinks a {
     text-decoration: none;
     color: #BFA181;
 }
 
-.footerSection .socialAndRatings{
+.footerSection .socialAndRatings {
     width: 20%
 }
 
-.footerSection .socialSection a{
+.footerSection .socialSection a {
     text-decoration: none;
     color: #BFA181;
     cursor: pointer;
 }
 
-.ratingsContainer .stars{
+.ratingsContainer .stars {
     cursor: pointer;
 }
-.star{
+
+.star {
     font-size: 2rem;
     color: gray;
     transition: color 0.3s;
 }
-.star.selected{
+
+.star.selected {
     color: gold;
 }

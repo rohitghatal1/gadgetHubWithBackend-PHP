@@ -15,7 +15,7 @@ if($fetchedWatchData->num_rows > 0){
             <p class="card-text">Rs<?php echo $watchInfo['price']?></p>
             <button class="showMoreDetails" title="Show Details" data-id="<?php echo $watchId; ?>"
                 data-category="watches" onclick="showItemDetails(this)">
-                <i class="fa-solid fa-angle-up"></i>
+                More Details
             </button>
         </div>
         <div class="watchDetails" id="<?php echo 'watch-' . $watchId; ?>">

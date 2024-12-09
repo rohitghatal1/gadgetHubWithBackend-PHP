@@ -16,7 +16,7 @@ if($fetchedLaptopData->num_rows > 0){
             <p class="card-text mt-3">Rs<?php echo $laptopInfo['price']?></p>
             <button class="showMoreDetails" title="Show Details" data-id="<?php echo $laptopId; ?>"
                 data-category="laptops" onclick="showItemDetails(this)">
-                <i class="fa-solid fa-angle-up"></i>
+                More Details
             </button>
         </div>
         <div class="watchDetails" id="<?php echo 'laptop-' . $laptopId; ?>">
