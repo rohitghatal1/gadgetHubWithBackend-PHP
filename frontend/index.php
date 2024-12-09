@@ -427,7 +427,8 @@
     <script src="/gadgetHubWithBackend/frontend/js/formValidation.js"></script>
 
     <div class="itemDetailsSection" id="itemDetails"
-        style="position:fixed; top:50%; left: 50%; transform: translate(-50%, -50%); z-index:15; width: 700px; padding: 10px;">
+        style="position:fixed; top:50%; left: 50%; transform: translate(-50%, -50%); z-index:15; width: 100%; padding: 10px;">
+        <span class="position-absolute top-4 left-4">&times;</span>
     </div>
 </body>
 

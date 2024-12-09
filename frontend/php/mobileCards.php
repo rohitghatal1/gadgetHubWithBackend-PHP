@@ -15,8 +15,8 @@ if($fetchedMobileData->num_rows > 0){
             <h5 class="card-title"><?php echo $mobileInfo['brand']?></h5>
             <p class="card-text">Rs<?php echo $mobileInfo['price']?></p>
             <button class="showMoreDetails" title="Show Details" data-id="<?php echo $mobileId; ?>"
-                data-category="mobile" onclick="showItemDetails(this)">
-                <i class="fa-solid fa-angle-up"></i>
+                data-category="mobiles" onclick="showItemDetails(this)">
+                More Details
             </button>
         </div>
         <div class="watchDetails" id="<?php echo 'mobile-' . $mobileId; ?>">
