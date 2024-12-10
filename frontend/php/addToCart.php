@@ -8,8 +8,9 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     $userId = $_POST['userId'];
     $itemId = $_POST['itemId'];
     $itemType = $_POST['itemType'];
+    $quantity = $_POST['quantity'];
 
-    if(!empty($userId) && !empty($itemId) && !empty($itemType)){
+    if(!empty($userId) && !empty($itemId) && !empty($itemType) && !empty($quantity)){
         $getUserName = "SELECT uName FROM users WHERE Id = ?";
         $stmt = $conn->prepare($getUserName);
         $stmt->bind_param("i", $userId);
@@ -27,8 +28,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
         $itemPhoto = $itemData['photoPath'];
         $itemPrice = $itemData['price'];
     
-        $insert = $conn->prepare("INSERT INTO cart (userId, itemId, itemType, itemBrand, itemModel, itemPhoto, itemPrice) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $insert->bind_param("iisssss", $userId, $itemId, $itemType, $itemBrand, $itemModel, $itemPhoto, $itemPrice);
+        $insert = $conn->prepare("INSERT INTO cart (userId, itemId, itemType, itemBrand, itemModel, itemPhoto, quantity, itemPrice) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $insert->bind_param("iissssis", $userId, $itemId, $itemType, $itemBrand, $itemModel, $itemPhoto, $quantity, $itemPrice);
 
         if($insert->execute()){
             echo json_encode(['status' => 'success', 'message' => 'Added to cart successfully']);
@@ -36,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
             echo json_encode(['status' => 'error', 'message' => 'Failed to add to cart']);
         }
     } else {
-        echo json_encode(['status' => 'error', 'message' => 'Invalid user, item ID, or item type']);
+        echo json_encode(['status' => 'error', 'message' => 'Invalid user, item ID, item type, or quantity']);
     }
 }
 ?>
