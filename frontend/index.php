@@ -427,7 +427,7 @@
     <script src="/gadgetHubWithBackend/frontend/js/formValidation.js"></script>
 
     <div class="itemDetailsSection" id="itemDetails"
-        style="position:fixed; top:50%; left: 50%; transform: translate(-50%, -50%); z-index:15; width: 100%; padding: 10px;">
+        style="position:fixed; top:50%; left: 50%; transform: translate(-50%, -50%); z-index:15; width: 100%;">
     </div>
 </body>
 
@@ -452,7 +452,7 @@ function showItemDetails(button) {
         .then(data => {
             const detailsHTML = `
                 <div class="cardsContainer">
-                    <div class="card border-dark-subtle mb-3" style="width: 100%; height:50rem">
+                    <div class="card border-dark-subtle mb-3" style="width: 100%; height:40rem">
                         <span>&times;</span>
                         <div class="row g-0">
                             <div class="col-md-4">

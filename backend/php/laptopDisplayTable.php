@@ -33,7 +33,7 @@
                 <td><?php echo $laptopDetails['RAM'] ?></td>
                 <td><?php echo $laptopDetails['graphics'] ?></td>
                 <td><?php echo $laptopDetails['otherSpecs'] ?></td>
-                <td><?php echo $laptopDetails['lquantity'] ?></td>
+                <td><?php echo $laptopDetails['quantity'] ?></td>
                 <td><?php echo $laptopDetails['price'] ?></td>
                 <td><button class="btn text-danger" onclick="confirmDelete(<?php echo (int)$laptopId ?>, 'laptops')"><i
                             class="fas fa-trash text-danger"></i></button></td>

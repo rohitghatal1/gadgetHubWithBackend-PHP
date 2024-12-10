@@ -33,7 +33,7 @@
                 <td><?php echo $mobilesDetails['RAM'] ?></td>
                 <td><?php echo $mobilesDetails['storage'] ?></td>
                 <td><?php echo $mobilesDetails['otherSpecs'] ?></td>
-                <td><?php echo $mobilesDetails['mquantity'] ?></td>
+                <td><?php echo $mobilesDetails['quantity'] ?></td>
                 <td><?php echo $mobilesDetails['price'] ?></td>
                 <td><button class="btn text-danger" onclick="confirmDelete(<?php echo (int)$mobileId ?>, 'mobiles')"><i
                             class="fas fa-trash text-danger"></i></button></td>
