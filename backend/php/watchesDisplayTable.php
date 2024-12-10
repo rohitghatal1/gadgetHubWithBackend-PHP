@@ -28,7 +28,7 @@
                 <td><?php echo $watchDetails['brand'] ?></td>
                 <td><?php echo $watchDetails['model'] ?></td>
                 <td><?php echo $watchDetails['otherSpecs'] ?></td>
-                <td><?php echo $watchDetails['wquantity'] ?></td>
+                <td><?php echo $watchDetails['quantity'] ?></td>
                 <td><?php echo $watchDetails['price'] ?></td>
                 <td><button class="btn text-danger" onclick="confirmDelete(<?php echo (int)$watchId ?>, 'watches')"><i
                             class="fas fa-trash text-danger"></i></button></td>

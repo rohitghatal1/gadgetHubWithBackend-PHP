@@ -24,7 +24,7 @@ if($fetchedWatchData->num_rows > 0){
                     class="fa-solid fa-angle-down"></i></button>
             <h2><?php echo $watchInfo['brand']?></h2>
             <p><strong>Model:</strong> <span><?php echo $watchInfo['model']?></span></p>
-            <p><strong>Quantity:</strong> <span><?php echo $watchInfo['wquantity']?></span></p>
+            <p><strong>Quantity:</strong> <span><?php echo $watchInfo['quantity']?></span></p>
             <p><strong>Price:</strong> <span><?php echo $watchInfo['price']?></span></p>
             <p><strong>Other Details:</strong> <span><?php echo $watchInfo['otherSpecs']?></span></p>
             <button class="addToCartBtn" onclick="handleAddToCart(<?php echo (int)$watchId; ?>, 'watches')">

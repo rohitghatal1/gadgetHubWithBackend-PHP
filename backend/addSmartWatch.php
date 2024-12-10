@@ -14,7 +14,7 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
     $price = $_POST["price"];
     $watchImage = $target_file;
 
-    $addWatch = $conn->prepare("INSERT INTO watches(brand, model, otherSpecs, wquantity,  price, photoPath) VALUES (?, ?, ?, ?, ?, ?)");
+    $addWatch = $conn->prepare("INSERT INTO watches(brand, model, otherSpecs, quantity,  price, photoPath) VALUES (?, ?, ?, ?, ?, ?)");
     $addWatch->bind_param("sssiss", $brand, $model, $otherSpecifications, $quantity, $price, $watchImage);
 
     if($addWatch->execute() === true){

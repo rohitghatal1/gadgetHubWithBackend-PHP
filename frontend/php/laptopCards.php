@@ -28,7 +28,7 @@ if($fetchedLaptopData->num_rows > 0){
             <p><strong>Processor:</strong> <span><?php echo $laptopInfo['processor']?></span></p>
             <p><strong>RAM:</strong> <span><?php echo $laptopInfo['RAM']?></span></p>
             <p><strong>Graphics:</strong> <span><?php echo $laptopInfo['graphics']?></span></p>
-            <p><strong>Quantity:</strong> <span><?php echo $laptopInfo['lquantity']?></span></p>
+            <p><strong>Quantity:</strong> <span><?php echo $laptopInfo['quantity']?></span></p>
             <p><strong>Price:</strong> <span><?php echo $laptopInfo['price']?></span></p>
             <p><strong>Other Details:</strong> <span><?php echo $laptopInfo['otherSpecs']?></span></p>
             <button class="addToCartBtn" onclick="handleAddToCart(<?php echo (int)$laptopId; ?>, 'laptops')">

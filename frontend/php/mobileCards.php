@@ -28,7 +28,7 @@ if($fetchedMobileData->num_rows > 0){
             <p><strong>Processor:</strong> <span><?php echo $mobileInfo['processor']?></span></p>
             <p><strong>RAM:</strong> <span><?php echo $mobileInfo['RAM']?></span></p>
             <p><strong>Storage:</strong> <span><?php echo $mobileInfo['storage']?></span></p>
-            <p><strong>Quantity:</strong> <span><?php echo $mobileInfo['mquantity']?></span></p>
+            <p><strong>Quantity:</strong> <span><?php echo $mobileInfo['quantity']?></span></p>
             <p><strong>Price:</strong> <span><?php echo $mobileInfo['price']?></span></p>
             <p><strong>Other Details:</strong> <span><?php echo $mobileInfo['otherSpecs']?></span></p>
             <button class="addToCartBtn" onclick="handleAddToCart(<?php echo (int)$mobileId; ?>, 'mobiles')">

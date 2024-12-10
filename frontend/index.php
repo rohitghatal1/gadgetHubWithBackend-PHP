@@ -451,22 +451,42 @@ function showItemDetails(button) {
         })
         .then(data => {
             const detailsHTML = `
-                <div class="cardsContainer">
-                    <div class="card border-dark-subtle mb-3" style="width: 100%; height:40rem">
-                        <span>&times;</span>
+                <div class="cardsContainer p-4" style="position: relative; max-width: 100%; height: 100vh; overflow-y: auto;">
+                    <span 
+                        style="position: absolute; top: 1rem; right: 1rem; font-size: 24px; cursor: pointer;">&times;
+                    </span>
+                    <div 
+                        class="card border-dark-subtle mb-3" 
+                        style="width: 100%; height: auto; position: relative; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                         <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="${data.photoPath}" alt="${data.brand}" class="img-fluid rounded-start h-100">
+                            <div class="col-md-4" style="display: flex; align-items: center; justify-content: center;">
+                                <img 
+                                    src="${data.photoPath}" 
+                                    alt="${data.brand}" 
+                                    class="img-fluid rounded-start" 
+                                    style="max-height: 300px; object-fit: contain; padding: 1rem;">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <h5 class="card-title">${data.brand}</h5>
-                                    <p class="card-text">Price: <strong>₹${data.price}</strong></p>
+                                    <h5 class="card-title" style="font-size: 1.5rem; font-weight: bold;">${data.brand}</h5>
+                                    <p class="card-text" style="font-size: 1rem; margin: 0.5rem 0;">
+                                        Price: <strong>₹${data.price}</strong>
+                                    </p>
                                     <p><strong>Model:</strong> ${data.model}</p>
                                     <p><strong>Processor:</strong> ${data.processor || 'N/A'}</p>
                                     <p><strong>RAM:</strong> ${data.RAM || 'N/A'}</p>
                                     <p><strong>Graphics:</strong> ${data.graphics || 'N/A'}</p>
-                                    <button class="btn btn-primary btn-sm">
+                                    <div style="margin-top: 1rem;">
+                                        <label for="quantity" style="font-weight: bold;">Quantity:</label>
+                                        <input 
+                                            type="number" 
+                                            id="quantity" 
+                                            name="quantity" 
+                                            value="1" 
+                                            min="1" 
+                                            style="width: 60px; margin-left: 0.5rem; text-align: center; border: 1px solid #ccc; border-radius: 4px; padding: 0.3rem;">
+                                    </div>
+                                    <button class="btn btn-primary btn-sm mt-3">
                                         <i class="fas fa-shopping-cart me-1"></i>Add to cart
                                     </button>
                                 </div>
@@ -475,6 +495,7 @@ function showItemDetails(button) {
                     </div>
                 </div>
             `;
+
             itemDetailsSection.innerHTML = detailsHTML;
 
         })
