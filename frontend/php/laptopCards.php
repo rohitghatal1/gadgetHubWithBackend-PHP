@@ -19,22 +19,6 @@ if($fetchedLaptopData->num_rows > 0){
                 More Details
             </button>
         </div>
-        <div class="watchDetails" id="<?php echo 'laptop-' . $laptopId; ?>">
-            <button class="hideDetails" title="Hide Details"
-                onclick="hideDetails('<?php echo 'laptop-' . $laptopId; ?>')"><i
-                    class="fa-solid fa-angle-down"></i></button>
-            <h2><?php echo $laptopInfo['brand']?></h2>
-            <p><strong>Model:</strong> <span><?php echo $laptopInfo['model']?></span></p>
-            <p><strong>Processor:</strong> <span><?php echo $laptopInfo['processor']?></span></p>
-            <p><strong>RAM:</strong> <span><?php echo $laptopInfo['RAM']?></span></p>
-            <p><strong>Graphics:</strong> <span><?php echo $laptopInfo['graphics']?></span></p>
-            <p><strong>Quantity:</strong> <span><?php echo $laptopInfo['quantity']?></span></p>
-            <p><strong>Price:</strong> <span><?php echo $laptopInfo['price']?></span></p>
-            <p><strong>Other Details:</strong> <span><?php echo $laptopInfo['otherSpecs']?></span></p>
-            <button class="addToCartBtn" onclick="handleAddToCart(<?php echo (int)$laptopId; ?>, 'laptops')">
-                <i class="fas fa-shopping-cart"></i> Add to Cart
-            </button>
-        </div>
     </div>
 </div>
 <?php }

@@ -19,22 +19,6 @@ if($fetchedMobileData->num_rows > 0){
                 More Details
             </button>
         </div>
-        <div class="watchDetails" id="<?php echo 'mobile-' . $mobileId; ?>">
-            <button class="hideDetails" title="Hide Details"
-                onclick="hideDetails('<?php echo 'mobile-' . $mobileId; ?>')"><i
-                    class="fa-solid fa-angle-down"></i></button>
-            <h2><?php echo $mobileInfo['brand']?></h2>
-            <p><strong>Model:</strong> <span><?php echo $mobileInfo['model']?></span></p>
-            <p><strong>Processor:</strong> <span><?php echo $mobileInfo['processor']?></span></p>
-            <p><strong>RAM:</strong> <span><?php echo $mobileInfo['RAM']?></span></p>
-            <p><strong>Storage:</strong> <span><?php echo $mobileInfo['storage']?></span></p>
-            <p><strong>Quantity:</strong> <span><?php echo $mobileInfo['quantity']?></span></p>
-            <p><strong>Price:</strong> <span><?php echo $mobileInfo['price']?></span></p>
-            <p><strong>Other Details:</strong> <span><?php echo $mobileInfo['otherSpecs']?></span></p>
-            <button class="addToCartBtn" onclick="handleAddToCart(<?php echo (int)$mobileId; ?>, 'mobiles')">
-                <i class="fas fa-shopping-cart"></i> Add to Cart
-            </button>
-        </div>
     </div>
 </div>
 <?php }
