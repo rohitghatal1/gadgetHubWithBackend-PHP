@@ -7,33 +7,40 @@ document.addEventListener("DOMContentLoaded", () => {
     let typingDelay = 150;
     let erasingDelay = 100;
     let newTextDelay = 2000;
-    let hiddenDiv = document.getElementById('goToTop');
-    let topSection = document.getElementById('top');
+    let isTyping = false; // Flag to prevent overlapping calls
 
-    function type(){
-        if (charIndex < allProducts[arrayIndex].length){
-            products.textContent += allProducts[arrayIndex].charAt(charIndex);
-            charIndex++;
-            setTimeout(type, typingDelay);
-        }
-        else{
-            setTimeout(erase, newTextDelay);
+    function type() {
+        if (!isTyping) {
+            isTyping = true; // Set the flag to true
+            if (charIndex < allProducts[arrayIndex].length) {
+                products.textContent += allProducts[arrayIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingDelay);
+            } else {
+                isTyping = false; // Reset the flag after finishing typing
+                setTimeout(erase, newTextDelay);
+            }
         }
     }
 
-    function erase(){
-        if(charIndex > 0){
-            products.textContent = allProducts[arrayIndex].substring(0, charIndex - 1);
-            charIndex--;
-            setTimeout(erase, erasingDelay);
-        }
-        else{
-            arrayIndex = (arrayIndex + 1) % allProducts.length;
-            setTimeout(type, typingDelay);
+    function erase() {
+        if (!isTyping) {
+            isTyping = true; // Set the flag to true
+            if (charIndex > 0) {
+                products.textContent = allProducts[arrayIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, erasingDelay);
+            } else {
+                isTyping = false; // Reset the flag after finishing erasing
+                arrayIndex = (arrayIndex + 1) % allProducts.length;
+                setTimeout(type, typingDelay);
+            }
         }
     }
 
+    // Start the typing effect
     setTimeout(type, newTextDelay);
+
 
     function isInViewport(elem) {
         var bounding = elem.getBoundingClientRect();
@@ -55,10 +62,10 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener('scroll', handleScroll);
 
 
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
         var dropdownContent = document.getElementById("droppedDownContent");
         var userDropdown = document.querySelector('.userDropdown');
-        
+
         if (dropdownContent && !userDropdown.contains(event.target)) {
             dropdownContent.style.display = "none";
         }
