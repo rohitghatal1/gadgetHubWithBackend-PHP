@@ -452,60 +452,72 @@ function showItemDetails(button) {
         })
         .then(data => {
             const detailsHTML = `
-        <div class="cardsContainer p-4" style="position: relative; max-width: 100%; height:40rem; overflow-y: auto; background: linear-gradient(to bottom, #e3f2fd, #ffffff); border-radius: 12px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);">
-        <div
-        class="card border-0"
-        style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; border-radius: 12px; padding: 1rem;">
-        
-        <span
-        style="position: absolute; top: 1rem; right: 1rem; font-size: 24px; cursor: pointer; color: #d32f2f; font-weight: bold; transition: transform 0.2s;"
-        onmouseover="this.style.transform='scale(1.2)'"
-        onmouseout="this.style.transform='scale(1)'" onclick = "closeMoreDeails()">
-        &times;
-        </span>
-        
-        <div class="row g-0" style="width: 100%; display: flex; align-items: center; justify-content: center;">
-        <div class="col-md-4" style="display: flex; align-items: center; justify-content: center;">
-        <img
-        src="${data.photoPath}"
-        alt="${data.brand}"
-        class="img-fluid rounded-start shadow-sm"
-        style="max-height: 300px; object-fit: contain; border-radius: 8px; padding: 1rem; background: #f5f5f5;">
+    <div class="cardsContainer p-4" 
+         style="position: relative; max-width: 100%; height: 40rem; overflow-y: auto; 
+                background: linear-gradient(to bottom, #e3f2fd, #ffffff); 
+                border-radius: 12px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);">
+        <div class="card border-0" 
+             style="width: 100%; height: 100%; display: flex; justify-content: center; 
+                    align-items: center; border-radius: 12px; padding: 1rem;">
+            
+            <span style="position: absolute; top: 1rem; right: 1rem; font-size: 24px; 
+                         cursor: pointer; color: #d32f2f; font-weight: bold; 
+                         transition: transform 0.2s;"
+                  onmouseover="this.style.transform='scale(1.2)'"
+                  onmouseout="this.style.transform='scale(1)'"
+                  onclick="closeMoreDeails()">
+                &times;
+            </span>
+            
+            <div class="row g-0" 
+                 style="width: 100%; display: flex; align-items: center; justify-content: center;">
+                <div class="col-md-4" 
+                     style="display: flex; align-items: center; justify-content: center;">
+                    <img src="${data.photoPath}" 
+                         alt="${data.brand}" 
+                         class="img-fluid rounded-start shadow-sm"
+                         style="max-height: 300px; object-fit: contain; border-radius: 8px; 
+                                padding: 1rem; background: #f5f5f5;">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title" 
+                            style="font-size: 2rem; font-weight: bold; color: #1565c0; 
+                                   margin-bottom: 0.5rem;">
+                            ${data.brand}
+                        </h5>
+                        <p class="card-text" 
+                           style="font-size: 1.2rem; color: #333; margin-bottom: 1rem;">
+                            Price: <strong style="color: #2e7d32;">Rs${data.price}</strong>
+                        </p>
+                        <p><strong>Model:</strong> ${data.model}</p>
+                        <p><strong>Processor:</strong> ${data.processor || 'N/A'}</p>
+                        <p><strong>RAM:</strong> ${data.RAM || 'N/A'}</p>
+                        <p><strong>Graphics:</strong> ${data.graphics || 'N/A'}</p>
+                        <div style="margin-top: 1rem; display: flex; align-items: center;">
+                            <label for="quantity" 
+                                   style="font-weight: bold; margin-right: 0.5rem;">
+                                Quantity:
+                            </label>
+                            <input type="number" id="quantity" name="quantity" value="1" min="1" 
+                                   style="width: 60px; text-align: center; border: 1px solid #ccc; 
+                                          border-radius: 4px; padding: 0.3rem;">
+                        </div>
+                        <button class="addToCartBtn btn btn-primary btn-lg mt-3 shadow-sm" 
+                                style="background: #1976d2; border: none; border-radius: 6px; 
+                                       transition: background-color 0.3s;"
+                                onmouseover="this.style.backgroundColor='#1565c0'"
+                                onmouseout="this.style.backgroundColor='#1976d2'"
+                                onclick="handleAddToCart(${data.Id}, '${category}')">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-8">
-        <div class="card-body">
-        <h5 class="card-title" style="font-size: 2rem; font-weight: bold; color: #1565c0; margin-bottom: 0.5rem;">${data.brand}</h5>
-        <p class="card-text" style="font-size: 1.2rem; color: #333; margin-bottom: 1rem;">
-        Price: <strong style="color: #2e7d32;">Rs${data.price}</strong>
-        </p>
-        <p><strong>Model:</strong> ${data.model}</p>
-        <p><strong>Processor:</strong> ${data.processor || 'N/A'}</p>
-        <p><strong>RAM:</strong> ${data.RAM || 'N/A'}</p>
-        <p><strong>Graphics:</strong> ${data.graphics || 'N/A'}</p>
-        <div style="margin-top: 1rem; display: flex; align-items: center;">
-        <label for="quantity" style="font-weight: bold; margin-right: 0.5rem;">Quantity:</label>
-        <input
-        type="number"
-        id="quantity"
-        name="quantity"
-        value="1"
-        min="1"
-        style="width: 60px; text-align: center; border: 1px solid #ccc; border-radius: 4px; padding: 0.3rem;">
-        </div>
-        <button
-        class="addToCartBtn btn btn-primary btn-lg mt-3 shadow-sm"
-        style="background: #1976d2; border: none; border-radius: 6px; transition: background-color 0.3s;"
-        onmouseover="this.style.backgroundColor='#1565c0'"
-        onmouseout="this.style.backgroundColor='#1976d2'"
-        onclick="handleAddToCart(${data.Id}, '${category}')">
-        <i class="fas fa-shopping-cart"></i> Add to Cart
-        </button>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        `;
+    </div>
+`;
+
             itemDetailsSection.innerHTML = detailsHTML;
 
         })

@@ -37,7 +37,9 @@ if (isset($_SESSION['user'])) {
                     <th>Items</th>
                     <th>Model</th>
                     <th>Photo</th>
+                    <th>Quantity</th>
                     <th>Price</th>
+                    <th>Amount</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -64,8 +66,10 @@ if (isset($_SESSION['user'])) {
                         while ($cartData = $result->fetch_assoc()) {
                             $itemId = $cartData['itemId'];
                             $itemType = $cartData['itemType'];
-                            $itemPrice = floatval($cartData['itemPrice']); // Convert price to float
-                            $totalPrice += $itemPrice; // Add item price to total
+                            $itemPrice = floatval($cartData['itemPrice']);
+                            $itemQty = $cartData['quantity'];
+                            $netAmt = $itemPrice * $itemQty;
+                            $totalPrice += $netAmt; 
                 ?>
                 <tr>
                     <td><?php echo $cartItemsCount; ?></td>
@@ -73,7 +77,9 @@ if (isset($_SESSION['user'])) {
                     <td><?php echo htmlspecialchars($cartData['itemModel']); ?></td>
                     <td><img src="<?php echo htmlspecialchars($cartData['itemPhoto']); ?>" alt=""
                             style="width:80%; height:8rem;"></td>
+                    <td><?php echo htmlspecialchars($cartData['quantity']); ?></td>
                     <td><?php echo number_format($itemPrice, 2); ?></td>
+                    <td><?php echo $netAmt; ?></td>
                     <td>
                         <a href="php/removeFromCart.php?itemId=<?php echo urlencode($itemId); ?>&itemType=<?php echo urlencode($itemType); ?>"
                             class="text-decoration-none p-1 bg-danger text-light fw-bold rounded">
@@ -87,24 +93,24 @@ if (isset($_SESSION['user'])) {
                 ?>
                 <!-- Display the total price -->
                 <tr>
-                    <td colspan="4" style="text-align: right; font-weight: bold;">Total:</td>
+                    <td colspan="6" style="text-align: right; font-weight: bold;">Total:</td>
                     <td><?php echo number_format($totalPrice, 2); ?></td>
                     <td></td>
                 </tr>
                 <?php
                     } else {
-                        echo "<tr><td colspan='6'>No items added to cart</td></tr>";
+                        echo "<tr><td colspan='8'>No items added to cart</td></tr>";
                         $placeOrderBtn = "<button class='btn p-1 bg-warning text-dark'>
                         <i class='fa fa-exclamation-circle'></i> Cart is Empty
                         </button>";
                     }
                     $stmt->close();
                 } else {
-                    echo "<tr><td colspan='6'>No items added to cart</td></tr>";
+                    echo "<tr><td colspan='8'>No items added to cart</td></tr>";
                 }
                 ?>
                 <tr>
-                    <td colspan="6">
+                    <td colspan="8">
                         <?php echo $placeOrderBtn ?>
                     </td>
                 </tr>
