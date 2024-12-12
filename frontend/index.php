@@ -721,8 +721,6 @@ function closeOrderModal() {
     cart.style.display = "block";
 }
 
-// changes are made 
-// more chaned
 function openQR() {
     QRCode.style.display = "block";
 }
