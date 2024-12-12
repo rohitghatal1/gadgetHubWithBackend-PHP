@@ -525,11 +525,6 @@ function showItemDetails(button) {
             console.error('Error fetching item details:', error);
         });
 }
-
-// Hide details on click
-function hideItemDetails() {
-    document.querySelector('.itemDetailsSectoin').classList.add('d-none');
-}
 </script>
 <!-- swiperjs CDN  -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>

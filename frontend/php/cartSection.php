@@ -48,16 +48,15 @@ if (isset($_SESSION['user'])) {
                 $placeOrderBtn = "<button class='btn p-1 bg-warning text-dark'>
                                     <i class='fa fa-exclamation-circle'></i> Cart is Empty
                                 </button>";
-                $totalPrice = 0; // Initialize total price
+                $totalPrice = 0; 
                 if (isset($_SESSION['user'])) {
-                    // Fetch cart details
+                    
                     $getCartDetails = "SELECT * FROM cart WHERE userId = ?";
                     $stmt = $conn->prepare($getCartDetails);
                     $stmt->bind_param("i", $personId);
                     $stmt->execute();
                     $result = $stmt->get_result();
 
-                    // Check if there are items in the cart
                     if ($result->num_rows > 0) {
                         $placeOrderBtn = '<button class="btn" style="background-color: #28a745; color: #ffffff;" onclick="openPlaceOrder()">
                                             <i class="fas fa-shopping-bag"></i> Place Order

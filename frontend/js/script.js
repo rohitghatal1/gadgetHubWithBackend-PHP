@@ -7,17 +7,17 @@ document.addEventListener("DOMContentLoaded", () => {
     let typingDelay = 150;
     let erasingDelay = 100;
     let newTextDelay = 2000;
-    let isTyping = false; // Flag to prevent overlapping calls
+    let isTyping = false;
 
     function type() {
         if (!isTyping) {
-            isTyping = true; // Set the flag to true
+            isTyping = true;
             if (charIndex < allProducts[arrayIndex].length) {
                 products.textContent += allProducts[arrayIndex].charAt(charIndex);
                 charIndex++;
                 setTimeout(type, typingDelay);
             } else {
-                isTyping = false; // Reset the flag after finishing typing
+                isTyping = false;
                 setTimeout(erase, newTextDelay);
             }
         }
@@ -25,13 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function erase() {
         if (!isTyping) {
-            isTyping = true; // Set the flag to true
+            isTyping = true;
             if (charIndex > 0) {
                 products.textContent = allProducts[arrayIndex].substring(0, charIndex - 1);
                 charIndex--;
                 setTimeout(erase, erasingDelay);
             } else {
-                isTyping = false; // Reset the flag after finishing erasing
+                isTyping = false;
                 arrayIndex = (arrayIndex + 1) % allProducts.length;
                 setTimeout(type, typingDelay);
             }
